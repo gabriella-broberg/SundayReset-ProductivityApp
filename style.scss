@@ -21,13 +21,14 @@ body {
     background-size: cover;
     background-color: white;
     display: flex;
-    justify-content: center;
+    gap: 500px; // Avstånd mellan bullet journal och avatar m.m. 
 }
 
 
 .wrapper {
     display: flex;
     flex-direction: row;
+    justify-content: center;
 
 }
 
@@ -110,4 +111,55 @@ body {
 
 .bulletjournal p {
     line-height: 1.5;
+}
+
+
+.main-avatar-wrapper {
+    display: flex; 
+
+}
+
+.avatar-div img {
+    border-radius: 100%;
+    width: 200px;
+    height: 200px; 
+    margin-top: 100px;
+    margin-left: 150px;
+}
+
+.avatar-greeting {
+    background-color: $background-highlight-peach;
+    width: 80%; 
+    height: 45px; 
+    border-radius: 20px;
+    font-size: 32px; 
+    padding: 25px 25px 25px 25px;
+    text-align: center;
+    font-weight: bold;
+    color: white; 
+    z-index: 0;
+    margin-top: 280px;
+    margin-left: -200px; 
+}
+
+
+.main-weather-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 50px; 
+}
+
+.weather-div {
+    background-color: $background-highlight-peach;
+    color: white; 
+    width: 200px; 
+    height: 350px; 
+    text-align: center;
+    border-radius: 20px;
+}
+
+.weather-info {
+    font-family: "Arial";
+    font-weight: 800;
 }
