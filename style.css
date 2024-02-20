@@ -6,7 +6,10 @@ body {
   background-size: cover;
   background-color: white;
   display: flex;
-  gap: 500px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
 }
 
 .wrapper {
@@ -72,6 +75,21 @@ body {
   height: 932px;
   background-color: white;
   border-radius: 20px;
+  border: 15px solid #000000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 50px 0 50px 50px;
+  padding: 20px;
+  box-sizing: border-box;
+  color: #000000;
+}
+
+.bulletjournal-todo {
+  font-family: "Amatic SC", sans-serif;
+  text-align: center;
+  width: 687px;
+  height: 932px;
+  background-color: white;
+  border-radius: 20px;
   border: 15px solid #F5FF80;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: 50px 0 50px 50px;
@@ -80,24 +98,71 @@ body {
   color: #000000;
 }
 
-.bulletjournal h1 {
+.bulletjournal-calendar {
+  font-family: "Amatic SC", sans-serif;
+  text-align: center;
+  width: 687px;
+  height: 932px;
+  background-color: white;
+  border-radius: 20px;
+  border: 15px solid #CFDF83;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 50px 0 50px 50px;
+  padding: 20px;
+  box-sizing: border-box;
   color: #000000;
 }
 
-.bulletjournal p {
+.bulletjournal-habits {
+  font-family: "Amatic SC", sans-serif;
+  text-align: center;
+  width: 687px;
+  height: 932px;
+  background-color: white;
+  border-radius: 20px;
+  border: 15px solid #EBA08B;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 50px 0 50px 50px;
+  padding: 20px;
+  box-sizing: border-box;
+  color: #000000;
+}
+
+.bulletjournal-timer {
+  font-family: "Amatic SC", sans-serif;
+  text-align: center;
+  width: 687px;
+  height: 932px;
+  background-color: white;
+  border-radius: 20px;
+  border: 15px solid #FEB5C8;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 50px 0 50px 50px;
+  padding: 20px;
+  box-sizing: border-box;
+  color: #000000;
+}
+
+.body h1 {
+  color: #000000;
+}
+
+.wrapper p {
   line-height: 1.5;
 }
 
 .main-avatar-wrapper {
   display: flex;
+  margin-bottom: auto;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
 }
 
 .avatar-div img {
   border-radius: 100%;
   width: 200px;
   height: 200px;
-  margin-top: 100px;
-  margin-left: 150px;
 }
 
 .avatar-greeting {
@@ -111,14 +176,14 @@ body {
   font-weight: bold;
   color: white;
   z-index: 0;
-  margin-top: 280px;
-  margin-left: -200px;
+  margin-top: -20px;
 }
 
 .main-weather-wrapper {
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  margin-top: auto;
   margin-bottom: 50px;
 }
 
@@ -126,7 +191,7 @@ body {
   background-color: #EBA08B;
   color: white;
   width: 200px;
-  height: 350px;
+  height: 300px;
   text-align: center;
   border-radius: 20px;
 }
@@ -134,4 +199,11 @@ body {
 .weather-info {
   font-family: "Arial";
   font-weight: 800;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .wrapper {
+    max-width: 100%;
+  }
 }/*# sourceMappingURL=style.css.map */
