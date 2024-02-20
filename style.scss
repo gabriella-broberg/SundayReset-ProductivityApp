@@ -1,0 +1,113 @@
+/* style.css */
+
+//Sass variables for colors
+
+$background-primary: #E9E4FA;
+$background-highlight-pink: #FEB5C8;
+$background-highlight-peach: #EBA08B;
+$background-highlight-green: #CFDF83;
+$background-highlight-purple: #BD69B7;
+$background-highlight-blue: #C2E7EF;
+$background-highlight-yellow: #F5FF80;
+$font-color-primary: #000000;
+$font-color-secondary: #8A8A8A;
+
+
+
+body {
+    font-family: "Amatic SC", sans-serif;
+    background-image: url('images/polkadots-bg.jpg');
+    background-repeat: repeat;
+    background-size: cover;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.menu {
+
+    height: 832px;
+    box-sizing: border-box;
+    color: $font-color-primary;
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+
+}
+
+.menu a {
+    text-decoration: none;
+    font-size: 36px;
+    color: $font-color-primary;
+    padding: 50px 10px;
+    margin-bottom: 10px;
+    writing-mode: vertical-lr;
+    /* Rotate text vertically */
+    transform: rotate(360deg);
+    /* Fix for Firefox and Safari */
+    transition: background-color 0.3s ease;
+
+    /* Add a smooth transition effect */
+    &:hover {
+        background-color: darken($background-highlight-pink, 10%);
+        /* Darken the color on hover */
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        /* Add a subtle shadow on hover */
+    }
+}
+
+
+/* Update the background colors for specific menu items */
+.menu a.todo {
+    background-color: $background-highlight-yellow;
+    border-radius: 0 5px 5px 0;
+
+}
+
+.menu a.calendar {
+    background-color: $background-highlight-green;
+    border-radius: 0 5px 5px 0;
+}
+
+.menu a.habits {
+    background-color: $background-highlight-peach;
+    border-radius: 0 5px 5px 0;
+}
+
+.menu a.timer {
+    background-color: $background-highlight-pink;
+    border-radius: 0 5px 5px 0;
+}
+
+.bulletjournal {
+    font-family: "Amatic SC", sans-serif;
+    text-align: center;
+    width: 687px;
+    height: 932px;
+    background-color: white;
+    border-radius: 20px;
+    border: 15px solid $background-highlight-yellow;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 50px 0 50px 50px;
+    padding: 20px;
+    box-sizing: border-box;
+    color: $font-color-primary;
+
+}
+
+
+.bulletjournal h1 {
+    color: $font-color-primary;
+
+}
+
+.bulletjournal p {
+    line-height: 1.5;
+}
