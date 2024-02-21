@@ -1,249 +1,226 @@
 /* style.css */
+@import "./partials/index";
 
-//Sass variables for colors
-
-$background-primary: #E9E4FA;
-$background-highlight-pink: #FEB5C8;
-$background-highlight-peach: #EBA08B;
-$background-highlight-green: #CFDF83;
-$background-highlight-purple: #BD69B7;
-$background-highlight-blue: #C2E7EF;
-$background-highlight-yellow: #F5FF80;
+ //Sass variables for colors
+  $background-primary: #e9e4fa;
+$background-highlight-pink: #feb5c8;
+$background-highlight-peach: #eba08b;
+$background-highlight-green: #cfdf83;
+$background-highlight-purple: #bd69b7;
+$background-highlight-blue: #c2e7ef;
+$background-highlight-yellow: #f5ff80;
 $font-color-primary: #000000;
-$font-color-secondary: #8A8A8A;
-
-
+$font-color-secondary: #8a8a8a;
 
 body {
-    font-family: "Amatic SC", sans-serif;
-    background-image: url('images/polkadots-bg.jpg');
-    background-repeat: repeat;
-    background-size: cover;
-    background-color: white;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 100px; // Avstånd mellan bullet journal och avatar m.m. 
+  font-family: "Amatic SC", sans-serif;
+  background-image: url("images/polkadots-bg.jpg");
+  background-repeat: repeat;
+  background-size: cover;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 100px; // Avstånd mellan bullet journal och avatar m.m.
 }
 
-
 .wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .menu {
-
-    height: 832px;
-    box-sizing: border-box;
-    color: $font-color-primary;
-    display: flex;
-    flex-direction: column;
-    margin-top: 100px;
-
+  height: 832px;
+  box-sizing: border-box;
+  color: $font-color-primary;
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
 }
 
 .menu a {
-    text-decoration: none;
-    font-size: 36px;
-    color: $font-color-primary;
-    padding: 50px 10px;
-    margin-bottom: 10px;
-    writing-mode: vertical-lr;
-    /* Rotate text vertically */
-    transform: rotate(360deg);
-    /* Fix for Firefox and Safari */
-    transition: background-color 0.3s ease;
+  text-decoration: none;
+  font-size: 36px;
+  color: $font-color-primary;
+  padding: 50px 10px;
+  margin-bottom: 10px;
+  writing-mode: vertical-lr;
+  /* Rotate text vertically */
+  transform: rotate(360deg);
+  /* Fix for Firefox and Safari */
+  transition: background-color 0.3s ease;
 
-    /* Add a smooth transition effect */
-    &:hover {
-        background-color: darken($background-highlight-pink, 10%);
-        /* Darken the color on hover */
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        /* Add a subtle shadow on hover */
-    }
+  /* Add a smooth transition effect */
+  &:hover {
+    background-color: darken(
+      $background-highlight-pink,
+      10%
+    );
+    /* Darken the color on hover */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    /* Add a subtle shadow on hover */
+  }
 }
-
 
 /* Update the background colors for specific menu items */
 .menu a.todo {
-    background-color: $background-highlight-yellow;
-    border-radius: 0 5px 5px 0;
-
+  background-color: $background-highlight-yellow;
+  border-radius: 0 5px 5px 0;
 }
 
 .menu a.calendar {
-    background-color: $background-highlight-green;
-    border-radius: 0 5px 5px 0;
+  background-color: $background-highlight-green;
+  border-radius: 0 5px 5px 0;
 }
 
 .menu a.habits {
-    background-color: $background-highlight-peach;
-    border-radius: 0 5px 5px 0;
+  background-color: $background-highlight-peach;
+  border-radius: 0 5px 5px 0;
 }
 
 .menu a.timer {
-    background-color: $background-highlight-pink;
-    border-radius: 0 5px 5px 0;
+  background-color: $background-highlight-pink;
+  border-radius: 0 5px 5px 0;
 }
 
 .bulletjournal {
-    font-family: "Amatic SC", sans-serif;
-    text-align: center;
-    width: 687px;
-    height: 932px;
-    background-color: white;
-    border-radius: 20px;
-    border: 15px solid $font-color-primary;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 50px 0 50px 50px;
-    padding: 20px;
-    box-sizing: border-box;
-    color: $font-color-primary;
-
+  font-family: "Amatic SC", sans-serif;
+  text-align: center;
+  width: 687px;
+  height: 932px;
+  background-color: white;
+  border-radius: 20px;
+  border: 15px solid $font-color-primary;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 50px 0 50px 50px;
+  padding: 20px;
+  box-sizing: border-box;
+  color: $font-color-primary;
 }
 
 .bulletjournal-todo {
-    font-family: "Amatic SC", sans-serif;
-    text-align: center;
-    width: 687px;
-    height: 932px;
-    background-color: white;
-    border-radius: 20px;
-    border: 15px solid $background-highlight-yellow;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 50px 0 50px 50px;
-    padding: 20px;
-    box-sizing: border-box;
-    color: $font-color-primary;
-
+  font-family: "Amatic SC", sans-serif;
+  text-align: center;
+  width: 687px;
+  height: 932px;
+  background-color: white;
+  border-radius: 20px;
+  border: 15px solid $background-highlight-yellow;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 50px 0 50px 50px;
+  padding: 20px;
+  box-sizing: border-box;
+  color: $font-color-primary;
 }
 
 .bulletjournal-calendar {
-    font-family: "Amatic SC", sans-serif;
-    text-align: center;
-    width: 687px;
-    height: 932px;
-    background-color: white;
-    border-radius: 20px;
-    border: 15px solid $background-highlight-green;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 50px 0 50px 50px;
-    padding: 20px;
-    box-sizing: border-box;
-    color: $font-color-primary;
-
+  font-family: "Amatic SC", sans-serif;
+  text-align: center;
+  width: 687px;
+  height: 932px;
+  background-color: white;
+  border-radius: 20px;
+  border: 15px solid $background-highlight-green;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 50px 0 50px 50px;
+  padding: 20px;
+  box-sizing: border-box;
+  color: $font-color-primary;
 }
 
 .bulletjournal-habits {
-    font-family: "Amatic SC", sans-serif;
-    text-align: center;
-    width: 687px;
-    height: 932px;
-    background-color: white;
-    border-radius: 20px;
-    border: 15px solid $background-highlight-peach;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 50px 0 50px 50px;
-    padding: 20px;
-    box-sizing: border-box;
-    color: $font-color-primary;
-
+  font-family: "Amatic SC", sans-serif;
+  text-align: center;
+  width: 687px;
+  height: 932px;
+  background-color: white;
+  border-radius: 20px;
+  border: 15px solid $background-highlight-peach;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 50px 0 50px 50px;
+  padding: 20px;
+  box-sizing: border-box;
+  color: $font-color-primary;
 }
 
 .bulletjournal-timer {
-    font-family: "Amatic SC", sans-serif;
-    text-align: center;
-    width: 687px;
-    height: 932px;
-    background-color: white;
-    border-radius: 20px;
-    border: 15px solid $background-highlight-pink;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 50px 0 50px 50px;
-    padding: 20px;
-    box-sizing: border-box;
-    color: $font-color-primary;
-
+  font-family: "Amatic SC", sans-serif;
+  text-align: center;
+  width: 687px;
+  height: 932px;
+  background-color: white;
+  border-radius: 20px;
+  border: 15px solid $background-highlight-pink;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 50px 0 50px 50px;
+  padding: 20px;
+  box-sizing: border-box;
+  color: $font-color-primary;
 }
 
-
 .body h1 {
-    color: $font-color-primary;
-
+  color: $font-color-primary;
 }
 
 .wrapper p {
-    line-height: 1.5;
+  line-height: 1.5;
 }
 
-
 .main-avatar-wrapper {
-    display: flex;
-    margin-bottom: auto;
-    margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-
-
+  display: flex;
+  margin-bottom: auto;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
 }
 
 .avatar-div img {
-    border-radius: 100%;
-    width: 200px;
-    height: 200px;
-
-
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
 }
 
 .avatar-greeting {
-    background-color: $background-highlight-peach;
-    width: 80%;
-    height: 45px;
-    border-radius: 20px;
-    font-size: 32px;
-    padding: 25px 25px 25px 25px;
-    text-align: center;
-    font-weight: bold;
-    color: white;
-    z-index: 0;
-    margin-top: -20px;
-
+  background-color: $background-highlight-peach;
+  width: 80%;
+  height: 45px;
+  border-radius: 20px;
+  font-size: 32px;
+  padding: 25px 25px 25px 25px;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  z-index: 0;
+  margin-top: -20px;
 }
 
-
 .main-weather-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    margin-top: auto;
-    margin-bottom: 50px;
-
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: auto;
+  margin-bottom: 50px;
 }
 
 .weather-div {
-    background-color: $background-highlight-peach;
-    color: white;
-    width: 200px;
-    height: 300px;
-    text-align: center;
-    border-radius: 20px;
+  background-color: $background-highlight-peach;
+  color: white;
+  width: 200px;
+  height: 300px;
+  text-align: center;
+  border-radius: 20px;
 }
 
 .weather-info {
-    font-family: "Arial";
-    font-weight: 800;
+  font-family: "Arial";
+  font-weight: 800;
 }
-
-
 
 /* Media query for smaller screens */
 @media (max-width: 768px) {
-    .wrapper {
-        max-width: 100%; 
-   
-    }
+  .wrapper {
+    max-width: 100%;
+  }
 }
