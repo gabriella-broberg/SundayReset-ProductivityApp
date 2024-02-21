@@ -1,16 +1,24 @@
 /* style.css */
 @import "./partials/index";
+@import "./partials/variabler";
+@import "./partials/mixins";
 
  //Sass variables for colors
-  $background-primary: #e9e4fa;
-$background-highlight-pink: #feb5c8;
-$background-highlight-peach: #eba08b;
-$background-highlight-green: #cfdf83;
-$background-highlight-purple: #bd69b7;
-$background-highlight-blue: #c2e7ef;
-$background-highlight-yellow: #f5ff80;
-$font-color-primary: #000000;
-$font-color-secondary: #8a8a8a;
+//   $background-primary: #e9e4fa;
+// $background-highlight-pink: #feb5c8;
+// $background-highlight-peach: #eba08b;
+// $background-highlight-green: #cfdf83;
+// $background-highlight-purple: #bd69b7;
+// $background-highlight-blue: #c2e7ef;
+// $background-highlight-yellow: #f5ff80;
+// $font-color-primary: #000000;
+// $font-color-secondary: #8a8a8a;
+// $font-size-large: 32px;
+// $font-size-medium: 20px;
+// $font-size-small: 16px;
+// $font-size-x-small: 12px;
+
+
 
 body {
   font-family: "Amatic SC", sans-serif;
