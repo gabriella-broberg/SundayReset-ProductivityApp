@@ -28,13 +28,80 @@
 
         
         <div class="bulletjournal-todo">
+
             <!-- Your bullet journal content goes here -->
-            <h1>Test</h1>
-            <h2>Test</h2>
-            <h3>Test</h3>
-            <p>Test</p>
+            <h1 class="todo-h1">To-Do</h1>
+
+            <div class="todo-list-div">
+                <ul id="todo-list-ul">
+                </ul>
+            </div>
+
+            <h2 class="todo-h2">Add to-do</h2>
+
+            <div class="todo-wrapper">
+            <div class="todo-divider-one">
+
+            <input type="text" placeholder="Todo title" id="todo-input-title"/>
+            <br>
+            <br>
+            <input type="text" placeholder="Todo description" id="todo-input-description"/>
+            <br>
+            <br>
+            <select name="status" id="todo-status">
+                <option value="">Select status</option>
+                <option value="done">Done</option>
+                <option value="not-done">Not done</option>
+            </select>
+            </div>
+            
+            <div class="todo-divider-two">
+            <select name="time" id="todo-time">
+                <option value="">Select estimated time</option>
+                <option value="1h">1h</option>
+                <option value="2h">2h</option>
+                <option value="3h">3h</option>
+                <option value="4h">4h</option>
+                <option value="6h">6h</option>
+            </select>
+            <br>
+            <br>
+            <select name="category" id="todo-category">
+                <option value="">Select todo category</option>
+                <option value="home">Home</option>
+                <option value="study">Study</option>
+                <option value="work">Work</option>
+                <option value="health">Health</option>
+            </select>
+            <br>
+            <br>
+            <input type="text" placeholder="Deadline YYYY-MM-DD" id="todo-deadline"/>
+            <br>
+            </div>
+        </div>
+            <br>
+            <button id="add-todo">Add to-do!</button>
+
+
+            <h2 class="todo-h2">Filter to-do:s</h2>
+
+            <select name="filter-todo-status" id="filter-todo-status">
+                <option value="">Select a status</option>
+                <option value="done">Done</option>
+                <option value="not-done">Not done</option>
+            </select>
+
+            <input type="checkbox" name="home" />Home
+            <input type="checkbox" name="study" />Study
+            <input type="checkbox" name="work" />Work
+            <input type="checkbox" name="health" />Health
+            <br>
+            <br> 
+            <button id="filter-todos">Filter to-do:s</button>
+
         </div>
         <nav class="menu">
+
             <!-- Add your menu items here with specific classes -->
             <a href="/todo.html" class="todo">To-Do</a>
             <a href="/calendar.html" class="calendar">Calendar</a>
@@ -57,6 +124,6 @@
 
     </div>
 
-
+    <script src="todo-script.js"></script>
 </body>
 </html>
