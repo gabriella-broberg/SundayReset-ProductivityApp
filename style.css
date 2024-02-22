@@ -1,4 +1,8 @@
 /* style.css */
+.bulletjournal-habits h1 {
+  background-color: red;
+}
+
 body {
   font-family: "Amatic SC", sans-serif;
   background-image: url("images/polkadots-bg.jpg");
@@ -49,22 +53,22 @@ body {
 
 /* Update the background colors for specific menu items */
 .menu a.todo {
-  background-color: #F5FF80;
+  background-color: #f5ff80;
   border-radius: 0 5px 5px 0;
 }
 
 .menu a.calendar {
-  background-color: #CFDF83;
+  background-color: #cfdf83;
   border-radius: 0 5px 5px 0;
 }
 
 .menu a.habits {
-  background-color: #EBA08B;
+  background-color: #eba08b;
   border-radius: 0 5px 5px 0;
 }
 
 .menu a.timer {
-  background-color: #FEB5C8;
+  background-color: #feb5c8;
   border-radius: 0 5px 5px 0;
 }
 
@@ -90,7 +94,7 @@ body {
   height: 932px;
   background-color: white;
   border-radius: 20px;
-  border: 15px solid #F5FF80;
+  border: 15px solid #f5ff80;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: 50px 0 50px 50px;
   padding: 20px;
@@ -105,7 +109,7 @@ body {
   height: 932px;
   background-color: white;
   border-radius: 20px;
-  border: 15px solid #CFDF83;
+  border: 15px solid #cfdf83;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: 50px 0 50px 50px;
   padding: 20px;
@@ -120,7 +124,7 @@ body {
   height: 932px;
   background-color: white;
   border-radius: 20px;
-  border: 15px solid #EBA08B;
+  border: 15px solid #eba08b;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: 50px 0 50px 50px;
   padding: 20px;
@@ -135,7 +139,7 @@ body {
   height: 932px;
   background-color: white;
   border-radius: 20px;
-  border: 15px solid #FEB5C8;
+  border: 15px solid #feb5c8;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: 50px 0 50px 50px;
   padding: 20px;
@@ -166,7 +170,7 @@ body {
 }
 
 .avatar-greeting {
-  background-color: #EBA08B;
+  background-color: #eba08b;
   width: 80%;
   height: 45px;
   border-radius: 20px;
@@ -188,7 +192,7 @@ body {
 }
 
 .weather-div {
-  background-color: #EBA08B;
+  background-color: #eba08b;
   color: white;
   width: 200px;
   height: 300px;
@@ -207,7 +211,3 @@ body {
     max-width: 100%;
   }
 }/*# sourceMappingURL=style.css.map */
-
-
-
-
