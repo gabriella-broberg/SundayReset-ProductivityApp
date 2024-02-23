@@ -1,63 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sunday Reset</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Didact+Gothic&display=swap" rel="stylesheet">
-    
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Didact+Gothic&display=swap"
+      rel="stylesheet"
+    />
 
+    <script src="habits.js" defer></script>
+    <script src="weatherapp.js" defer></script>
+  </head>
+  <body>
     <div class="main-avatar-wrapper">
+      <div class="avatar-div">
+        <img src="Images/main-avatar.jpg" alt="Cute avatar monster" />
+      </div>
 
-        <div class="avatar-div">
-            <img src="Images/main-avatar.jpg" alt="Cute avatar monster">
-        </div>
-
-        <div class="avatar-greeting">
-            Welcome greeting
-        </div>
-
+      <div class="avatar-greeting">Welcome greeting</div>
     </div>
 
     <div class="wrapper">
+      <div class="bulletjournal-habits">
+        <!-- Your bullet journal content goes here -->
+        <h1>My Habits</h1>
+        <form id="addRoutineForm">
+          <input type="text" id="routineTitle" placeholder="Title" required />
 
-        
-        <div class="bulletjournal-habits">
-            <!-- Your bullet journal content goes here -->
-            <h1>My Habits</h1>
-            <h2>Test</h2>
-            <h3>Test</h3>
-            <p>Test</p>
+          <select id="priority" required>
+            <option value="" disabled selected>PRIO</option>
+            <option value="3">Låg</option>
+            <option value="2">Mellan</option>
+            <option value="1">Hög</option>
+          </select>
+
+          <button type="button" id="addRoutineButton">Add new habit</button>
+        </form>
+
+        <h2>List of Habits</h2>
+
+        <p>sort</p> 
+        <button id="sortStreakButton">Streak</button>
+        <button id="sortPriorityButton">Prio</button>
+        <div class="habitcontainer">
+          <ul id="habitList">
+            <!-- Rutinerna kommer att läggas till här dynamiskt -->
+          </ul>
         </div>
-        <nav class="menu">
-            <!-- Add your menu items here with specific classes -->
-            <a href="/todo.html" class="todo">To-Do</a>
-            <a href="/calendar.html" class="calendar">Calendar</a>
-            <a href="/habits.html" class="habits">Habits</a>
-            <a href="/timer.html" class="timer">Timer</a>
-        </nav>
-    </div>
+      </div>
 
+      <nav class="menu">
+        <!-- Add your menu items here with specific classes -->
+        <a href="/todo.html" class="todo">To-Do</a>
+        <a href="/calendar.html" class="calendar">Calendar</a>
+        <a href="/habits.html" class="habits">Habits</a>
+        <a href="/timer.html" class="timer">Timer</a>
+      </nav>
+    </div>
 
     <div class="main-weather-wrapper">
+      <div class="weather-div">
+        <h2>Weather 2day</h2>
 
-        <div class="weather-div">
-            <h2>Weather 2day</h2>
-
-            <p class="weather-info">STOCKHOLM
-                <br>
-            5°C</p>
-
-        </div>
-
+        <p class="weather-info">
+            <div class="card">
+                <div class="search">
+                    <input type="text" placeholder="enter city name" spellcheck="false">
+                    <button><img src="images/search.png" alt="search icon"></button>
+                </div>
+                <div class="error">
+                    <h2>Invalid city name</h2> <img src="images/error.png" alt="invalid city name" class="weather-icon">
+                </div>
+                <div class="weather">
+             
+                    <h1 class="temp">22°C</h1>
+                    <h2 class="city">City</h2>
+                           <img src="images/rain.png" alt="weather icon" class="weather-icon">
+                    
+                </div>
+            </div>
+  
+      </div>
     </div>
-
-
-</body>
+  </body>
 </html>

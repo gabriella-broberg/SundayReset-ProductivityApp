@@ -114,6 +114,96 @@
   background-color: #d3836d;
 }
 
+.bulletjournal-habits h1 {
+  background-color: red;
+}
+
+.main-weather-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: auto;
+  margin-bottom: 50px;
+}
+
+.weather-div {
+  background-color: #eba08b;
+  color: white;
+  width: 200px;
+  height: 300px;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.weather-info {
+  font-family: "Arial";
+  font-weight: 800;
+}
+
+.search {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search input {
+  border: 0;
+  outline: 0;
+  background-color: #fffffe;
+  color: #000;
+  height: 28px;
+  border-radius: 20px 0 0 20px;
+  margin-top: -20px;
+  text-align: center;
+}
+
+.search button {
+  border: 0;
+  outline: 0;
+  background-color: #fffffe;
+  border-radius: 0 20px 20px 0;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin-top: -20px;
+}
+
+.search button img {
+  width: 10px;
+}
+
+.weather-icon {
+  width: 80px;
+  margin-top: -10px;
+}
+
+.weather h1 {
+  font-size: 40px;
+  font-weight: 500;
+  font-family: poppins;
+  margin-top: 3px;
+}
+
+.weather h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: -35px;
+  font-family: poppins;
+  text-transform: capitalize;
+}
+
+.weather {
+  display: none;
+}
+
+.error {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 10px;
+  display: none;
+}
+
 body {
   font-family: "Amatic SC", sans-serif;
   background-image: url("images/polkadots-bg.jpg");
@@ -165,20 +255,24 @@ body {
 /* Update the background colors for specific menu items */
 .menu a.todo {
   background-color: #f5ff80;
+  background-color: #f5ff80;
   border-radius: 0 5px 5px 0;
 }
 
 .menu a.calendar {
+  background-color: #cfdf83;
   background-color: #cfdf83;
   border-radius: 0 5px 5px 0;
 }
 
 .menu a.habits {
   background-color: #eba08b;
+  background-color: #eba08b;
   border-radius: 0 5px 5px 0;
 }
 
 .menu a.timer {
+  background-color: #feb5c8;
   background-color: #feb5c8;
   border-radius: 0 5px 5px 0;
 }
@@ -206,6 +300,7 @@ body {
   background-color: white;
   border-radius: 20px;
   border: 15px solid #f5ff80;
+  border: 15px solid #f5ff80;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: 50px 0 50px 50px;
   padding: 20px;
@@ -220,6 +315,7 @@ body {
   height: 932px;
   background-color: white;
   border-radius: 20px;
+  border: 15px solid #cfdf83;
   border: 15px solid #cfdf83;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: 50px 0 50px 50px;
@@ -236,6 +332,7 @@ body {
   background-color: white;
   border-radius: 20px;
   border: 15px solid #eba08b;
+  border: 15px solid #eba08b;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: 50px 0 50px 50px;
   padding: 20px;
@@ -250,6 +347,7 @@ body {
   height: 932px;
   background-color: white;
   border-radius: 20px;
+  border: 15px solid #feb5c8;
   border: 15px solid #feb5c8;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: 50px 0 50px 50px;
@@ -281,6 +379,7 @@ body {
 }
 
 .avatar-greeting {
+  background-color: #eba08b;
   background-color: #eba08b;
   width: 80%;
   height: 45px;

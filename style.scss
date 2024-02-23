@@ -2,6 +2,9 @@
 @import "./partials/index";
 @import "./partials/variables";
 @import "./partials/mixins";
+@import "./partials/habits";
+@import "./partials/weatherapp";
+
 
  //Sass variables for colors
 //   $background-primary: #e9e4fa;
@@ -204,27 +207,7 @@ body {
   margin-top: -20px;
 }
 
-.main-weather-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  margin-top: auto;
-  margin-bottom: 50px;
-}
 
-.weather-div {
-  background-color: $background-highlight-peach;
-  color: white;
-  width: 200px;
-  height: 300px;
-  text-align: center;
-  border-radius: 20px;
-}
-
-.weather-info {
-  font-family: "Arial";
-  font-weight: 800;
-}
 
 /* Media query for smaller screens */
 @media (max-width: 768px) {
@@ -372,3 +355,5 @@ select:focus input:focus select:active input:active {
 #filter-todos:hover {
   background-color: #bcc97a;
 }
+
+
