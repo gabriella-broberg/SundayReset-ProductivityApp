@@ -265,11 +265,8 @@ body {
   overflow-y: auto;
 }
 
-.removeTodo {
-  background-color: $background-highlight-green;
-}
-
-.editTodo {
+// Försökte styla knapparna som kommer upp i DOM:en 
+input[type="button"].removeTodo .editTodo{
   background-color: $background-highlight-green;
 }
 

@@ -37,7 +37,7 @@ addTodo.addEventListener("click", () => {
 })
 
 
-
+// Funktion för att lägga till todos i DOM:en 
 let displayTodos = () => {
 
     let todoListUl = document.getElementById("todo-list-ul"); 
@@ -53,8 +53,8 @@ let displayTodos = () => {
             Estimated time: ${todo.estimatedtime}<br>
             Category: ${todo.category}<br>
             Deadline: ${todo.deadline}<br>
-            <button class="removeTodo">Remove to-do!</button>
-            <button class="editTodo">Edit to-do!</button>
+            <button class="removeTodo" style="background-color: #eba08b">Remove to-do!</button>
+            <button class="editTodo" style="background-color: #cfdf83">Edit to-do!</button>
         `;
 
         todoListUl.appendChild(li);
