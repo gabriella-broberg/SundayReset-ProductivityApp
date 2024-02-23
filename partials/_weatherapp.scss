@@ -1,3 +1,27 @@
+
+.main-weather-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: auto;
+  margin-bottom: 50px;
+}
+
+.weather-div {
+  background-color: $background-highlight-peach;
+  color: white;
+  width: 200px;
+  height: 300px;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.weather-info {
+  font-family: "Arial";
+  font-weight: 800;
+}
+
+
 .search {
   width: 100%;
   display: flex;

@@ -1,4 +1,94 @@
 /* style.css */
+.bulletjournal-habits h1 {
+  background-color: red;
+}
+
+.main-weather-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: auto;
+  margin-bottom: 50px;
+}
+
+.weather-div {
+  background-color: #eba08b;
+  color: white;
+  width: 200px;
+  height: 300px;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.weather-info {
+  font-family: "Arial";
+  font-weight: 800;
+}
+
+.search {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search input {
+  border: 0;
+  outline: 0;
+  background-color: #fffffe;
+  color: #000;
+  height: 28px;
+  border-radius: 20px 0 0 20px;
+  margin-top: -20px;
+  text-align: center;
+}
+
+.search button {
+  border: 0;
+  outline: 0;
+  background-color: #fffffe;
+  border-radius: 0 20px 20px 0;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin-top: -20px;
+}
+
+.search button img {
+  width: 10px;
+}
+
+.weather-icon {
+  width: 80px;
+  margin-top: -10px;
+}
+
+.weather h1 {
+  font-size: 40px;
+  font-weight: 500;
+  font-family: poppins;
+  margin-top: 3px;
+}
+
+.weather h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: -35px;
+  font-family: poppins;
+  text-transform: capitalize;
+}
+
+.weather {
+  display: none;
+}
+
+.error {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 10px;
+  display: none;
+}
+
 body {
   font-family: "Amatic SC", sans-serif;
   background-image: url("images/polkadots-bg.jpg");
@@ -177,28 +267,6 @@ body {
   color: white;
   z-index: 0;
   margin-top: -20px;
-}
-
-.main-weather-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  margin-top: auto;
-  margin-bottom: 50px;
-}
-
-.weather-div {
-  background-color: #eba08b;
-  color: white;
-  width: 200px;
-  height: 300px;
-  text-align: center;
-  border-radius: 20px;
-}
-
-.weather-info {
-  font-family: "Arial";
-  font-weight: 800;
 }
 
 /* Media query for smaller screens */
