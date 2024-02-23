@@ -1,51 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log in</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Sign in</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Bootstrap  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
 
-    <link rel="stylesheet" href="style.css"> 
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Googlefonts -->
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="modal.js" defer></script>
+  </head>
+  <body class="index-body">
+    <!-- Registreringsmodal -->
+    <div
+      class="modal fade"
+      id="registrationModal"
+      tabindex="-1"
+      aria-labelledby="registrationModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5
+              class="modal-title"
+              id="registrationModalLabel"
+            >
+              Register new user
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <!-- Registration form -->
+            <form id="registrationForm">
+              <div class="mb-3">
+                <label
+                  for="username"
+                  class="form-label"
+                  >Username</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="username"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label
+                  for="password"
+                  class="form-label"
+                  >password</label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                class="btn btn-primary"
+              >
+                Register
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body class="index-body">
-    
+    <h1 id="index-h1">Sunday Reset</h1>
 
-        <h1 id="index-h1">Sunday Reset</h1>
-
-    <br>
-
-<div class="index-wrapper">
-    <div class="index-avatar-wrapper">
-
+    <div class="index-wrapper">
+      <div class="index-avatar-wrapper">
         <div class="index-avatar-greeting">
-            <p>Hello Friend</p>
+          Hello and welcome
         </div>
+        <img
+          src="Images/main-avatar.jpg"
+          alt="Cute avatar monster"
+          id="index-avatar-img"
+        />
+      </div>
 
-        <div class="index-avatar">
-            <img src="Images/main-avatar.jpg" alt="Cute avatar monster" id="index-avatar-img">
-        </div>
+      <div class="index-login-container">
+        <h2 class="index-h2">Sign in</h2>
+        <input
+          type="text"
+          placeholder="Username"
+          id="usernameInput"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          id="passwordInput"
+        />
+        <!-- Trigger-knapp -->
+        <button
+          type="button"
+          class="btn register-button"
+          data-bs-toggle="modal"
+          data-bs-target="#registrationModal"
+        >
+          New user
+        </button>
+        <button
+          type="button"
+          class="btn login-button"
+          id="login-button"
+          
+        >
+          Sign in
+        </button>
+      </div>
     </div>
-
-    <div class="index-login-container">
-
-        <h2 class="index-h2">Register user</h2>
-
-        <input type="text" placeholder="Username" id="usernameInput"/>
-        <br>
-        <br>
-        <input type="password" placeholder="Password" id="passwordInput"/>
-        <br>
-        <br>
-        <button id="register-button" class="index-button">Register</button>
-        <br>
-        <br>
-        <button id="login-button" class="index-button">Log in</button>
-    </div>
-</div>
-
-</body>
+  </body>
 </html>

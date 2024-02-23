@@ -3,67 +3,59 @@
   background-image: url("/Images/paper-bg.png");
   font-family: "Amatic SC";
   flex-direction: column;
-  gap: 0px;
+  gap: 1em;
 }
 
 #index-h1 {
-  color: #c2e7ef;
   font-weight: bolder;
   font-size: 72px;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #000000;
   text-shadow: 1px 1px 5px #000000;
   text-align: center;
+  color: #c2e7ef;
+  margin: 0px;
 }
 
-.index-avatar-wrapper {
-  display: flex;
-  flex-direction: column;
-  margin: 50px;
+.index-avatar-wrapper img {
+  max-width: 18em;
+  border-radius: 1000px;
 }
-
-.index-avatar-greeting {
+.index-avatar-wrapper .index-avatar-greeting {
+  position: relative;
+  left: -3em;
+  top: 1em;
+  padding: 0.5em;
   background-color: #e9e4fa;
   color: #8a8a8a;
-  font-size: 32px;
   border-radius: 20px;
-  padding: 0px;
-  width: 30%;
   z-index: 1;
-}
-
-.index-avatar-greeting p {
   font-size: 32px;
   text-align: center;
-  font-weight: bold;
-}
-
-#index-avatar-img {
-  width: 50%;
-  height: auto;
-  border-radius: 100%;
-  margin-top: -3%;
+  font-weight: 700;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .index-wrapper {
   display: flex;
-  height: 1000px;
-  justify-content: center;
+  flex-flow: row wrap;
+  gap: 5em;
 }
 
 .index-login-container {
-  height: 500px;
-  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: start;
+  padding: 1em 0;
+  gap: 2em;
+  min-width: 30em;
+  height: 36vh;
   border-radius: 20px;
   background-color: #e9e4fa;
-  text-align: center;
-  margin-left: -30%;
 }
-
-.index-h2 {
-  font-size: 32px;
-}
-
 .index-login-container input {
   width: 88%;
   height: 10%;
@@ -71,47 +63,38 @@
   padding-left: 30px;
   font-family: "Amatic SC";
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 700;
   color: #8a8a8a;
   outline: none;
   border: white;
 }
-
+.index-login-container .register-button {
+  width: 88%;
+  border-radius: 20px;
+  background-color: #cfdf83;
+  border: none;
+  color: #000000;
+  font-weight: 700;
+  font-size: 20px;
+}
+.index-login-container .register-button:hover {
+  background-color: #eba08b;
+}
+.index-login-container .login-button {
+  width: 88%;
+  border-radius: 20px;
+  background-color: #eba08b;
+  border: none;
+  color: #000000;
+  font-weight: 700;
+  font-size: 20px;
+}
+.index-login-container .login-button:hover {
+  background-color: #cfdf83;
+}
 .index-login-container input:focus {
   border: white;
   outline: none;
-}
-
-#register-button {
-  border-radius: 20px;
-  background-color: #eba08b;
-  font-family: "Amatic SC";
-  font-weight: bold;
-  font-size: 20px;
-  width: 95%;
-  height: 10%;
-  padding: 15px;
-  border: none;
-}
-
-#login-button {
-  border-radius: 20px;
-  background-color: #cfdf83;
-  font-family: "Amatic SC";
-  font-weight: bold;
-  font-size: 20px;
-  width: 95%;
-  height: 10%;
-  padding: 15px;
-  border: none;
-}
-
-#login-button:hover {
-  background-color: #bcc97a;
-}
-
-#register-button:hover {
-  background-color: #d3836d;
 }
 
 .bulletjournal-habits h1 {
@@ -255,24 +238,20 @@ body {
 /* Update the background colors for specific menu items */
 .menu a.todo {
   background-color: #f5ff80;
-  background-color: #f5ff80;
   border-radius: 0 5px 5px 0;
 }
 
 .menu a.calendar {
-  background-color: #cfdf83;
   background-color: #cfdf83;
   border-radius: 0 5px 5px 0;
 }
 
 .menu a.habits {
   background-color: #eba08b;
-  background-color: #eba08b;
   border-radius: 0 5px 5px 0;
 }
 
 .menu a.timer {
-  background-color: #feb5c8;
   background-color: #feb5c8;
   border-radius: 0 5px 5px 0;
 }
@@ -300,7 +279,6 @@ body {
   background-color: white;
   border-radius: 20px;
   border: 15px solid #f5ff80;
-  border: 15px solid #f5ff80;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: 50px 0 50px 50px;
   padding: 20px;
@@ -315,7 +293,6 @@ body {
   height: 932px;
   background-color: white;
   border-radius: 20px;
-  border: 15px solid #cfdf83;
   border: 15px solid #cfdf83;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: 50px 0 50px 50px;
@@ -332,7 +309,6 @@ body {
   background-color: white;
   border-radius: 20px;
   border: 15px solid #eba08b;
-  border: 15px solid #eba08b;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: 50px 0 50px 50px;
   padding: 20px;
@@ -347,7 +323,6 @@ body {
   height: 932px;
   background-color: white;
   border-radius: 20px;
-  border: 15px solid #feb5c8;
   border: 15px solid #feb5c8;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: 50px 0 50px 50px;
@@ -380,7 +355,6 @@ body {
 
 .avatar-greeting {
   background-color: #eba08b;
-  background-color: #eba08b;
   width: 80%;
   height: 45px;
   border-radius: 20px;
@@ -391,28 +365,6 @@ body {
   color: white;
   z-index: 0;
   margin-top: -20px;
-}
-
-.main-weather-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  margin-top: auto;
-  margin-bottom: 50px;
-}
-
-.weather-div {
-  background-color: #eba08b;
-  color: white;
-  width: 200px;
-  height: 300px;
-  text-align: center;
-  border-radius: 20px;
-}
-
-.weather-info {
-  font-family: "Arial";
-  font-weight: 800;
 }
 
 /* Media query for smaller screens */
@@ -436,9 +388,19 @@ body {
 .todo-list-div {
   background-color: #e9e4fa;
   border-radius: 20px;
-  height: 20%;
+  max-height: 300px;
   width: 100%;
   text-align: left;
+  overflow-y: auto; /* FUNKAR EJ */
+}
+
+#todo-list-ul li {
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+input[type=button].removeTodo .editTodo {
+  background-color: #cfdf83;
 }
 
 .todo-h2 {

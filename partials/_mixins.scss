@@ -1,0 +1,17 @@
+@mixin center($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin heading1 ($color) {
+  font-weight: bolder;
+  font-size: 72px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000000;
+  text-shadow: 1px 1px 5px #000000;
+  text-align: center;
+  color: $color; 
+  margin: 0px; 
+}
