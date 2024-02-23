@@ -1,1 +1,151 @@
-@import "./variables"
+$background-primary: #e9e4fa;
+$background-highlight-pink: #feb5c8;
+$background-highlight-peach: #eba08b;
+$background-highlight-green: #cfdf83;
+$background-highlight-purple: #bd69b7;
+$background-highlight-blue: #c2e7ef;
+$background-highlight-yellow: #f5ff80;
+$font-color-primary: #000000;
+$font-color-secondary: #8a8a8a;
+$font-size-large: 32px;
+$font-size-medium: 20px;
+$font-size-small: 16px;
+$font-size-x-small: 12px;
+$font-size-h1: 72px; 
+
+.index-body {
+    background-image: url("/Images/paper-bg.png");
+    font-family: "Amatic SC"; 
+    flex-direction: column; // Måste reseta tidigare grejer som ligger på bodyn
+    gap: 0px; 
+}
+
+#index-h1 {
+
+    color: $background-highlight-blue;
+    font-weight: bolder; 
+    font-size: $font-size-h1; 
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $font-color-primary; 
+    text-shadow: 1px 1px 5px $font-color-primary;
+    text-align: center; 
+}
+
+
+// AVATAR ---------------------------------------- // 
+.index-avatar-wrapper {
+
+    display: flex;
+    flex-direction: column;
+    margin: 50px; 
+
+}
+
+.index-avatar-greeting {
+
+    background-color: $background-primary;
+    color: $font-color-secondary;
+    font-size: $font-size-large;
+    border-radius: 20px;
+    padding: 0px; 
+    width: 30%; 
+    // margin-left: -75%;
+    z-index: 1;
+}
+
+.index-avatar-greeting p {
+    font-size: $font-size-large;
+    text-align: center;
+    font-weight: bold;
+}
+
+#index-avatar-img {
+
+    width: 50%; 
+    height: auto; 
+    border-radius: 100%;
+    // margin-left: -75%; 
+    margin-top: -3%;
+
+}
+
+// LOGIN --------------------------------------- // 
+
+.index-wrapper {
+    display: flex;
+    height: 1000px; 
+    justify-content: center;
+}
+
+.index-login-container {
+    height: 500px;
+    width: 500px;
+    border-radius: 20px; 
+    background-color: $background-primary; 
+    text-align: center;
+    margin-left: -30%; 
+}
+
+.index-h2 {
+    font-size: $font-size-large;
+}
+
+.index-login-container input {
+    width: 88%;
+    height: 10%; 
+    border-radius: 20px;
+    padding-left: 30px; 
+    font-family: "Amatic SC";
+    font-size: $font-size-medium;
+    font-weight: bold;
+    color: $font-color-secondary; 
+    outline: none; 
+    border: white; 
+}
+
+.index-login-container input:focus { // För textinput - tar bort defaultstylingen från webbläsaren 
+    border: white; 
+    outline: none; 
+}
+
+#register-button {
+    border-radius: 20px;
+    background-color: $background-highlight-peach; 
+    font-family: "Amatic SC";
+    font-weight: bold;
+    font-size: $font-size-medium;
+    width: 95%; 
+    height: 10%; 
+    padding: 15px; 
+    border: none; 
+
+}
+
+#login-button {
+
+    border-radius: 20px;
+    background-color: $background-highlight-green; 
+    font-family: "Amatic SC";
+    font-weight: bold;
+    font-size: $font-size-medium;
+    width: 95%; 
+    height: 10%; 
+    padding: 15px; 
+    border: none; 
+} 
+
+#login-button:hover {
+    background-color: #bcc97a;
+}
+
+#register-button:hover {
+    background-color: #d3836d;;
+}
+
+
+// @media (max-width: 768px) {
+//     .index-wrapper {
+//       flex-direction: column;
+//       justify-content: space-around;
+//     }
+//   }
