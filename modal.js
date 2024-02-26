@@ -1,3 +1,5 @@
+let loggedIn = false;
+
 document.getElementById('registrationForm').addEventListener('submit', function(event) {
   event.preventDefault(); // Förhindra att formuläret skickas på traditionellt sätt
 
@@ -6,11 +8,11 @@ document.getElementById('registrationForm').addEventListener('submit', function(
   const password = document.getElementById('password').value;
 
   // Skapa ett användarobjekt
-  const user = { username, password };
+  const user = { username, password, loggedIn: false };
 
   // Spara användarobjektet i localStorage
-  // Observera: För säkerhets skull ska du inte spara lösenord i klartext i produktionsapplikationer
-  localStorage.setItem('user', JSON.stringify(user));
+  
+  localStorage.setItem(username, JSON.stringify(user));
 
   // Stäng modalen
   const registrationModal = bootstrap.Modal.getInstance(document.getElementById('registrationModal'));

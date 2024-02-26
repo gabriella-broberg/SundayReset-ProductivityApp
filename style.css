@@ -40,6 +40,7 @@
 .index-wrapper {
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
   gap: 5em;
 }
 
@@ -52,15 +53,13 @@
   padding: 1em 0;
   gap: 2em;
   min-width: 30em;
-  height: 36vh;
   border-radius: 20px;
   background-color: #e9e4fa;
 }
 .index-login-container input {
   width: 88%;
-  height: 10%;
   border-radius: 20px;
-  padding-left: 30px;
+  padding: 1em 2em;
   font-family: "Amatic SC";
   font-size: 20px;
   font-weight: 700;
@@ -70,24 +69,28 @@
 }
 .index-login-container .register-button {
   width: 88%;
+  padding: 1em;
   border-radius: 20px;
   background-color: #cfdf83;
   border: none;
   color: #000000;
   font-weight: 700;
   font-size: 20px;
+  letter-spacing: 0.1em;
 }
 .index-login-container .register-button:hover {
   background-color: #eba08b;
 }
 .index-login-container .login-button {
   width: 88%;
+  padding: 1em;
   border-radius: 20px;
   background-color: #eba08b;
   border: none;
   color: #000000;
   font-weight: 700;
   font-size: 20px;
+  letter-spacing: 0.1em;
 }
 .index-login-container .login-button:hover {
   background-color: #cfdf83;

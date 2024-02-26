@@ -39,6 +39,7 @@
 .index-wrapper {
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
   gap: 5em;
 }
 
@@ -48,14 +49,12 @@
   padding: 1em 0;
   gap: 2em;
   min-width: 30em;
-  height: 36vh;
   border-radius: 20px;
   background-color: $background-primary;
   input {
     width: 88%;
-    height: 10%;
     border-radius: 20px;
-    padding-left: 30px;
+    padding: 1em 2em;
     font-family: "Amatic SC";
     font-size: $font-size-medium;
     font-weight: 700;
@@ -65,24 +64,28 @@
   }
   .register-button {
     width: 88%;
+    padding: 1em;
     border-radius: 20px;
     background-color: $background-highlight-green;
     border: none;
     color: $font-color-primary;
     font-weight: 700;
     font-size: $font-size-medium;
+    letter-spacing: 0.1em;
     &:hover {
       background-color: $background-highlight-peach;
     }
   }
   .login-button {
     width: 88%;
+    padding: 1em;
     border-radius: 20px;
     background-color: $background-highlight-peach;
     border: none;
     color: $font-color-primary;
     font-weight: 700;
     font-size: $font-size-medium;
+    letter-spacing: 0.1em;
     &:hover {
       background-color: $background-highlight-green;
     }
@@ -93,7 +96,6 @@
     outline: none;
   }
 }
-
 
 // @media (max-width: 768px) {
 //     .index-wrapper {
