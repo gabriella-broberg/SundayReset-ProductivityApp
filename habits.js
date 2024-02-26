@@ -27,11 +27,30 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function addRoutine() {
-    const title = document.getElementById("routineTitle").value;
+    // The browser will handle the required attribute, no need for a custom check
+    const titleInput = document.getElementById("routineTitle");
     const priority = document.getElementById("priority").value;
 
-    routines.push(new DailyRoutine(title, 0, priority));
-    displayRoutines();
+    // Check if the title is empty
+    if (titleInput.value.trim() === "") {
+      // Set custom validation message
+      titleInput.setCustomValidity("Add title");
+      titleInput.reportValidity(); // Display the validation message
+      return;
+    }
+
+    // Clear the custom validation message
+    titleInput.setCustomValidity("");
+
+    // Create a routine only if the form is valid (title is not empty)
+    if (titleInput.checkValidity()) {
+      const title = titleInput.value.trim();
+      routines.push(new DailyRoutine(title, 0, priority));
+      displayRoutines();
+
+      // Clear the title input
+      titleInput.value = "";
+    }
   }
 
   function displayRoutines() {
@@ -40,13 +59,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
     routines.forEach((routine, index) => {
       const li = document.createElement("li");
+      li.className = "habit-list-item"; // Add the class to the created element
       li.innerHTML = `
-          <span>${routine.title} - Streak: ${routine.streak} - Prio: ${routine.priority}</span>
-          <button class="increase" data-index="${index}">+</button>
-          <button class="decrease" data-index="${index}">-</button>
-          <button class="reset" data-index="${index}">Nollställ</button>
-          <button class="delete" data-index="${index}">Radera</button>
-        `;
+        <div class="info-container">
+          <div class="title">${routine.title}</div>
+          <div class="streak">Streak: ${routine.streak}</div>
+          <div class="prio">Prio: ${routine.priority}</div>
+        </div>
+        <div class="button-container">
+         
+
+         <button class="increase fa-solid fa-plus" data-index="${index}"></button>
+         <button class="decrease fa-solid fa-minus" data-index="${index}"></button>
+          <button class="reset fa-solid fa-undo" data-index="${index}"></button>
+          </div>
+
+          <div class="button-container2">
+          <button class="delete fa-solid fa-trash" data-index="${index}"></button>
+          </div>
+          
+       
+      `;
       habitList.appendChild(li);
     });
   }
@@ -72,7 +105,15 @@ document.addEventListener("DOMContentLoaded", function () {
     } else if (target.classList.contains("reset")) {
       routines[index].resetStreak();
     } else if (target.classList.contains("delete")) {
-      routines.splice(index, 1);
+      // Ask for confirmation before deleting
+      const isConfirmed = confirm(
+        "Are you sure you want to delete this habit?"
+      );
+
+      if (isConfirmed) {
+        routines.splice(index, 1);
+        displayRoutines();
+      }
     }
 
     displayRoutines();

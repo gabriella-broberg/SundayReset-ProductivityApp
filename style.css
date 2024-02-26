@@ -101,7 +101,202 @@
 }
 
 .bulletjournal-habits h1 {
-  background-color: red;
+  font-weight: bolder;
+  font-size: 72px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000000;
+  text-shadow: 2px 4px 10px #000000;
+  text-align: center;
+  color: #eba08b;
+  margin: 0px;
+  margin-bottom: 30px;
+}
+
+.bulletjournal-habits h2 {
+  font-size: 32px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000000;
+  text-shadow: 1px #000000;
+  text-align: center;
+  font-weight: bolder;
+  color: #eba08b;
+}
+
+.bulletjournal-habits p {
+  font-size: 20px;
+}
+
+.habitInfo {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+#addRoutineButton {
+  background-color: #eba08b;
+  padding: 10px;
+  font-family: "Amatic SC";
+  font-size: 20px;
+  font-weight: bolder;
+  width: 95%;
+  border: none;
+  border-radius: 20px;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+#addRoutineButton:hover {
+  background-color: #e29884;
+}
+
+#priority,
+#routineTitle {
+  background-color: #e9e4fa;
+  padding: 10px;
+  border-radius: 20px;
+  font-family: "Amatic SC";
+  font-size: 20px;
+  font-weight: bold;
+  color: #8a8a8a;
+  outline: none;
+  border: none;
+}
+
+#routineTitle {
+  width: 80%;
+}
+
+#priority:hover,
+#routineTitle:hover {
+  background-color: #dbd6eb;
+}
+
+.sort-wrapper {
+  color: #8a8a8a;
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+#sortStreakButton {
+  background-color: #e9e4fa;
+  padding: 5px 20px 5px 20px;
+  font-family: "Amatic SC";
+  font-size: 20px;
+  font-weight: bolder;
+  border: none;
+  border-radius: 20px;
+  color: #8a8a8a;
+  display: inline-block;
+}
+
+#sortStreakButton:hover {
+  background-color: #dbd6eb;
+}
+
+#sortPriorityButton {
+  background-color: #e9e4fa;
+  padding: 5px 25px 5px 25px;
+  font-family: "Amatic SC";
+  font-size: 20px;
+  font-weight: bolder;
+  border: none;
+  border-radius: 20px;
+  color: #8a8a8a;
+  display: inline-block;
+}
+
+#sortPriorityButton:hover {
+  background-color: #dbd6eb;
+}
+
+.habitContainer {
+  border: 5px solid #e9e4fa;
+  border-radius: 20px;
+  height: 400px;
+  text-align: left;
+  overflow-y: auto;
+}
+
+.title {
+  color: #eba08b;
+  text-decoration: underline;
+}
+
+.increase {
+  border-radius: 50%;
+  border: none;
+  background-color: #cfdf83;
+  height: 25px;
+  width: 25px;
+  display: inline-block;
+}
+
+.increase:hover {
+  background-color: #c6d57c;
+}
+
+.decrease {
+  border-radius: 50%;
+  border: none;
+  background-color: #eba08b;
+  height: 25px;
+  width: 25px;
+  display: inline-block;
+}
+
+.decrease:hover {
+  background-color: #e29884;
+}
+
+.reset {
+  border-radius: 50%;
+  border: none;
+  background-color: #c2e7ef;
+  height: 25px;
+  width: 25px;
+  display: inline-block;
+}
+
+.reset:hover {
+  background-color: #b4d7de;
+}
+
+.delete {
+  border-radius: 50%;
+  border: none;
+  height: 25px;
+  width: 25px;
+  display: inline-block;
+}
+
+.delete:hover {
+  color: #ff0000;
+}
+
+.habit-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e9e4fa;
+  margin-bottom: 5px;
+}
+
+.info-container {
+  font-weight: 800;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* Adjust the gap as needed */
+}
+
+.button-container {
+  text-align: left;
+}
+
+.button-container2 {
+  margin-right: 30px;
 }
 
 .main-weather-wrapper {
@@ -340,6 +535,7 @@ body {
 
 .wrapper p {
   line-height: 1.5;
+  font-size: 20px;
 }
 
 .main-avatar-wrapper {
@@ -446,7 +642,7 @@ input[type=button].removeTodo .editTodo {
   background-color: #e9e4fa;
 }
 
-select {
+.bulletjournal-todo select {
   background-color: #e9e4fa;
   padding: 15px;
   width: 120%;
