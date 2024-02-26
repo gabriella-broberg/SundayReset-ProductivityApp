@@ -1,17 +1,13 @@
-
-
 let loginUser = () => {
   const username = document.querySelector('#usernameInput').value;
   const password = document.querySelector('#passwordInput').value;
 
   const userString = localStorage.getItem(username);
   const user = userString ? JSON.parse(userString) : null;
-
+// If the user exists and the password is correct, update the login state
   if (user && user.password === password) {
-    // Om användaren finns och lösenordet stämmer, uppdatera inloggningstillståndet
     user.loggedIn = true;
-
-    // Spara om det uppdaterade användarobjektet i localStorage
+    // Resave the updated user object in localStorage
     localStorage.setItem(username, JSON.stringify(user));
     
     window.location.href = 'todo.html';

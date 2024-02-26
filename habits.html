@@ -15,6 +15,8 @@
 
     <script src="habits.js" defer></script>
     <script src="weatherapp.js" defer></script>
+
+    <script src="https://kit.fontawesome.com/28fc0eb946.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="main-avatar-wrapper">
@@ -28,26 +30,35 @@
     <div class="wrapper">
       <div class="bulletjournal-habits">
         <!-- Your bullet journal content goes here -->
-        <h1>My Habits</h1>
+        <h1>Habit Tracker</h1>
+    
         <form id="addRoutineForm">
+          <div class="habitInfo">
           <input type="text" id="routineTitle" placeholder="Title" required />
 
           <select id="priority" required>
             <option value="" disabled selected>PRIO</option>
-            <option value="3">Låg</option>
-            <option value="2">Mellan</option>
-            <option value="1">Hög</option>
+            <option value="3">Low</option>
+            <option value="2">Medium</option>
+            <option value="1">High</option>
           </select>
-
+        </div>
           <button type="button" id="addRoutineButton">Add new habit</button>
         </form>
+      
 
-        <h2>List of Habits</h2>
+ <h2 class="list-heading">My Habits</h2>
 
-        <p>sort</p> 
-        <button id="sortStreakButton">Streak</button>
-        <button id="sortPriorityButton">Prio</button>
-        <div class="habitcontainer">
+        <div class="sort-wrapper">
+          <button id="sortStreakButton">
+            <i class="fas fa-sort"></i>  Streak
+          </button>
+          <button id="sortPriorityButton">
+            <i class="fas fa-sort"></i>  Prio
+          </button>
+        </div>
+
+        <div class="habitContainer">
           <ul id="habitList">
             <!-- Rutinerna kommer att läggas till här dynamiskt -->
           </ul>
@@ -67,24 +78,33 @@
       <div class="weather-div">
         <h2>Weather 2day</h2>
 
-        <p class="weather-info">
-            <div class="card">
-                <div class="search">
-                    <input type="text" placeholder="enter city name" spellcheck="false">
-                    <button><img src="images/search.png" alt="search icon"></button>
-                </div>
-                <div class="error">
-                    <h2>Invalid city name</h2> <img src="images/error.png" alt="invalid city name" class="weather-icon">
-                </div>
-                <div class="weather">
-             
-                    <h1 class="temp">22°C</h1>
-                    <h2 class="city">City</h2>
-                           <img src="images/rain.png" alt="weather icon" class="weather-icon">
-                    
-                </div>
-            </div>
-  
+        <div class="card">
+          <div class="search">
+            <input
+              type="text"
+              placeholder="enter city name"
+              spellcheck="false"
+            />
+            <button><img src="images/search.png" alt="search icon" /></button>
+          </div>
+          <div class="error">
+            <h2>Invalid city name</h2>
+            <img
+              src="images/error.png"
+              alt="invalid city name"
+              class="weather-icon"
+            />
+          </div>
+          <div class="weather">
+            <h1 class="temp">22°C</h1>
+            <h2 class="city">City</h2>
+            <img
+              src="images/rain.png"
+              alt="weather icon"
+              class="weather-icon"
+            />
+          </div>
+        </div>
       </div>
     </div>
   </body>
