@@ -1,26 +1,24 @@
 let loggedIn = false;
 
 document.getElementById('registrationForm').addEventListener('submit', function(event) {
-  event.preventDefault(); // Förhindra att formuläret skickas på traditionellt sätt
+  event.preventDefault(); // Prevent the form from being submitted in the traditional way
 
-  // Hämta användarnamn och lösenord från formuläret
+  // Get username and password from the form
   const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
 
-  // Skapa ett användarobjekt
+  // Create a user object
   const user = { username, password, loggedIn: false };
 
-  // Spara användarobjektet i localStorage
-  
+  // Store the user object in localStorage  
   localStorage.setItem(username, JSON.stringify(user));
 
-  // Stäng modalen
+  // Close the modal
   const registrationModal = bootstrap.Modal.getInstance(document.getElementById('registrationModal'));
   registrationModal.hide();
 
-  // Rensa formuläret
+  // Clear the form
   document.getElementById('registrationForm').reset();
-
-  // Valfritt: Visa ett meddelande till användaren
+  
   alert('Användare registrerad!');
 });
