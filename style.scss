@@ -177,6 +177,7 @@ body {
 
 .wrapper p {
   line-height: 1.5;
+  font-size: $font-size-medium;
 }
 
 .main-avatar-wrapper {
@@ -301,7 +302,7 @@ input[type="button"].removeTodo .editTodo{
 
 }
 
-select {
+.bulletjournal-todo select {
   background-color: $background-primary;
   padding: 15px; 
   width: 120%; 
