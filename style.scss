@@ -5,8 +5,7 @@
 @import "./partials/habits";
 @import "./partials/weatherapp";
 
-
- //Sass variables for colors
+//Sass variables for colors
 //   $background-primary: #e9e4fa;
 // $background-highlight-pink: #feb5c8;
 // $background-highlight-peach: #eba08b;
@@ -20,8 +19,6 @@
 // $font-size-medium: 20px;
 // $font-size-small: 16px;
 // $font-size-x-small: 12px;
-
-
 
 body {
   font-family: "Amatic SC", sans-serif;
@@ -185,6 +182,7 @@ body {
   margin-top: 50px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .avatar-div img {
@@ -195,19 +193,13 @@ body {
 
 .avatar-greeting {
   background-color: $background-highlight-peach;
-  width: 80%;
-  height: 45px;
+  padding: 0.5em;
+  color: $font-color-tertriary;
   border-radius: 20px;
-  font-size: 32px;
-  padding: 25px 25px 25px 25px;
+  font-size: $font-size-large;
   text-align: center;
-  font-weight: bold;
-  color: white;
-  z-index: 0;
-  margin-top: -20px;
+  font-weight: 700;
 }
-
-
 
 /* Media query for smaller screens */
 @media (max-width: 768px) {
@@ -216,10 +208,7 @@ body {
   }
 }
 
-
-
-
-/* TO DO - SIDAN */ 
+/* TO DO - SIDAN */
 
 .todo-h1 {
   font-weight: bolder;
@@ -228,19 +217,17 @@ body {
   -webkit-text-stroke-color: #000000;
   text-shadow: 1px 1px 5px #000000;
   text-align: center;
-  color: $background-highlight-green; 
-  margin: 0px; 
+  color: $background-highlight-green;
+  margin: 0px;
 }
 
 .todo-list-div {
-
   background-color: $background-primary;
-  border-radius: 20px; 
-  max-height: 300px; 
-  width: 100%; 
+  border-radius: 20px;
+  max-height: 300px;
+  width: 100%;
   text-align: left;
-  overflow-y: auto; /* FUNKAR EJ */ 
-
+  overflow-y: auto; /* FUNKAR EJ */
 }
 
 #todo-list-ul li {
@@ -248,11 +235,10 @@ body {
   overflow-y: auto;
 }
 
-// Försökte styla knapparna som kommer upp i DOM:en 
-input[type="button"].removeTodo .editTodo{
+// Försökte styla knapparna som kommer upp i DOM:en
+input[type="button"].removeTodo .editTodo {
   background-color: $background-highlight-green;
 }
-
 
 .todo-h2 {
   font-size: $font-size-large;
@@ -261,8 +247,7 @@ input[type="button"].removeTodo .editTodo{
   text-shadow: 1px 1px 5px #000000;
   text-align: center;
   font-weight: bolder;
-  color: $background-highlight-green; 
-
+  color: $background-highlight-green;
 }
 
 // Wrappers för inputfält ----------------
@@ -274,60 +259,58 @@ input[type="button"].removeTodo .editTodo{
 .todo-wrapper {
   display: flex;
   justify-content: center;
-  gap: 35%; 
-  margin-right: 30px; 
+  gap: 35%;
+  margin-right: 30px;
 }
 // ----------------------------------------
 
 .todo-wrapper input {
-
   background-color: $background-primary;
   font-family: "Amatic SC";
-  padding: 15px; 
-  width: 100%;  
+  padding: 15px;
+  width: 100%;
   font-size: $font-size-medium;
   font-weight: bold;
-  border: none; 
-  outline: none; 
-  outline: $background-primary; 
+  border: none;
+  outline: none;
+  outline: $background-primary;
   border-radius: 20px;
-  padding-left: 20px; 
-
-
-} 
+  padding-left: 20px;
+}
 
 .todo-divider-one option {
   background-color: $background-primary;
-
 }
 
 select {
   background-color: $background-primary;
-  padding: 15px; 
-  width: 120%; 
-  border-radius: 20px; 
-  font-family: "Amatic SC"; 
+  padding: 15px;
+  width: 120%;
+  border-radius: 20px;
+  font-family: "Amatic SC";
   font-size: $font-size-medium;
   font-weight: bold;
-  color: $font-color-secondary; 
-  outline: none; 
-  border: none; 
+  color: $font-color-secondary;
+  outline: none;
+  border: none;
 }
 
-select:focus input:focus select:active input:active {
-  outline: none; 
-  border: none; 
-
+select:focus
+  input:focus
+  select:active
+  input:active {
+  outline: none;
+  border: none;
 }
-// KNAPP FÖR ATT LÄGGA TILL TO-DO:S 
+// KNAPP FÖR ATT LÄGGA TILL TO-DO:S
 #add-todo {
   background-color: $background-highlight-green;
-  padding: 10px; 
+  padding: 10px;
   font-family: "Amatic SC";
   font-size: $font-size-medium;
   font-weight: bolder;
-  width: 95%; 
-  border: none; 
+  width: 95%;
+  border: none;
   border-radius: 20px;
 }
 
@@ -336,24 +319,21 @@ select:focus input:focus select:active input:active {
 }
 
 #filter-todo-status {
-  width: 25%; 
-  padding: 5px; 
+  width: 25%;
+  padding: 5px;
 }
 
 #filter-todos {
   background-color: $background-highlight-green;
-  padding: 10px; 
+  padding: 10px;
   font-family: "Amatic SC";
   font-size: $font-size-medium;
   font-weight: bolder;
-  width: 95%; 
-  border: none; 
+  width: 95%;
+  border: none;
   border-radius: 20px;
-
 }
 
 #filter-todos:hover {
   background-color: #bcc97a;
 }
-
-
