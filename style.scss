@@ -1,7 +1,10 @@
 /* style.css */
 @import "./partials/index";
-@import "./partials/variabler";
+@import "./partials/variables";
 @import "./partials/mixins";
+@import "./partials/habits";
+@import "./partials/weatherapp";
+
 
  //Sass variables for colors
 //   $background-primary: #e9e4fa;
@@ -174,6 +177,7 @@ body {
 
 .wrapper p {
   line-height: 1.5;
+  font-size: $font-size-medium;
 }
 
 .main-avatar-wrapper {
@@ -204,27 +208,7 @@ body {
   margin-top: -20px;
 }
 
-.main-weather-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  margin-top: auto;
-  margin-bottom: 50px;
-}
 
-.weather-div {
-  background-color: $background-highlight-peach;
-  color: white;
-  width: 200px;
-  height: 300px;
-  text-align: center;
-  border-radius: 20px;
-}
-
-.weather-info {
-  font-family: "Arial";
-  font-weight: 800;
-}
 
 /* Media query for smaller screens */
 @media (max-width: 768px) {
@@ -318,7 +302,7 @@ input[type="button"].removeTodo .editTodo{
 
 }
 
-select {
+.bulletjournal-todo select {
   background-color: $background-primary;
   padding: 15px; 
   width: 120%; 
@@ -372,3 +356,5 @@ select:focus input:focus select:active input:active {
 #filter-todos:hover {
   background-color: #bcc97a;
 }
+
+

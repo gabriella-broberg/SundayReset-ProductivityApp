@@ -1,0 +1,226 @@
+@import "./variables";
+
+.bulletjournal-habits h1 {
+  font-weight: bolder;
+  font-size: 72px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000000;
+  text-shadow: 2px 4px 10px #000000;
+  text-align: center;
+  color: $background-highlight-peach;
+  margin: 0px;
+  margin-bottom: 30px;
+}
+
+.bulletjournal-habits h2 {
+  font-size: $font-size-large;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000000;
+  text-shadow: 1px #000000;
+  text-align: center;
+  font-weight: bolder;
+  color: $background-highlight-peach;
+
+}
+
+.bulletjournal-habits p {
+  font-size: $font-size-medium;
+}
+
+
+.habitInfo {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+#addRoutineButton {
+  background-color: $background-highlight-peach;
+  padding: 10px;
+  font-family: "Amatic SC";
+  font-size: $font-size-medium;
+  font-weight: bolder;
+  width: 95%;
+  border: none;
+  border-radius: 20px;
+  margin-top: 15px;
+  margin-bottom: 30px;
+
+}
+
+
+#addRoutineButton:hover {
+  background-color: #e29884;
+}
+
+
+
+#priority,
+#routineTitle {
+  background-color: $background-primary;
+  padding: 10px;
+  border-radius: 20px;
+  font-family: "Amatic SC";
+  font-size: 20px;
+  font-weight: bold;
+  color: #8a8a8a;
+  outline: none;
+  border: none;
+
+}
+
+#routineTitle {
+  width: 80%;
+}
+
+
+#priority:hover,
+#routineTitle:hover {
+  background-color: #dbd6eb;
+}
+
+
+//sort-wrapper 
+.sort-wrapper {
+  color: #8a8a8a;
+  text-align: right;
+  margin-bottom: 10px;
+
+}
+
+//sortStreakButton
+
+#sortStreakButton {
+  background-color: $background-primary;
+  padding: 5px 20px 5px 20px;
+  font-family: "Amatic SC";
+  font-size: $font-size-medium;
+  font-weight: bolder;
+  border: none;
+  border-radius: 20px;
+  color: #8a8a8a;
+  display: inline-block;
+}
+
+#sortStreakButton:hover {
+  background-color: #dbd6eb;
+}
+
+#sortPriorityButton {
+  background-color: $background-primary;
+  padding: 5px 25px 5px 25px;
+  font-family: "Amatic SC";
+  font-size: $font-size-medium;
+  font-weight: bolder;
+  border: none;
+  border-radius: 20px;
+  color: #8a8a8a;
+  display: inline-block;
+}
+
+#sortPriorityButton:hover {
+  background-color: #dbd6eb;
+}
+
+//habitcontainer
+.habitContainer {
+  border: 5px solid $background-primary;
+  border-radius: 20px;
+  height: 400px;
+  text-align: left;
+  overflow-y: auto;
+
+}
+
+//habitList
+
+.title {
+  color: $background-highlight-peach;
+  text-decoration: underline;
+ 
+}
+
+
+.increase {
+  border-radius: 50%;
+  border: none;
+  background-color: $background-highlight-green;
+  height: 25px;
+  width: 25px;
+  display: inline-block;
+
+}
+
+.increase:hover {
+  background-color: #c6d57c;
+}
+
+.decrease {
+  border-radius: 50%;
+  border: none;
+  background-color: $background-highlight-peach;
+  height: 25px;
+  width: 25px;
+  display: inline-block;
+}
+
+.decrease:hover {
+  background-color: #e29884;
+}
+
+
+.reset {
+  border-radius: 50%;
+  border: none;
+  background-color: $background-highlight-blue;
+  height: 25px;
+  width: 25px;
+  display: inline-block;
+}
+
+.reset:hover {
+  background-color: #b4d7de;
+}
+
+.delete {
+  border-radius: 50%;
+  border: none;
+  height: 25px;
+  width: 25px;
+  display: inline-block;
+
+
+}
+
+.delete:hover {
+  color: #ff0000;
+}
+
+
+
+
+.habit-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $background-primary;
+  margin-bottom: 5px;
+}
+
+.info-container {
+  font-weight: 800;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* Adjust the gap as needed */
+}
+
+.button-container {
+  text-align: left;
+}
+
+.button-container2 {
+  margin-right: 30px;
+}
