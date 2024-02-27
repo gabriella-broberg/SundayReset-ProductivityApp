@@ -587,15 +587,9 @@ body {
 .todo-list-div {
   background-color: #e9e4fa;
   border-radius: 20px;
-  max-height: 300px;
+  height: 200px;
   width: 100%;
   text-align: left;
-  overflow-y: auto; /* FUNKAR EJ */
-}
-
-#todo-list-ul li {
-  max-height: 100px;
-  overflow-y: auto;
 }
 
 input[type=button].removeTodo .editTodo {
@@ -693,4 +687,28 @@ select:focus input:focus select:active input:active {
 
 #filter-todos:hover {
   background-color: #bcc97a;
+}
+
+.todo-remove {
+  border-radius: 50%;
+  background-color: lightgray;
+  border: lightgray;
+  height: 25px;
+  width: 25px;
+}
+
+.todo-edit {
+  border-radius: 50%;
+  background-color: #cfdf83;
+  border: #cfdf83;
+  height: 25px;
+  width: 25px;
+}
+
+.todo-edit:hover {
+  background-color: #c6d57c;
+}
+
+.todo-remove:hover {
+  color: #ff0000;
 }/*# sourceMappingURL=style.css.map */

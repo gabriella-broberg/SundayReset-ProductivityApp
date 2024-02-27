@@ -40,7 +40,6 @@ function getLocalStorageData (key) {
 
 
 // FUNKTION FÖR EDIT
-
 function addEditButtonListeners() {
 
     todoArray.forEach((todo, id) => {
@@ -58,6 +57,7 @@ function addEditButtonListeners() {
 // Funktion för att fylla i inputfälten med information från en todo
 
 function fillInputFields(todo) {
+
 
     document.getElementById("todo-input-title").value = todo.title;
     document.getElementById("todo-input-description").value = todo.description;
@@ -85,8 +85,8 @@ let displayTodos = () => {
             Estimated time: ${todo.estimatedtime}<br>
             Category: ${todo.category}<br>
             Deadline: ${todo.deadline}<br>
-            <button id="removeTodo${id}" style="background-color: #eba08b">Remove to-do!</button>
-            <button id="editTodo${id}" style="background-color: #cfdf83">Edit to-do!</button>
+            <button class="fa-solid fa-trash todo-remove" id="removeTodo${id}"></button>
+            <button class="fa-solid fa-pen todo-edit" id="editTodo${id}"></button>
         `;
 
         todoListUl.appendChild(li); 
@@ -98,6 +98,13 @@ let displayTodos = () => {
 
             const todoToRemove = document.getElementById(`removeTodo${id}`).closest("li");
             todoToRemove.remove();
+            todoArray.splice(id, 1); // Tar bort todo:s från arrayen så de inte upprepar sig när man lägger till nya todo:s 
+
+            // Tar bort scrollbaren när arrayen är tom
+            if (todoArray.length === 0) {
+
+                todoListUl.style.overflowY = "hidden";
+            }
 
         });
     });
@@ -107,7 +114,7 @@ let displayTodos = () => {
 
     // Scrollbeteende för div & ul
     todoListUl.style.overflowY = "scroll"; 
-    let maxListHeight = 170;
+    let maxListHeight = 200;
     let listHeight = Math.min(todoListUl.scrollHeight, maxListHeight);
     todoListUl.style.maxHeight = listHeight + "px"; 
 
@@ -128,7 +135,6 @@ document.getElementById("add-todo").addEventListener("click", () => {
     // Lägg till todo i todoArray
     todoArray.push ({
 
-        //id: 1,  Bör lägga in ett ID för varje to-do:? 
         title: todoInputTitle,
         description: todoInputDescription,
         status: todoInputStatus,
@@ -255,7 +261,6 @@ filterTodosBtn.addEventListener("click", () => {
         } else {
     
             // Om deadline är densamma, sortera efter status (done före not-done)
-    
             if (a.status === "done" && b.status === "not-done") {
     
                 return 1;
@@ -273,59 +278,59 @@ filterTodosBtn.addEventListener("click", () => {
     });
     
     let todoListUl = document.getElementById("todo-list-ul");
-    todoListUl.innerHTML = "";
 
-        filteredTodos.forEach((todo, id) => {
 
-            const li = document.createElement("li");
+    filteredTodos.forEach((todo, id) => {
+
+        const li = document.createElement("li");
+
+        li.innerHTML =
+             `
+            <h3>Title: ${todo.title}</h3>
+            <p>Description: ${todo.description}<br>
+            Status: ${todo.status}<br>
+            Estimated time: ${todo.estimatedtime}<br>
+            Category: ${todo.category}<br>
+            Deadline: ${todo.deadline}<br>
+            <button class="fa-solid fa-trash todo-remove" id="removeTodo${id}"></button>
+            <button class="fa-solid fa-pen todo-edit" id="editTodo${id}"></button>
+        `;
+
+        todoListUl.appendChild(li); 
     
-            li.innerHTML =
-                 `
-                <h2>Filtered To-do:s</h2>
-                <h3>Title: ${todo.title}</h3>
-                <p>Description: ${todo.description}<br>
-                Status: ${todo.status}<br>
-                Estimated time: ${todo.estimatedtime}<br>
-                Category: ${todo.category}<br>
-                Deadline: ${todo.deadline}<br>
-                <button id="removeTodo${id}" style="background-color: #eba08b">Remove to-do!</button>
-                <button id="editTodo${id}" style="background-color: #cfdf83">Edit to-do!</button>
-            `;
+        let removeTodoBtn = document.getElementById(`removeTodo${id}`);
+        let editTodoBtn = document.getElementById(`editTodo${id}`);
+    
+        // RADERAKNAPPEN FÖR VARJE TODO SOM FILTRERATS
+        removeTodoBtn.addEventListener("click", () => {
 
-            todoListUl.appendChild(li); 
+            const todoToRemove = document.getElementById(`removeTodo${id}`).closest("li");
+            todoToRemove.remove();
+            tempTodoArray.splice(id, 1);
 
+        });
+    
+        // REDIGERAKNAPPEN FÖR VARJE TODO SOM FILTRERATS
+        editTodoBtn.addEventListener("click", () => {
 
-            // RADERA OCH REDIGERA TO-DO:S I FILTRERADE LISTAN
-            let removeTodoBtn = document.getElementById(`removeTodo${id}`);
-            let editTodoBtn = document.getElementById(`editTodo${id}`);
-
-
-            // RADERAKNAPPEN FÖR FILTRERADE TO-DO:S
-            removeTodoBtn.addEventListener("click", () => {
-
-                const todoToRemove = document.getElementById(`removeTodo${id}`).closest("li");
-                todoToRemove.remove();
-
-            });
-
-
-            // EDITKNAPPEN FÖR FILTRERADE TO-DO:S
-            tempTodoArray.forEach((todo) => {
-
-                editTodoBtn.addEventListener("click", () => {
-                
-                    fillInputFields(todo);
-                
-                });
+            fillInputFields(todo);
 
         });
 
-        // Scrollbeteende för div & ul
-        todoListUl.style.overflowY = "scroll"; 
-        let maxListHeight = 170;
-        let listHeight = Math.min(todoListUl.scrollHeight, maxListHeight);
-        todoListUl.style.maxHeight = listHeight + "px";
+            // Ser till att gömma scrollbaren när arrayen är tom samt rensa HTML för rubriken 
+            if (tempTodoArray.length === 0) {
+                todoListUl.innerHTML = "";
+                todoListUl.style.overflowY = "hidden";
 
+            } else {
+
+                todoListUl.style.overflowY = "scroll"; 
+                let maxListHeight = 200;
+                let listHeight = Math.min(todoListUl.scrollHeight, maxListHeight);
+                todoListUl.style.maxHeight = listHeight + "px";
+        
+    }   
         
 }); 
-});
+
+}); 
