@@ -1,4 +1,4 @@
-let loggedIn = false;
+import { createUser } from "./usersModule.js";
 
 document.getElementById('registrationForm').addEventListener('submit', function(event) {
   event.preventDefault(); // Prevent the form from being submitted in the traditional way
@@ -7,22 +7,19 @@ document.getElementById('registrationForm').addEventListener('submit', function(
   const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
 
-  // Create a user object
-  const user = { 
-    username, 
-    password, 
-    loggedIn: false 
-  };
+  try {
+    // Använd createUser funktionen för att skapa och lägga till den nya användaren
+    createUser(username, password);
 
-  // Store the user object in localStorage  
-  localStorage.setItem(username, JSON.stringify(user));
+    // Stäng modalen
+    const registrationModal = bootstrap.Modal.getInstance(document.getElementById('registrationModal'));
+    registrationModal.hide();
 
-  // Close the modal
-  const registrationModal = bootstrap.Modal.getInstance(document.getElementById('registrationModal'));
-  registrationModal.hide();
-
-  // Clear the form
-  document.getElementById('registrationForm').reset();
-  
-  alert('Användare registrerad!');
+    // Rensa formuläret
+    document.getElementById('registrationForm').reset();
+    
+    alert('Användare registrerad!');
+  } catch (error) {
+    alert(error.message); // Visa felmeddelande om användarnamnet redan är taget
+  }
 });

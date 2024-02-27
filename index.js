@@ -1,20 +1,21 @@
-let loginUser = () => {
+import { loginUser } from "./usersModule.js";
+
+const login = document.querySelector('#loginButton');
+
+login.addEventListener('click', function(event) {
+  event.preventDefault();
+
   const username = document.querySelector('#usernameInput').value;
   const password = document.querySelector('#passwordInput').value;
 
-  const userString = localStorage.getItem(username);
-  const user = userString ? JSON.parse(userString) : null;
-// If the user exists and the password is correct, update the login state
-  if (user && user.password === password) {
-    user.loggedIn = true;
-    // Resave the updated user object in localStorage
-    localStorage.setItem(username, JSON.stringify(user));
-    
-    window.location.href = 'todo.html';
-  } else {
-    alert("Wrong username or password.");
-  }
-}
+  try {
+    // Försök logga in användaren med de angivna uppgifterna
+    loginUser(username, password);
 
-const login = document.querySelector('#loginButton');
-login.addEventListener('click', loginUser);
+    alert('Du är nu inloggad!');
+    // Här kan du hantera vad som ska hända efter en lyckad inloggning
+  } catch (error) {
+      alert(error.message); // Visa felmeddelande om inloggningen misslyckas
+  }
+
+});
