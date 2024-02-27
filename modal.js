@@ -8,7 +8,11 @@ document.getElementById('registrationForm').addEventListener('submit', function(
   const password = document.getElementById('password').value;
 
   // Create a user object
-  const user = { username, password, loggedIn: false };
+  const user = { 
+    username, 
+    password, 
+    loggedIn: false 
+  };
 
   // Store the user object in localStorage  
   localStorage.setItem(username, JSON.stringify(user));
