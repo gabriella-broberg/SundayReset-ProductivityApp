@@ -2,7 +2,47 @@
 let todoArray = []; 
 
 
+// Användarspecifik array med todo:s kopplade till den inloggade användaren
+let userArray = [{
+
+    username: "username", // Mejladress
+    password: "password", 
+    loggedIn: false,
+    todos: todoArray,
+    habits: "Gabbys array", 
+
+}]; 
+
+
+// LOCAL STORAGE-FUNKTION KOMMER HÄR: ska vara användarspecifik.
+
+function getLocalStorageData (key) {
+
+    const getData = localStorage.getItem(key);
+    return JSON.parse(getData);
+
+}
+
+// Hämta todos från local storage
+// let todos = getLocalStorageData('todos');
+// console.log(todos);
+
+// Hämta användarinställningar från local storage
+// let settings = getLocalStorageData('userSettings');
+// console.log(settings);
+
+// Hämta arrayen från local storage med nyckeln 'myArray'
+// let myArray = getLocalStorageData('myArray');
+
+
+// ---------------------------------- //
+
+
+
+// FUNKTION FÖR EDIT
+
 function addEditButtonListeners() {
+
     todoArray.forEach((todo, id) => {
 
         const editTodoBtn = document.getElementById(`editTodo${id}`);
@@ -87,12 +127,15 @@ document.getElementById("add-todo").addEventListener("click", () => {
 
     // Lägg till todo i todoArray
     todoArray.push ({
+
+        //id: 1,  Bör lägga in ett ID för varje to-do:? 
         title: todoInputTitle,
         description: todoInputDescription,
         status: todoInputStatus,
         estimatedtime: todoInputEstimatedTime, 
         category: todoInputCategory, 
         deadline: todoInputDeadline,  
+    
     });
 
     // Rensa inputfälten
@@ -251,14 +294,38 @@ filterTodosBtn.addEventListener("click", () => {
 
             todoListUl.appendChild(li); 
 
+
+            // RADERA OCH REDIGERA TO-DO:S I FILTRERADE LISTAN
+            let removeTodoBtn = document.getElementById(`removeTodo${id}`);
+            let editTodoBtn = document.getElementById(`editTodo${id}`);
+
+
+            // RADERAKNAPPEN FÖR FILTRERADE TO-DO:S
+            removeTodoBtn.addEventListener("click", () => {
+
+                const todoToRemove = document.getElementById(`removeTodo${id}`).closest("li");
+                todoToRemove.remove();
+
+            });
+
+
+            // EDITKNAPPEN FÖR FILTRERADE TO-DO:S
+            tempTodoArray.forEach((todo) => {
+
+                editTodoBtn.addEventListener("click", () => {
+                
+                    fillInputFields(todo);
+                
+                });
+
         });
 
         // Scrollbeteende för div & ul
         todoListUl.style.overflowY = "scroll"; 
         let maxListHeight = 170;
         let listHeight = Math.min(todoListUl.scrollHeight, maxListHeight);
-        todoListUl.style.maxHeight = listHeight + "px"; 
+        todoListUl.style.maxHeight = listHeight + "px";
 
-        addEditButtonListeners(); 
-        // Måste lägga till en knapp för radera också utanför befintligt scope 
+        
 }); 
+});
