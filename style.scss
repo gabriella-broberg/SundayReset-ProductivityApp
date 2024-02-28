@@ -4,6 +4,7 @@
 @import "./partials/mixins";
 @import "./partials/habits";
 @import "./partials/weatherapp";
+@import "./partials/avatar";
 
 
  //Sass variables for colors
@@ -180,35 +181,6 @@ body {
   font-size: $font-size-medium;
 }
 
-.main-avatar-wrapper {
-  display: flex;
-  margin-bottom: auto;
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-}
-
-.avatar-div img {
-  border-radius: 100%;
-  width: 200px;
-  height: 200px;
-}
-
-.avatar-greeting {
-  background-color: $background-highlight-peach;
-  width: 80%;
-  height: 45px;
-  border-radius: 20px;
-  font-size: 32px;
-  padding: 25px 25px 25px 25px;
-  text-align: center;
-  font-weight: bold;
-  color: white;
-  z-index: 0;
-  margin-top: -20px;
-}
-
-
 
 /* Media query for smaller screens */
 @media (max-width: 768px) {
@@ -216,9 +188,6 @@ body {
     max-width: 100%;
   }
 }
-
-
-
 
 /* TO DO - SIDAN */ 
 
