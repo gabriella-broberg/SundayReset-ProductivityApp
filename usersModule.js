@@ -1,8 +1,11 @@
+import { DailyRoutine } from "./habits.js";
+
 class User {
   constructor(username, password) {
     this.username = username;
     this.password = password;
     this.loggedIn = false;
+    this.habits = []; 
   }
 }
 
@@ -39,5 +42,6 @@ function loginUser(username, password) {
   saveUsers(users);
   window.location.href = 'todo.html';
 }
+
 
 export { createUser, loginUser };
