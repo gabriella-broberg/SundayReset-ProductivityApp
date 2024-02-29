@@ -31,16 +31,21 @@ body {
   background-size: cover;
   background-color: white;
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   align-items: center;
-  justify-content: center;
-  gap: 100px; // Avstånd mellan bullet journal och avatar m.m.
+  justify-content: space-around;
+  // gap: 100px; // Avstånd mellan bullet journal och avatar m.m.
+  @media #{$mobile} {
+    flex-direction: column;
+    gap: 1em;
+  }
 }
 
 .wrapper {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  min-width: 50%;
 }
 
 .menu {
@@ -50,11 +55,12 @@ body {
   display: flex;
   flex-direction: column;
   margin-top: 100px;
+
 }
 
 .menu a {
   text-decoration: none;
-  font-size: 36px;
+  font-size: $font-size-large;
   color: $font-color-primary;
   padding: 50px 10px;
   margin-bottom: 10px;
@@ -63,6 +69,9 @@ body {
   transform: rotate(360deg);
   /* Fix for Firefox and Safari */
   transition: background-color 0.3s ease;
+  @media #{$mobile} {
+    padding: 14px 0;
+  }
 
   /* Add a smooth transition effect */
   &:hover {
@@ -100,8 +109,8 @@ body {
 .bulletjournal {
   font-family: "Amatic SC", sans-serif;
   text-align: center;
-  width: 687px;
-  height: 932px;
+  width: 100%;
+  min-height: fit-content;
   background-color: white;
   border-radius: 20px;
   border: 15px solid $font-color-primary;
@@ -115,13 +124,13 @@ body {
 .bulletjournal-todo {
   font-family: "Amatic SC", sans-serif;
   text-align: center;
-  width: 687px;
-  height: 932px;
+  width: 100%;
+  // height: 95vh;
   background-color: white;
-  border-radius: 20px;
+  border-radius: $radius-large;
   border: 15px solid $background-highlight-yellow;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 50px 0 50px 50px;
+  // margin: 50px 0 50px 50px;
   padding: 20px;
   box-sizing: border-box;
   color: $font-color-primary;
@@ -182,12 +191,12 @@ body {
 }
 
 
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-  .wrapper {
-    max-width: 100%;
-  }
-}
+// /* Media query for smaller screens */
+// @media (max-width: 768px) {
+//   .wrapper {
+//     max-width: 100%;
+//   }
+// }
 
 /* TO DO - SIDAN */ 
 
