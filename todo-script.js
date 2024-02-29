@@ -16,12 +16,22 @@ let userArray = [{
 
 // LOCAL STORAGE-FUNKTION KOMMER HÄR: ska vara användarspecifik.
 
+
+
+
+
+
 function getLocalStorageData (key) {
 
     const getData = localStorage.getItem(key);
     return JSON.parse(getData);
 
 }
+
+
+
+
+
 
 // Hämta todos från local storage
 // let todos = getLocalStorageData('todos');
@@ -319,6 +329,7 @@ filterTodosBtn.addEventListener("click", () => {
 
             // Ser till att gömma scrollbaren när arrayen är tom samt rensa HTML för rubriken 
             if (tempTodoArray.length === 0) {
+
                 todoListUl.innerHTML = "";
                 todoListUl.style.overflowY = "hidden";
 
