@@ -206,17 +206,17 @@ body {
 
   background-color: $background-primary;
   border-radius: 20px; 
-  max-height: 300px; 
+  height: 200px; 
   width: 100%; 
   text-align: left;
-  overflow-y: auto; /* FUNKAR EJ */ 
+  // overflow-y: auto; /* FUNKAR EJ */ 
 
 }
 
-#todo-list-ul li {
-  max-height: 100px;
-  overflow-y: auto;
-}
+// #todo-list-ul li {
+//   // max-height: 100px;
+//   // overflow-y: auto;
+// }
 
 // Försökte styla knapparna som kommer upp i DOM:en 
 input[type="button"].removeTodo .editTodo{
@@ -327,3 +327,36 @@ select:focus input:focus select:active input:active {
 }
 
 
+// KNAPPAR FÖR ATT REDIGERA OCH TA BORT TO-DO:S
+
+.todo-remove {
+
+  border-radius: 50%;
+  background-color: lightgray;
+  border: lightgray; 
+  height: 25px;
+  width: 25px;
+
+}
+
+.todo-edit {
+
+  border-radius: 50%;
+  background-color: $background-highlight-green;
+  border: $background-highlight-green;
+  height: 25px;
+  width: 25px;
+
+}
+
+.todo-edit:hover {
+
+    background-color: #c6d57c;
+
+}
+
+.todo-remove:hover {
+
+    color: #ff0000;
+  
+}
