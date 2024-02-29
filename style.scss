@@ -327,36 +327,22 @@ select:focus input:focus select:active input:active {
 }
 
 
-// KNAPPAR FÖR ATT REDIGERA OCH TA BORT TO-DO:S
-
-.todo-remove {
-
-  border-radius: 50%;
-  background-color: lightgray;
-  border: lightgray; 
-  height: 25px;
-  width: 25px;
-
+.logout {
+ 
+  z-index: 1; /* Ensure the button appears above other elements */
 }
 
-.todo-edit {
-
-  border-radius: 50%;
-  background-color: $background-highlight-green;
-  border: $background-highlight-green;
-  height: 25px;
-  width: 25px;
-
+#LogoutButton {
+  background-color: $background-highlight-peach;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: "Amatic SC", sans-serif;
+  font-size: $font-size-medium;
 }
 
-.todo-edit:hover {
-
-    background-color: #c6d57c;
-
-}
-
-.todo-remove:hover {
-
-    color: #ff0000;
-  
+#LogoutButton:hover {
+  background-color: darken($background-highlight-peach, 10%);
 }
