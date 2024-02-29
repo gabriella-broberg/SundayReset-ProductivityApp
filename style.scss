@@ -358,3 +358,22 @@ select:focus input:focus select:active input:active {
 }
 
 
+.logout {
+ 
+  z-index: 1; /* Ensure the button appears above other elements */
+}
+
+#LogoutButton {
+  background-color: $background-highlight-peach;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: "Amatic SC", sans-serif;
+  font-size: $font-size-medium;
+}
+
+#LogoutButton:hover {
+  background-color: darken($background-highlight-peach, 10%);
+}

@@ -169,7 +169,7 @@
 
 #priority:hover,
 #routineTitle:hover {
-  background-color: #dbd6eb;
+  background-color: #c6b9f2;
 }
 
 .sort-wrapper {
@@ -191,7 +191,7 @@
 }
 
 #sortStreakButton:hover {
-  background-color: #dbd6eb;
+  background-color: #c6b9f2;
 }
 
 #sortPriorityButton {
@@ -207,7 +207,7 @@
 }
 
 #sortPriorityButton:hover {
-  background-color: #dbd6eb;
+  background-color: #c6b9f2;
 }
 
 .habitContainer {
@@ -233,7 +233,7 @@
 }
 
 .increase:hover {
-  background-color: #c6d57c;
+  background-color: #bfd55a;
 }
 
 .decrease {
@@ -246,7 +246,7 @@
 }
 
 .decrease:hover {
-  background-color: #e29884;
+  background-color: #e47c60;
 }
 
 .reset {
@@ -259,7 +259,7 @@
 }
 
 .reset:hover {
-  background-color: #b4d7de;
+  background-color: #9ad7e4;
 }
 
 .delete {
@@ -693,4 +693,23 @@ select:focus input:focus select:active input:active {
 
 #filter-todos:hover {
   background-color: #bcc97a;
+}
+
+.logout {
+  z-index: 1; /* Ensure the button appears above other elements */
+}
+
+#LogoutButton {
+  background-color: #eba08b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: "Amatic SC", sans-serif;
+  font-size: 20px;
+}
+
+#LogoutButton:hover {
+  background-color: #e47c60;
 }/*# sourceMappingURL=style.css.map */

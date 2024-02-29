@@ -77,7 +77,7 @@
 
 #priority:hover,
 #routineTitle:hover {
-  background-color: #dbd6eb;
+  background-color: darken($background-primary, 10%);
 }
 
 
@@ -104,7 +104,7 @@
 }
 
 #sortStreakButton:hover {
-  background-color: #dbd6eb;
+  background-color: darken($background-primary, 10%);
 }
 
 #sortPriorityButton {
@@ -120,7 +120,7 @@
 }
 
 #sortPriorityButton:hover {
-  background-color: #dbd6eb;
+  background-color: darken($background-primary, 10%);
 }
 
 //habitcontainer
@@ -153,7 +153,7 @@
 }
 
 .increase:hover {
-  background-color: #c6d57c;
+  background-color: darken($background-highlight-green, 10%);
 }
 
 .decrease {
@@ -166,7 +166,7 @@
 }
 
 .decrease:hover {
-  background-color: #e29884;
+  background-color: darken($background-highlight-peach, 10%);
 }
 
 
@@ -180,7 +180,7 @@
 }
 
 .reset:hover {
-  background-color: #b4d7de;
+  background-color: darken($background-highlight-blue, 10%);
 }
 
 .delete {
