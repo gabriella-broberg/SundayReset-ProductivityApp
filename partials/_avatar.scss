@@ -4,11 +4,9 @@
   align-items: center;
   margin-bottom: auto;
   margin-top: 50px;
-  max-width: 30%;
   @media #{$mobile} {
-    max-width: 100%;
     margin-top: 0;
-}
+  }
   img {
     border-radius: 100%;
     width: 15em;
@@ -24,6 +22,7 @@
     color: white;
     z-index: 0;
     margin-top: -20px;
+    max-width: 9em;
     #author {
       text-align: right;
     }

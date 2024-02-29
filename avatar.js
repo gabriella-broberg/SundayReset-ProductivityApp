@@ -14,7 +14,7 @@ const url = `https://type.fit/api/quotes`;
     let randomQuote = json[randomIndex];
     console.log(randomQuote);
 
-    // Dela strängen vid kommatecknet och behåll den första delen
+    // Split the string at the comma and keep the first part
     randomQuote.author = randomQuote.author.split(',')[0];
     
     return randomQuote;    
