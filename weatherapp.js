@@ -79,8 +79,8 @@ async function getCityName(coords) {
     } else {
       throw new Error("City not found");
     }
-  } catch (error) {
-    throw new Error("Error fetching city name");
+  } catch (error2) {
+    throw new Error2("Error fetching city name");
   }
 }
 

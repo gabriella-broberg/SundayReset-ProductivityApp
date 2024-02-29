@@ -215,17 +215,17 @@ body {
 
   background-color: $background-primary;
   border-radius: 20px; 
-  max-height: 300px; 
+  height: 200px; 
   width: 100%; 
   text-align: left;
-  overflow-y: auto; /* FUNKAR EJ */ 
+  // overflow-y: auto; /* FUNKAR EJ */ 
 
 }
 
-#todo-list-ul li {
-  max-height: 100px;
-  overflow-y: auto;
-}
+// #todo-list-ul li {
+//   // max-height: 100px;
+//   // overflow-y: auto;
+// }
 
 // Försökte styla knapparna som kommer upp i DOM:en 
 input[type="button"].removeTodo .editTodo{
@@ -336,3 +336,22 @@ select:focus input:focus select:active input:active {
 }
 
 
+.logout {
+ 
+  z-index: 1; /* Ensure the button appears above other elements */
+}
+
+#LogoutButton {
+  background-color: $background-highlight-peach;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: "Amatic SC", sans-serif;
+  font-size: $font-size-medium;
+}
+
+#LogoutButton:hover {
+  background-color: darken($background-highlight-peach, 10%);
+}

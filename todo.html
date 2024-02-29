@@ -8,8 +8,11 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Didact+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script src="weatherapp.js" defer></script>
+    
+    <script src="https://kit.fontawesome.com/28fc0eb946.js" crossorigin="anonymous"></script>
+
     <script src="avatar.js" defer></script>    
 </head>
 <body>
@@ -45,10 +48,10 @@
             <div class="todo-wrapper">
             <div class="todo-divider-one">
 
-            <input type="text" placeholder="Todo title" id="todo-input-title"/>
+            <input type="text" placeholder="To-do title" id="todo-input-title"/>
             <br>
             <br>
-            <input type="text" placeholder="Todo description" id="todo-input-description"/>
+            <input type="text" placeholder="To-do description" id="todo-input-description"/>
             <br>
             <br>
             <select name="status" id="todo-status">
@@ -78,7 +81,10 @@
             </select>
             <br>
             <br>
-            <input type="text" placeholder="Deadline YYYY-MM-DD" id="todo-deadline"/>
+
+            <!-- MÅSTE FIXAS SÅ DET FUNKAR --->
+            <input type="text" placeholder="Deadline YYYY-MM-DD" id="todo-deadline" pattern="\d{4}-\d{2}-\d{2}" required title="Deadline in format YYYY-MM-DD" />
+
             <br>
             </div>
         </div>
@@ -90,14 +96,14 @@
 
             <select name="filter-todo-status" id="filter-todo-status">
                 <option value="">Select a status</option>
-                <option value="done">Done</option>
-                <option value="not-done">Not done</option>
+                <option value="done" id="filter-done">Done</option>
+                <option value="not-done" id="filter-not-done">Not done</option>
             </select>
 
-            <input type="checkbox" name="home" />Home
-            <input type="checkbox" name="study" />Study
-            <input type="checkbox" name="work" />Work
-            <input type="checkbox" name="health" />Health
+            <input type="checkbox" name="home" id="filter-home-checkbox"/>Home
+            <input type="checkbox" name="study" id="filter-study-checkbox" />Study
+            <input type="checkbox" name="work" id="filter-work-checkbox"/>Work
+            <input type="checkbox" name="health" id="filter-health-checkbox"/>Health
             <br>
             <br> 
             <button id="filter-todos">Filter to-do:s</button>
