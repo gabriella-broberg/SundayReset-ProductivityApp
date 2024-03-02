@@ -1,52 +1,30 @@
 // habits.js
 
-class DailyRoutine {
-  constructor(title, streak, priority) {
-    this.title = title;
-    this.streak = streak;
-    this.priority = priority;
-  }
-
-  increaseStreak() {
-    this.streak++;
-  }
-
-  decreaseStreak() {
-    if (this.streak > 0) {
-      this.streak--;
-    }
-  }
-
-  resetStreak() {
-    this.streak = 0;
-  }
-}
-
 document.addEventListener("DOMContentLoaded", function () {
   // Skapa en array för att lagra dagliga rutiner
   let routines = [];
 
-  // class DailyRoutine {
-  //   constructor(title, streak, priority) {
-  //     this.title = title;
-  //     this.streak = streak;
-  //     this.priority = priority;
-  //   }
+  class DailyRoutine {
+    constructor(title, streak, priority) {
+      this.title = title;
+      this.streak = streak;
+      this.priority = priority;
+    }
 
-  //   increaseStreak() {
-  //     this.streak++;
-  //   }
+    increaseStreak() {
+      this.streak++;
+    }
 
-  //   decreaseStreak() {
-  //     if (this.streak > 0) {
-  //       this.streak--;
-  //     }
-  //   }
+    decreaseStreak() {
+      if (this.streak > 0) {
+        this.streak--;
+      }
+    }
 
-  //   resetStreak() {
-  //     this.streak = 0;
-  //   }
-  // }
+    resetStreak() {
+      this.streak = 0;
+    }
+  }
 
   function addRoutine() {
     // The browser will handle the required attribute, no need for a custom check
@@ -162,5 +140,3 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-
-export { DailyRoutine };

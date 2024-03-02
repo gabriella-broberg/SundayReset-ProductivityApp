@@ -1,5 +1,3 @@
-import { DailyRoutine } from "./habits.js";
-
 class User {
   constructor(username, password) {
     this.username = username;
