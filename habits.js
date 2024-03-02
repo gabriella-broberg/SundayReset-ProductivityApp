@@ -1,4 +1,8 @@
 // habits.js
+import { logoutUser } from "./usersModule.js";
+
+const logoutButton = document.querySelector('#LogoutButton');
+logoutButton.addEventListener('click', logoutUser);
 
 document.addEventListener("DOMContentLoaded", function () {
   // Skapa en array för att lagra dagliga rutiner

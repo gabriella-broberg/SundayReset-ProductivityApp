@@ -45,26 +45,22 @@ function loginUser(username, password) {
   window.location.href = 'todo.html';
 }
 
-function getCurrentUser() {
-  return localStorage.getItem('currentUser');
-}
-
 function logoutUser() {
-  const currentUser = getCurrentUser();
+  // Hämta det nuvarande användarnamnet direkt utan JSON.parse, eftersom det är en enkel sträng
+  const currentUser = localStorage.getItem('currentUser');
 
   if (currentUser) {
-    const userString = localStorage.getItem(currentUser);
+    // Inget behov att uppdatera användarlistan i detta fall, bara ta bort den nuvarande användaren
+    localStorage.removeItem('currentUser');
 
-    const user = JSON.parse(userString);
-
-    localStorage.setItem(currentUser, JSON.stringify(user));
-
-    localStorage.removeItem('currentUser'); 
-    // Remove the current user from localStorage
-    // Redirect to login page or main page
+    alert("Du har blivit utloggad.");
+    // Omdirigera till inloggningssidan eller hemsidan
     window.location.href = 'index.html';
+  } else {
+    alert("Ingen användare är inloggad.");
   }
 }
+
 
 
 export { createUser, loginUser, logoutUser };
