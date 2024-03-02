@@ -6,6 +6,7 @@ $background-highlight-purple: #bd69b7;
 $background-highlight-blue: #c2e7ef;
 $background-highlight-yellow: #f5ff80;
 
+
 $font-color-primary: #000000;
 $font-color-secondary: #8a8a8a;
 $font-color-tertriary: white;
@@ -14,3 +15,9 @@ $font-size-large: 32px;
 $font-size-medium: 20px;
 $font-size-small: 16px;
 $font-size-x-small: 12px;
+
+$radius-large: 20px;
+$radius-small: 5px;
+
+//Mediaqueries
+$mobile: "screen and (max-width: 500px)";

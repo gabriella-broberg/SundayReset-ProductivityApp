@@ -33,6 +33,13 @@
   font-size: 32px;
   text-align: center;
   font-weight: 700;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+@media screen and (max-width: 500px) {
+  .index-avatar-wrapper .index-avatar-greeting {
+    left: 0;
+  }
 }
 
 .index-wrapper {
@@ -53,6 +60,11 @@
   min-width: 30em;
   border-radius: 20px;
   background-color: #e9e4fa;
+}
+@media screen and (max-width: 500px) {
+  .index-login-container {
+    min-width: 95%;
+  }
 }
 .index-login-container input {
   width: 88%;
@@ -77,7 +89,8 @@
   letter-spacing: 0.1em;
 }
 .index-login-container .register-button:hover {
-  background-color: #eba08b;
+  background-color: #fd83a3;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 .index-login-container .login-button {
   width: 88%;
@@ -91,7 +104,8 @@
   letter-spacing: 0.1em;
 }
 .index-login-container .login-button:hover {
-  background-color: #cfdf83;
+  background-color: #fd83a3;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 .index-login-container input:focus {
   border: white;
@@ -167,7 +181,7 @@
 
 #priority:hover,
 #routineTitle:hover {
-  background-color: #dbd6eb;
+  background-color: #c6b9f2;
 }
 
 .sort-wrapper {
@@ -189,7 +203,7 @@
 }
 
 #sortStreakButton:hover {
-  background-color: #dbd6eb;
+  background-color: #c6b9f2;
 }
 
 #sortPriorityButton {
@@ -205,7 +219,7 @@
 }
 
 #sortPriorityButton:hover {
-  background-color: #dbd6eb;
+  background-color: #c6b9f2;
 }
 
 .habitContainer {
@@ -231,7 +245,7 @@
 }
 
 .increase:hover {
-  background-color: #c6d57c;
+  background-color: #bfd55a;
 }
 
 .decrease {
@@ -244,7 +258,7 @@
 }
 
 .decrease:hover {
-  background-color: #e29884;
+  background-color: #e47c60;
 }
 
 .reset {
@@ -257,7 +271,7 @@
 }
 
 .reset:hover {
-  background-color: #b4d7de;
+  background-color: #9ad7e4;
 }
 
 .delete {
@@ -383,6 +397,112 @@
   display: none;
 }
 
+.main-avatar-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: auto;
+  margin-top: 50px;
+}
+@media screen and (max-width: 500px) {
+  .main-avatar-wrapper {
+    margin-top: 0;
+  }
+}
+.main-avatar-wrapper img {
+  border-radius: 100%;
+  width: 15em;
+  height: 15em;
+}
+.main-avatar-wrapper .avatar-greeting {
+  background-color: #eba08b;
+  border-radius: 20px;
+  font-size: 32px;
+  padding: 0 0.5em;
+  text-align: center;
+  font-weight: 700;
+  color: white;
+  z-index: 0;
+  margin-top: -20px;
+  max-width: 9em;
+}
+.main-avatar-wrapper .avatar-greeting #author {
+  text-align: right;
+}
+
+.bulletjournal-calendar {
+  font-family: "Amatic SC", sans-serif;
+  text-align: center;
+  width: 687px;
+  height: 932px;
+  background-color: white;
+  border-radius: 20px;
+  border: 15px solid #cfdf83;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 3em 0;
+  padding: 20px;
+  box-sizing: border-box;
+  color: #000000;
+}
+
+#calendar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 89%;
+}
+
+h1 {
+  font-weight: bolder;
+  font-size: 72px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000000;
+  text-shadow: 1px 1px 5px #000000;
+  text-align: center;
+  color: #cfdf83;
+  margin: 0px;
+}
+
+h2 {
+  font-size: 32px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000000;
+  text-shadow: 1px #000000;
+  text-align: center;
+  font-weight: bolder;
+  color: #cfdf83;
+}
+
+.event-container {
+  border: 5px solid #e9e4fa;
+  border-radius: 20px;
+  height: 16em;
+  text-align: left;
+  overflow-y: auto;
+  background-color: #e9e4fa;
+}
+
+.past .event-title {
+  text-decoration: line-through;
+  color: gray;
+}
+.past li {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.event {
+  margin: 0.5em;
+  font-size: 24px;
+  font-weight: 700;
+}
+.event .event-title {
+  margin: 0 0.5em;
+}
+.event ul {
+  margin: 0;
+}
+
 body {
   font-family: "Amatic SC", sans-serif;
   background-image: url("images/polkadots-bg.jpg");
@@ -390,16 +510,22 @@ body {
   background-size: cover;
   background-color: white;
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   align-items: center;
-  justify-content: center;
-  gap: 100px;
+  justify-content: space-around;
+}
+@media screen and (max-width: 500px) {
+  body {
+    flex-direction: column;
+    gap: 1em;
+  }
 }
 
 .wrapper {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  min-width: 50%;
 }
 
 .menu {
@@ -413,7 +539,7 @@ body {
 
 .menu a {
   text-decoration: none;
-  font-size: 36px;
+  font-size: 32px;
   color: #000000;
   padding: 50px 10px;
   margin-bottom: 10px;
@@ -423,6 +549,11 @@ body {
   /* Fix for Firefox and Safari */
   transition: background-color 0.3s ease;
   /* Add a smooth transition effect */
+}
+@media screen and (max-width: 500px) {
+  .menu a {
+    padding: 14px 0;
+  }
 }
 .menu a:hover {
   background-color: #fd83a3;
@@ -455,8 +586,9 @@ body {
 .bulletjournal {
   font-family: "Amatic SC", sans-serif;
   text-align: center;
-  width: 687px;
-  height: 932px;
+  width: 100%;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
   background-color: white;
   border-radius: 20px;
   border: 15px solid #000000;
@@ -470,28 +602,11 @@ body {
 .bulletjournal-todo {
   font-family: "Amatic SC", sans-serif;
   text-align: center;
-  width: 687px;
-  height: 932px;
+  width: 100%;
   background-color: white;
   border-radius: 20px;
   border: 15px solid #f5ff80;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 50px 0 50px 50px;
-  padding: 20px;
-  box-sizing: border-box;
-  color: #000000;
-}
-
-.bulletjournal-calendar {
-  font-family: "Amatic SC", sans-serif;
-  text-align: center;
-  width: 687px;
-  height: 932px;
-  background-color: white;
-  border-radius: 20px;
-  border: 15px solid #cfdf83;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 50px 0 50px 50px;
   padding: 20px;
   box-sizing: border-box;
   color: #000000;
@@ -536,37 +651,6 @@ body {
   font-size: 20px;
 }
 
-.main-avatar-wrapper {
-  display: flex;
-  margin-bottom: auto;
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.avatar-div img {
-  border-radius: 100%;
-  width: 200px;
-  height: 200px;
-}
-
-.avatar-greeting {
-  background-color: #eba08b;
-  padding: 0.5em;
-  color: white;
-  border-radius: 20px;
-  font-size: 32px;
-  text-align: center;
-  font-weight: 700;
-}
-
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-  .wrapper {
-    max-width: 100%;
-  }
-}
 /* TO DO - SIDAN */
 .todo-h1 {
   font-weight: bolder;
@@ -582,15 +666,9 @@ body {
 .todo-list-div {
   background-color: #e9e4fa;
   border-radius: 20px;
-  max-height: 300px;
+  height: 200px;
   width: 100%;
   text-align: left;
-  overflow-y: auto; /* FUNKAR EJ */
-}
-
-#todo-list-ul li {
-  max-height: 100px;
-  overflow-y: auto;
 }
 
 input[type=button].removeTodo .editTodo {
@@ -688,4 +766,23 @@ select:focus input:focus select:active input:active {
 
 #filter-todos:hover {
   background-color: #bcc97a;
+}
+
+.logout {
+  z-index: 1; /* Ensure the button appears above other elements */
+}
+
+#LogoutButton {
+  background-color: #eba08b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: "Amatic SC", sans-serif;
+  font-size: 20px;
+}
+
+#LogoutButton:hover {
+  background-color: #e47c60;
 }/*# sourceMappingURL=style.css.map */

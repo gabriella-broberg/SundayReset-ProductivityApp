@@ -4,6 +4,9 @@
 @import "./partials/mixins";
 @import "./partials/habits";
 @import "./partials/weatherapp";
+@import "./partials/avatar";
+@import "./partials/calendar";
+
 
 //Sass variables for colors
 //   $background-primary: #e9e4fa;
@@ -27,16 +30,21 @@ body {
   background-size: cover;
   background-color: white;
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   align-items: center;
-  justify-content: center;
-  gap: 100px; // Avstånd mellan bullet journal och avatar m.m.
+  justify-content: space-around;
+  // gap: 100px; // Avstånd mellan bullet journal och avatar m.m.
+  @media #{$mobile} {
+    flex-direction: column;
+    gap: 1em;
+  }
 }
 
 .wrapper {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  min-width: 50%;
 }
 
 .menu {
@@ -46,11 +54,12 @@ body {
   display: flex;
   flex-direction: column;
   margin-top: 100px;
+
 }
 
 .menu a {
   text-decoration: none;
-  font-size: 36px;
+  font-size: $font-size-large;
   color: $font-color-primary;
   padding: 50px 10px;
   margin-bottom: 10px;
@@ -59,6 +68,9 @@ body {
   transform: rotate(360deg);
   /* Fix for Firefox and Safari */
   transition: background-color 0.3s ease;
+  @media #{$mobile} {
+    padding: 14px 0;
+  }
 
   /* Add a smooth transition effect */
   &:hover {
@@ -96,8 +108,8 @@ body {
 .bulletjournal {
   font-family: "Amatic SC", sans-serif;
   text-align: center;
-  width: 687px;
-  height: 932px;
+  width: 100%;
+  min-height: fit-content;
   background-color: white;
   border-radius: 20px;
   border: 15px solid $font-color-primary;
@@ -111,32 +123,32 @@ body {
 .bulletjournal-todo {
   font-family: "Amatic SC", sans-serif;
   text-align: center;
-  width: 687px;
-  height: 932px;
+  width: 100%;
+  // height: 95vh;
   background-color: white;
-  border-radius: 20px;
+  border-radius: $radius-large;
   border: 15px solid $background-highlight-yellow;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 50px 0 50px 50px;
+  // margin: 50px 0 50px 50px;
   padding: 20px;
   box-sizing: border-box;
   color: $font-color-primary;
 }
 
-.bulletjournal-calendar {
-  font-family: "Amatic SC", sans-serif;
-  text-align: center;
-  width: 687px;
-  height: 932px;
-  background-color: white;
-  border-radius: 20px;
-  border: 15px solid $background-highlight-green;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 50px 0 50px 50px;
-  padding: 20px;
-  box-sizing: border-box;
-  color: $font-color-primary;
-}
+// .bulletjournal-calendar {
+//   font-family: "Amatic SC", sans-serif;
+//   text-align: center;
+//   width: 687px;
+//   height: 932px;
+//   background-color: white;
+//   border-radius: 20px;
+//   border: 15px solid $background-highlight-green;
+//   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+//   margin: 50px 0 50px 50px;
+//   padding: 20px;
+//   box-sizing: border-box;
+//   color: $font-color-primary;
+// }
 
 .bulletjournal-habits {
   font-family: "Amatic SC", sans-serif;
@@ -177,37 +189,13 @@ body {
   font-size: $font-size-medium;
 }
 
-.main-avatar-wrapper {
-  display: flex;
-  margin-bottom: auto;
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-.avatar-div img {
-  border-radius: 100%;
-  width: 200px;
-  height: 200px;
-}
-
-.avatar-greeting {
-  background-color: $background-highlight-peach;
-  padding: 0.5em;
-  color: $font-color-tertriary;
-  border-radius: 20px;
-  font-size: $font-size-large;
-  text-align: center;
-  font-weight: 700;
-}
-
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-  .wrapper {
-    max-width: 100%;
-  }
-}
+// /* Media query for smaller screens */
+// @media (max-width: 768px) {
+//   .wrapper {
+//     max-width: 100%;
+//   }
+// }
 
 /* TO DO - SIDAN */
 
@@ -224,17 +212,18 @@ body {
 
 .todo-list-div {
   background-color: $background-primary;
-  border-radius: 20px;
-  max-height: 300px;
-  width: 100%;
+  border-radius: 20px; 
+  height: 200px; 
+  width: 100%; 
   text-align: left;
-  overflow-y: auto; /* FUNKAR EJ */
+  // overflow-y: auto; /* FUNKAR EJ */ 
+
 }
 
-#todo-list-ul li {
-  max-height: 100px;
-  overflow-y: auto;
-}
+// #todo-list-ul li {
+//   // max-height: 100px;
+//   // overflow-y: auto;
+// }
 
 // Försökte styla knapparna som kommer upp i DOM:en
 input[type="button"].removeTodo .editTodo {
@@ -337,4 +326,25 @@ select:focus
 
 #filter-todos:hover {
   background-color: #bcc97a;
+}
+
+
+.logout {
+ 
+  z-index: 1; /* Ensure the button appears above other elements */
+}
+
+#LogoutButton {
+  background-color: $background-highlight-peach;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: "Amatic SC", sans-serif;
+  font-size: $font-size-medium;
+}
+
+#LogoutButton:hover {
+  background-color: darken($background-highlight-peach, 10%);
 }
