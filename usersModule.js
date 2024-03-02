@@ -4,8 +4,6 @@ class User {
   constructor(username, password) {
     this.username = username;
     this.password = password;
-    this.loggedIn = false;
-    this.habits = []; 
   }
 }
 
@@ -32,16 +30,43 @@ function createUser(username, password) {
 
 function loginUser(username, password) {
   const users = getUsers();
+
   if (!users[username]) {
-    throw new Error('Användaren finns inte.');
+    throw new Error('User does not exist.');
   }
   if (users[username].password !== password) {
-    throw new Error('Felaktigt lösenord.');
+    throw new Error('Wrong password.');
   }
-  users[username].loggedIn = true;
-  saveUsers(users);
+  
+  // Update the specific user in localStoragege
+  localStorage.setItem('users', JSON.stringify(users)); 
+  // Update the entire user list including login permissions
+  
+  localStorage.setItem('currentUser', username); // Spara den nuvarande inloggade användarens användarnamn
+
   window.location.href = 'todo.html';
 }
 
+function getCurrentUser() {
+  return localStorage.getItem('currentUser');
+}
 
-export { createUser, loginUser };
+function logoutUser() {
+  const currentUser = getCurrentUser();
+
+  if (currentUser) {
+    const userString = localStorage.getItem(currentUser);
+
+    const user = JSON.parse(userString);
+
+    localStorage.setItem(currentUser, JSON.stringify(user));
+
+    localStorage.removeItem('currentUser'); 
+    // Remove the current user from localStorage
+    // Redirect to login page or main page
+    window.location.href = 'index.html';
+  }
+}
+
+
+export { createUser, loginUser, logoutUser };
