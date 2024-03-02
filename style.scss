@@ -5,6 +5,7 @@
 @import "./partials/habits";
 @import "./partials/weatherapp";
 @import "./partials/avatar";
+@import "./partials/calendar";
 
 
  //Sass variables for colors
@@ -136,20 +137,20 @@ body {
   color: $font-color-primary;
 }
 
-.bulletjournal-calendar {
-  font-family: "Amatic SC", sans-serif;
-  text-align: center;
-  width: 687px;
-  height: 932px;
-  background-color: white;
-  border-radius: 20px;
-  border: 15px solid $background-highlight-green;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 50px 0 50px 50px;
-  padding: 20px;
-  box-sizing: border-box;
-  color: $font-color-primary;
-}
+// .bulletjournal-calendar {
+//   font-family: "Amatic SC", sans-serif;
+//   text-align: center;
+//   width: 687px;
+//   height: 932px;
+//   background-color: white;
+//   border-radius: 20px;
+//   border: 15px solid $background-highlight-green;
+//   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+//   margin: 50px 0 50px 50px;
+//   padding: 20px;
+//   box-sizing: border-box;
+//   color: $font-color-primary;
+// }
 
 .bulletjournal-habits {
   font-family: "Amatic SC", sans-serif;

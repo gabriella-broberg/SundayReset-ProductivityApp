@@ -430,6 +430,79 @@
   text-align: right;
 }
 
+.bulletjournal-calendar {
+  font-family: "Amatic SC", sans-serif;
+  text-align: center;
+  width: 687px;
+  height: 932px;
+  background-color: white;
+  border-radius: 20px;
+  border: 15px solid #cfdf83;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 3em 0;
+  padding: 20px;
+  box-sizing: border-box;
+  color: #000000;
+}
+
+#calendar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 89%;
+}
+
+h1 {
+  font-weight: bolder;
+  font-size: 72px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000000;
+  text-shadow: 1px 1px 5px #000000;
+  text-align: center;
+  color: #cfdf83;
+  margin: 0px;
+}
+
+h2 {
+  font-size: 32px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000000;
+  text-shadow: 1px #000000;
+  text-align: center;
+  font-weight: bolder;
+  color: #cfdf83;
+}
+
+.event-container {
+  border: 5px solid #e9e4fa;
+  border-radius: 20px;
+  height: 16em;
+  text-align: left;
+  overflow-y: auto;
+  background-color: #e9e4fa;
+}
+
+.past .event-title {
+  text-decoration: line-through;
+  color: gray;
+}
+.past li {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.event {
+  margin: 0.5em;
+  font-size: 24px;
+  font-weight: 700;
+}
+.event .event-title {
+  margin: 0 0.5em;
+}
+.event ul {
+  margin: 0;
+}
+
 body {
   font-family: "Amatic SC", sans-serif;
   background-image: url("images/polkadots-bg.jpg");
@@ -534,21 +607,6 @@ body {
   border-radius: 20px;
   border: 15px solid #f5ff80;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  box-sizing: border-box;
-  color: #000000;
-}
-
-.bulletjournal-calendar {
-  font-family: "Amatic SC", sans-serif;
-  text-align: center;
-  width: 687px;
-  height: 932px;
-  background-color: white;
-  border-radius: 20px;
-  border: 15px solid #cfdf83;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 50px 0 50px 50px;
   padding: 20px;
   box-sizing: border-box;
   color: #000000;

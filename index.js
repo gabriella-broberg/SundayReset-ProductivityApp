@@ -9,7 +9,8 @@ let loginUser = () => {
     user.loggedIn = true;
     // Resave the updated user object in localStorage
     localStorage.setItem(username, JSON.stringify(user));
-    
+    // Spara den inloggade användarens användarnamn som 'currentUser'
+    localStorage.setItem('currentUser', username);
     window.location.href = 'todo.html';
   } else {
     alert("Wrong username or password.");
