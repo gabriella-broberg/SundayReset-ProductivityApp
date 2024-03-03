@@ -1,42 +1,105 @@
-// Bestäm hur data ska lagras, vilka nycklar och format och hur inloggade användare ska lagras. Vilken
-// data ska finnas i local storage och hur ska den se ut?
-// Skriv funktioner i en separat fil som bara hanterar local storage. 
-// Importera den filen på alla ställen.
-// + anropa metoderna som gör olika saker.
-
-// Kan vara svårt att hitta buggarna.
 
 // Array för att lagra todos
 let todoArray = []; 
 
-// Funktion för att hämta användardata från local storage
-function getLocalStorageUserData(username) {
+// Hämtar userdata för inloggade användare - STEG 2
+function getLocalStorageUserData() {
 
-    return JSON.parse(localStorage.getItem(username)) || {
-        username: username,
-        password: "",
-        loggedIn: false,
-        todos: [],
-        habits: []
-    };
+    const username = getCurrentUserName(); 
+    let users = JSON.parse(localStorage.getItem("users")); // Hämtar objektet från en nyckel
+    let result = undefined; 
+
+    users.forEach(user => {
+
+        if (user.username === username) {
+
+            if (user.todos === undefined)  {
+
+                user["todos"] = []; 
+            
+            } // Kan lägga till habits med en tom array och ny if-sats
+
+            result = user; 
+
+        } 
+
+    });
+
+    return result; 
+}
+
+// Hämtar användarnamnet för inloggad användare - STEG 1
+function getCurrentUserName() {
+
+    let currentUser = JSON.parse(localStorage.getItem("currentUser")); 
+    return currentUser.username; 
+
 }
 
 // Funktion för att spara användardata till local storage
 function saveLocalStorageUserData(userData) {
+
     localStorage.setItem(userData.username, JSON.stringify(userData));
 }
 
 // Funktion för att hämta användarens todos från local storage
-function getUserTodos(username) {
-    const userData = getLocalStorageUserData(username);
-    return userData.todos;
+function getUserTodos() {
+
+    const userData = getLocalStorageUserData();
+
+    if (userData.todos === undefined) {
+
+        return []; 
+
+    } else {
+
+        return userData.todos;
+
+    }
 }
 
-// Funktion för att spara användarens todos till local storage
-function saveUserTodos(username, todos) {
-    const userData = getLocalStorageUserData(username);
-    userData.todos = todos;
-    saveLocalStorageUserData(userData);
+function addTodo(todoData) {
+
+    let todos = getUserTodos(); 
+    todos.push(todoData); 
+
+    let userData = getLocalStorageUserData();
+    userData.todos = todos; 
+    saveCurrentUserData(userData); 
+
+}
+
+function updateTodo(indexToUpdate, todoData) {
+    
+    // Hämta alla todos
+    // Hämta userdata, ersätter rad 78 med logiken för att uppdatera todos.push(todoData); 
+    // Använd ID
+
+}
+
+function removeTodo(indexToRemove) {
+
+    // Ha ett index som matchar med det item som ska tas bort
+    // Hämta userdata, ersätter rad 78 med logiken för att uppdatera todos.push(todoData); 
+    // Använd ID
+
+}
+
+// Används i ovanstående funktioner 
+function saveCurrentUserData(data) {
+
+    let currentUserName = getCurrentUserName();
+    let allUsers = JSON.parse(localStorage.getItem("users")); 
+
+    for(let k=0; k < allUsers.length; k++) {
+
+        if (allUsers[k].username === currentUserName) {
+
+            allUsers[k] = data; 
+        }
+    }
+    
+    localStorage.setItem("users", JSON.stringify(allUsers));
 }
 
 // Funktion för att visa todos på sidan
@@ -107,20 +170,19 @@ document.getElementById("add-todo").addEventListener("click", () => {
     let todoInputCategory = document.getElementById("todo-category").value;
     let todoInputDeadline = document.getElementById("todo-deadline").value;
 
-    const saveArray = [...getLocalStorageTodos()];
 
-    // Lägg till todo i saveArray
-    saveArray.push({
+    // Lägg till todo
+    const todoObject = {
         title: todoInputTitle,
         description: todoInputDescription,
         status: todoInputStatus,
         estimatedtime: todoInputEstimatedTime,
         category: todoInputCategory,
         deadline: todoInputDeadline,
-    });
+    }
 
     // Spara användarens uppdaterade todos i local storage
-    saveUserTodos("username", saveArray);
+    addTodo(todoObject);
 
 
 
@@ -148,10 +210,16 @@ function fillInputFields(todo) {
 
 // Funktion för att lägga till todos i DOM:en 
 function addEditButtonListeners() {
-    todoArray.forEach((todo, id) => {
+
+    let userTodos = getUserTodos(); 
+
+    userTodos.forEach((todo, id) => {
+
         const editTodoBtn = document.getElementById(`editTodo${id}`);
         editTodoBtn.addEventListener("click", () => {
+        
             fillInputFields(todo);
+        
         });
     });
 }
@@ -191,11 +259,11 @@ function getLocalStorageStringifiedTodos(todos) {
 }
 
 
-let tempTodoArray = getLocalStorageTodos();
+
 
 
 filterTodosBtn.addEventListener("click", () => {
-
+    const userTodos = getUserTodos();
     let selectedCategories = [];
 
     if (filterHome.checked) selectedCategories.push("home");
@@ -205,7 +273,7 @@ filterTodosBtn.addEventListener("click", () => {
 
     // Filtrera todo-uppgifter baserat på statusen
 
-    let filteredTodos = tempTodoArray.filter(todo => {
+    let filteredTodos = userTodos.filter(todo => {
 
         return filterTodoStatus.value === "all" || todo.status === filterTodoStatus.value;
 
@@ -318,3 +386,9 @@ filterTodosBtn.addEventListener("click", () => {
         }
         updateTodoDiv();
     }); 
+
+
+
+    // Skapa metod för att ta bort ett item 
+
+    // Skapa metod för att fixa scrollbeteendet
