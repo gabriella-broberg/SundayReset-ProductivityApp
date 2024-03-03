@@ -417,6 +417,105 @@
   text-align: right;
 }
 
+.timer-h1 {
+  font-weight: bolder;
+  font-size: 72px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000000;
+  text-shadow: 1px 1px 5px #000000;
+  text-align: center;
+  color: #feb5c8;
+  margin: 0px;
+}
+
+.timer-clock-wrapper {
+  background-color: #f5ff80;
+  border-radius: 20px;
+}
+
+#timer-clock-h2 {
+  font-family: "Arial";
+  font-size: 80px;
+}
+
+.timer-start-pause-div {
+  display: flex;
+  gap: 8px;
+  margin: 5px;
+}
+
+#start-timer {
+  background-color: #feb5c8;
+  padding: 10px;
+  font-family: "Amatic SC";
+  font-size: 32px;
+  font-weight: bolder;
+  width: 99%;
+  border: none;
+  border-radius: 20px;
+}
+
+#start-timer:hover {
+  background-color: #fc8fac;
+}
+
+#pause-timer {
+  background-color: #feb5c8;
+  padding: 10px;
+  font-family: "Amatic SC";
+  font-size: 32px;
+  font-weight: bolder;
+  width: 99%;
+  border: none;
+  border-radius: 20px;
+}
+
+#pause-timer:hover {
+  background-color: #fc8fac;
+}
+
+.timer-end-hide-div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#end-timer {
+  background-color: #eba08b;
+  padding: 10px;
+  font-family: "Amatic SC";
+  font-size: 32px;
+  font-weight: bolder;
+  width: 99%;
+  border: none;
+  border-radius: 20px;
+}
+
+#end-timer:hover {
+  background-color: #eb8d72;
+}
+
+#hide-notepad {
+  background-color: #cfdf83;
+  padding: 10px;
+  font-family: "Amatic SC";
+  font-size: 32px;
+  font-weight: bolder;
+  width: 99%;
+  border: none;
+  border-radius: 20px;
+}
+
+#hide-notepad:hover {
+  background-color: #bed161;
+}
+
+.timer-img-div {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
 body {
   font-family: "Amatic SC", sans-serif;
   background-image: url("images/polkadots-bg.jpg");
@@ -710,4 +809,28 @@ select:focus input:focus select:active input:active {
 
 #LogoutButton:hover {
   background-color: #e47c60;
+}
+
+.todo-remove {
+  border-radius: 50%;
+  background-color: lightgray;
+  border: lightgray;
+  height: 25px;
+  width: 25px;
+}
+
+.todo-edit {
+  border-radius: 50%;
+  background-color: #cfdf83;
+  border: #cfdf83;
+  height: 25px;
+  width: 25px;
+}
+
+.todo-edit:hover {
+  background-color: #c6d57c;
+}
+
+.todo-remove:hover {
+  color: #ff0000;
 }/*# sourceMappingURL=style.css.map */

@@ -5,6 +5,7 @@
 @import "./partials/habits";
 @import "./partials/weatherapp";
 @import "./partials/avatar";
+@import "./partials/timer"; 
 
 
  //Sass variables for colors
@@ -346,3 +347,27 @@ select:focus input:focus select:active input:active {
 #LogoutButton:hover {
   background-color: darken($background-highlight-peach, 10%);
 }
+
+.todo-remove {
+  border-radius: 50%;
+  background-color: lightgray;
+  border: lightgray;
+  height: 25px;
+  width: 25px;
+}
+
+.todo-edit {
+  border-radius: 50%;
+  background-color: #cfdf83;
+  border: #cfdf83;
+  height: 25px;
+  width: 25px;
+}
+
+.todo-edit:hover {
+  background-color: #c6d57c;
+}
+
+.todo-remove:hover {
+  color: #ff0000;
+} 
