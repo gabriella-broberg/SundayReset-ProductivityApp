@@ -1,24 +1,3 @@
-//This controles the greeting by the avatar 
-
-// const api_url ="https://zenquotes.io?api=quotes";
-
-// async function getapi(url)
-// {
-//   const response = await fetch(url, {mode: "no-cors"});
-//   var data = await response.json();
-//   console.log(data);
-// }
-
-// getapi(api_url);
-
-// fetch("https://type.fit/api/quotes")
-//   .then(function(response) {
-//     return response.json();
-//   })
-//   .then(function(data) {
-//     console.log(data);
-//   });
-
 const url = `https://type.fit/api/quotes`;
 
   let getData = async (url) => {
@@ -27,8 +6,7 @@ const url = `https://type.fit/api/quotes`;
     console.log(json);
     
     return json;   
-  }
-  
+  }  
 
   let getRandomQuote = async(url) => {
     let json = await getData(url);
@@ -36,9 +14,9 @@ const url = `https://type.fit/api/quotes`;
     let randomQuote = json[randomIndex];
     console.log(randomQuote);
 
-    // Dela strängen vid kommatecknet och behåll den första delen
+    // Split the string at the comma and keep the first part
     randomQuote.author = randomQuote.author.split(',')[0];
-
+    
     return randomQuote;    
   }
 
@@ -46,7 +24,13 @@ const url = `https://type.fit/api/quotes`;
     let randomQuote = await getRandomQuote(url);
 
     document.getElementById('quote').innerText = randomQuote.text;
-    document.getElementById('author').innerText = randomQuote.author;
+    
+    if (randomQuote.author === "type.fit") {
+      document.getElementById('author').innerText = "Unknown";
+    }else {
+      document.getElementById('author').innerText = randomQuote.author;
+    } 
+    
   }
 
   displayQuote();

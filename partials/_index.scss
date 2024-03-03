@@ -31,6 +31,9 @@
     text-align: center;
     font-weight: 700;
     width: fit-content;
+    @media #{$mobile}{
+      left: 0;
+    }
   }
 }
 
@@ -51,6 +54,9 @@
   min-width: 30em;
   border-radius: 20px;
   background-color: $background-primary;
+  @media #{$mobile}{
+    min-width: 95%;
+  }
   input {
     width: 88%;
     border-radius: 20px;
@@ -105,9 +111,3 @@
   }
 }
 
-// @media (max-width: 768px) {
-//     .index-wrapper {
-//       flex-direction: column;
-//       justify-content: space-around;
-//     }
-//   }

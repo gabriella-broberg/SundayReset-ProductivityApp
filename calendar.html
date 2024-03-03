@@ -11,7 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
     <script src="weatherapp.js" defer></script>
-    
+    <script src="avatar.js" defer></script>
+    <script src="calendar.js" defer></script>
 </head>
 <body>
 
@@ -22,20 +23,37 @@
         </div>
 
         <div class="avatar-greeting">
-            Welcome greeting
+          <p id="quote"></p>
+          <p id="author"></p>
         </div>
 
     </div>
 
     <div class="wrapper">
 
-        
         <div class="bulletjournal-calendar">
-            <!-- Your bullet journal content goes here -->
-            <h1>Test</h1>
-            <h2>Test</h2>
-            <h3>Test</h3>
-            <p>Test</p>
+          <!-- Your bullet journal content goes here -->
+          <h1>My Events</h1>
+          
+          <div id="calendar">             
+            <form id="eventForm">
+                <input type="text" id="eventTitle" placeholder="Titel" required>
+                <input type="datetime-local" id="startTime" required>
+                <input type="datetime-local" id="endTime" required>
+                <button type="submit">Add event</button>
+            </form>
+
+            <h2 class="habit-heading">Upcomming activites</h2>
+            <div class="event-container">
+              <div id="events"></div>
+            </div>
+            <h2 class="habit-heading">Previous activites</h2>
+            <div class="event-container">
+              <div id="past-events"></div>
+
+            </div>            
+        </div>
+            
         </div>
         <nav class="menu">
             <!-- Add your menu items here with specific classes -->
