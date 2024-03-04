@@ -1,8 +1,16 @@
+let currentEditIndex = -1; // -1 betyder att ingenting editeras
 
-// Array för att lagra todos
-let todoArray = []; 
 
-// Hämtar userdata för inloggade användare - STEG 2
+// Hämtar användarnamnet för inloggad användare
+function getCurrentUserName() {
+
+    let currentUser = JSON.parse(localStorage.getItem("currentUser")); 
+    return currentUser.username; 
+
+}
+
+
+// Hämtar userdata för inloggade användare
 function getLocalStorageUserData() {
 
     const username = getCurrentUserName(); 
@@ -28,19 +36,7 @@ function getLocalStorageUserData() {
     return result; 
 }
 
-// Hämtar användarnamnet för inloggad användare - STEG 1
-function getCurrentUserName() {
 
-    let currentUser = JSON.parse(localStorage.getItem("currentUser")); 
-    return currentUser.username; 
-
-}
-
-// Funktion för att spara användardata till local storage
-function saveLocalStorageUserData(userData) {
-
-    localStorage.setItem(userData.username, JSON.stringify(userData));
-}
 
 // Funktion för att hämta användarens todos från local storage
 function getUserTodos() {
@@ -69,53 +65,56 @@ function addTodo(todoData) {
 
 }
 
+function renderTodoList() {
 
-function updateTodo(id) {
-    
-    // Hämta alla todos med ID till den användaren
+    const todos = getUserTodos(); // Hämta användarens todos
+    const addTodoBtn = document.getElementById("add-todo");
+    addTodoBtn.innerText = "Save to-do!";
 
-    let todos = getUserTodos(id); 
-    
-    todos.forEach((todo, index) => {
 
-        const editTodoBtn = document.getElementById(`editTodo${index}`);
 
-        editTodoBtn.addEventListener("click", () => {
+    if (todos.length > 0) {
+
+        todos.forEach((todo, index) => {
         
-            fillInputFields(todo);
-            let addTodoBtn = document.getElementById("add-todo");
-            addTodoBtn.innerText = "Save to-do!" // Uppdaterar knappens text för att spara todo
-            
+            const editTodoBtn = document.getElementById(`editTodo${index}`);
+        
+            editTodoBtn.addEventListener("click", () => {
+        
+                console.log("Klickat på edit!");
+
+                fillInputFields(todo);
+        
+            });
         
         });
-
         
-    })
-
-    if (todos.length === 0) {
-
-        todoListUl.innerHTML = "";
-        todoListUl.style.overflowY = "hidden";
-
+        scrollBehaviour();
+    
     } else {
 
-        scrollBehaviour(); 
+        const todoListUl = document.getElementById("todo-list-ul");
+        todoListUl.innerHTML = ""; // Töm listan om det inte finns några todos
+        todoListUl.style.overflowY = "hidden";
 
     }
-
 }
 
+/**
+ * 
+ * @param {number} id index för todo
+ */
 function removeTodo(id) {
-
-    // Ha ett index som matchar med det item som ska tas bort
-    // Hämta userdata, ersätter rad 78 med logiken för att uppdatera todos.push(todoData); 
-    // Använd ID
 
     const todoToRemove = document.getElementById(`removeTodo${id}`).closest("li");
     todoToRemove.remove();
 
     let todos = getUserTodos(); 
-    todos.splice(id, 1); // Tar bort todo:s från arrayen så de inte upprepar sig när man lägger till nya todo:s 
+    todos.splice(id, 1);
+
+    let userData = getLocalStorageUserData(); // Återanvänd till redigeraknappen
+    userData.todos = todos; 
+    saveCurrentUserData(userData); 
 
     // Tar bort scrollbaren när arrayen är tom
     if (todos.length === 0) {
@@ -135,6 +134,10 @@ function saveCurrentUserData(data) {
     let currentUserName = getCurrentUserName();
     let allUsers = JSON.parse(localStorage.getItem("users")); 
 
+    console.log("test test test"); 
+    console.log(allUsers);
+
+
     for(let k=0; k < allUsers.length; k++) {
 
         if (allUsers[k].username === currentUserName) {
@@ -142,6 +145,9 @@ function saveCurrentUserData(data) {
             allUsers[k] = data; 
         }
     }
+
+    console.log(allUsers);
+    console.log(JSON.stringify(allUsers)); 
     
     localStorage.setItem("users", JSON.stringify(allUsers));
 }
@@ -160,14 +166,13 @@ function scrollBehaviour() {
 function displayTodos() {
     
     // Hämta användarens todos från local storage
-    const username = "username"; // Ersätt med inloggad användares användarnamn
-    const todos = getUserTodos(username);
+    const userTodos = getUserTodos();
 
     // Använd todos för att visa dem på sidan
     let todoListUl = document.getElementById("todo-list-ul");
     todoListUl.innerHTML = "";
 
-    todos.forEach((todo, id) => {
+    userTodos.forEach((todo, id) => {
 
         const li = document.createElement("li");
         li.innerHTML = `
@@ -190,11 +195,20 @@ function displayTodos() {
 
             removeTodo(id);
 
-        });
-    });
 
-    // Redigeringsknapp
-    updateTodo();
+        });
+
+        let editTodoBtn = document.getElementById(`editTodo${id}`);
+
+        editTodoBtn.addEventListener("click", () => {
+
+            currentEditIndex = id; 
+            renderTodoList(); 
+
+        });
+
+
+    });
 
     // Scrollbeteende för div & ul
     scrollBehaviour(); 
@@ -227,8 +241,6 @@ document.getElementById("add-todo").addEventListener("click", () => {
     // Spara användarens uppdaterade todos i local storage
     addTodo(todoObject);
 
-
-
     // Rensa inputfälten
     document.getElementById("todo-input-title").value = "";
     document.getElementById("todo-input-description").value = "";
@@ -255,6 +267,8 @@ function fillInputFields(todo) {
 
 // Visa todos när sidan laddas
 displayTodos();
+
+renderTodoList();
 
 
 
@@ -292,6 +306,7 @@ function getLocalStorageStringifiedTodos(todos) {
 
 
 filterTodosBtn.addEventListener("click", () => {
+    
     const userTodos = getUserTodos();
     let selectedCategories = [];
 
@@ -346,48 +361,50 @@ filterTodosBtn.addEventListener("click", () => {
             }
         }
     });
-
-    function updateTodoDiv(id) {
-
-        let todoListUl = document.getElementById("todo-list-ul");
-
-        // Töm listan på todos
-        todoListUl.innerHTML = `<h2>Filtered to-do:s</h2>`;
-
-        let todos = getLocalStorageTodos(); 
-
-        // Loopa igenom filtrerade todos och lägg till dem i listan
-        todos.forEach((todo, id) => {
-
-            const li = document.createElement("li");
-            li.innerHTML = `
-                <h3>Title: ${todo.title}</h3>
-                <p>Description: ${todo.description}<br>
-                Status: ${todo.status}<br>
-                Estimated time: ${todo.estimatedtime}<br>
-                Category: ${todo.category}<br>
-                Deadline: ${todo.deadline}<br>
-                <button class="fa-solid fa-trash todo-remove" id="removeTodo${id}"></button>
-                <button class="fa-solid fa-pen todo-edit" id="editTodo${id}"></button>
-            `;
-
-            todoListUl.appendChild(li);
-
-        }); 
-
-        // Lyssnare för raderaknappen för varje todo som filtrerats
-        let removeTodoBtn = document.getElementById(`removeTodo${id}`);
-
-            removeTodoBtn.addEventListener("click", () => {
-
-                removeTodo(id); 
-        
-            });
     
-        // REDIGERAKNAPPEN FÖR VARJE TODO SOM FILTRERATS
-        updateTodo(id); 
-        
-    }   // FUNKAR INTE MED ID
-        updateTodoDiv(id);
+    updateTodoDiv(id);
+
+}); 
+
+
+function updateTodoDiv(id) {
+
+    let todoListUl = document.getElementById("todo-list-ul");
+
+    // Töm listan på todos
+    todoListUl.innerHTML = `<h2>Filtered to-do:s</h2>`;
+
+    let todos = getLocalStorageTodos(); 
+
+    // Loopa igenom filtrerade todos och lägg till dem i listan
+    todos.forEach((todo, id) => {
+
+        const li = document.createElement("li");
+        li.innerHTML = `
+            <h3>Title: ${todo.title}</h3>
+            <p>Description: ${todo.description}<br>
+            Status: ${todo.status}<br>
+            Estimated time: ${todo.estimatedtime}<br>
+            Category: ${todo.category}<br>
+            Deadline: ${todo.deadline}<br>
+            <button class="fa-solid fa-trash todo-remove" id="removeTodo${id}"></button>
+            <button class="fa-solid fa-pen todo-edit" id="editTodo${id}"></button>
+        `;
+
+        todoListUl.appendChild(li);
 
     }); 
+
+    // Lyssnare för raderaknappen för varje todo som filtrerats
+    let removeTodoBtn = document.getElementById(`removeTodo${id}`);
+
+    removeTodoBtn.addEventListener("click", () => {
+
+        removeTodo(id); 
+    
+    });
+
+    // REDIGERAKNAPPEN FÖR VARJE TODO SOM FILTRERATS
+    renderTodoList();
+    
+}
