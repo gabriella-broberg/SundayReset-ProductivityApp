@@ -5,11 +5,11 @@
 @import "./partials/habits";
 @import "./partials/weatherapp";
 @import "./partials/avatar";
-@import "./partials/timer"; 
+@import "./partials/timer";
 @import "./partials/calendar";
 
 
- //Sass variables for colors
+//Sass variables for colors
 //   $background-primary: #e9e4fa;
 // $background-highlight-pink: #feb5c8;
 // $background-highlight-peach: #eba08b;
@@ -36,6 +36,7 @@ body {
   flex-flow: row wrap;
   align-items: center;
   justify-content: space-around;
+
   // gap: 100px; // Avstånd mellan bullet journal och avatar m.m.
   @media #{$mobile} {
     flex-direction: column;
@@ -51,7 +52,7 @@ body {
 }
 
 .menu {
-  height: 832px;
+  height: 900px;
   box-sizing: border-box;
   color: $font-color-primary;
   display: flex;
@@ -60,7 +61,8 @@ body {
 
 }
 
-.menu a {
+.menu a,
+.menu .logout button {
   text-decoration: none;
   font-size: $font-size-large;
   color: $font-color-primary;
@@ -71,16 +73,14 @@ body {
   transform: rotate(360deg);
   /* Fix for Firefox and Safari */
   transition: background-color 0.3s ease;
+
   @media #{$mobile} {
     padding: 14px 0;
   }
 
   /* Add a smooth transition effect */
   &:hover {
-    background-color: darken(
-      $background-highlight-pink,
-      10%
-    );
+
     /* Darken the color on hover */
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     /* Add a subtle shadow on hover */
@@ -106,6 +106,44 @@ body {
 .menu a.timer {
   background-color: $background-highlight-pink;
   border-radius: 0 5px 5px 0;
+}
+
+.menu .logout button {
+  background-color: $background-highlight-blue;
+  border-radius: 0 5px 5px 0;
+  padding: 50px 10px;
+  cursor: pointer;
+  font-family: "Amatic SC", sans-serif;
+  border: 0;
+  padding: 50px 10px;
+  color: $font-color-primary;
+}
+
+.menu .logout button i {
+  transition: opacity 0.3s ease;
+  /* Add a transition for opacity */
+}
+
+.menu .logout button:hover i {
+  opacity: 0;
+  display: none;
+  /* Hide the icon on hover */
+}
+
+.menu .logout button:hover::after {
+  content: "Logout";
+  /* Display the text "Logout" on hover */
+  font-family: "Amatic SC", sans-serif;
+  font-size: $font-size-medium;
+  font-weight: 400;
+  color: $font-color-primary;
+  align-items: center;
+
+
+}
+
+.menu .logout button:hover {
+  background-color: darken($background-highlight-blue, 5%);
 }
 
 .bulletjournal {
@@ -200,7 +238,7 @@ body {
 //   }
 // }
 
-/* TO DO - SIDAN */ 
+/* TO DO - SIDAN */
 
 .todo-h1 {
   font-weight: bolder;
@@ -209,16 +247,16 @@ body {
   -webkit-text-stroke-color: #000000;
   text-shadow: 1px 1px 5px #000000;
   text-align: center;
-  color: $background-highlight-green; 
-  margin: 0px; 
+  color: $background-highlight-green;
+  margin: 0px;
 }
 
 .todo-list-div {
 
   background-color: $background-primary;
-  border-radius: 20px; 
-  height: 200px; 
-  width: 100%; 
+  border-radius: 20px;
+  height: 200px;
+  width: 100%;
   text-align: left;
   // overflow-y: auto; /* FUNKAR EJ */ 
 
@@ -230,7 +268,7 @@ body {
 // }
 
 // Försökte styla knapparna som kommer upp i DOM:en 
-input[type="button"].removeTodo .editTodo{
+input[type="button"].removeTodo .editTodo {
   background-color: $background-highlight-green;
 }
 
@@ -242,7 +280,7 @@ input[type="button"].removeTodo .editTodo{
   text-shadow: 1px 1px 5px #000000;
   text-align: center;
   font-weight: bolder;
-  color: $background-highlight-green; 
+  color: $background-highlight-green;
 
 }
 
@@ -255,27 +293,28 @@ input[type="button"].removeTodo .editTodo{
 .todo-wrapper {
   display: flex;
   justify-content: center;
-  gap: 35%; 
-  margin-right: 30px; 
+  gap: 35%;
+  margin-right: 30px;
 }
+
 // ----------------------------------------
 
 .todo-wrapper input {
 
   background-color: $background-primary;
   font-family: "Amatic SC";
-  padding: 15px; 
-  width: 100%;  
+  padding: 15px;
+  width: 100%;
   font-size: $font-size-medium;
   font-weight: bold;
-  border: none; 
-  outline: none; 
-  outline: $background-primary; 
+  border: none;
+  outline: none;
+  outline: $background-primary;
   border-radius: 20px;
-  padding-left: 20px; 
+  padding-left: 20px;
 
 
-} 
+}
 
 .todo-divider-one option {
   background-color: $background-primary;
@@ -284,31 +323,32 @@ input[type="button"].removeTodo .editTodo{
 
 .bulletjournal-todo select {
   background-color: $background-primary;
-  padding: 15px; 
-  width: 120%; 
-  border-radius: 20px; 
-  font-family: "Amatic SC"; 
+  padding: 15px;
+  width: 120%;
+  border-radius: 20px;
+  font-family: "Amatic SC";
   font-size: $font-size-medium;
   font-weight: bold;
-  color: $font-color-secondary; 
-  outline: none; 
-  border: none; 
+  color: $font-color-secondary;
+  outline: none;
+  border: none;
 }
 
 select:focus input:focus select:active input:active {
-  outline: none; 
-  border: none; 
+  outline: none;
+  border: none;
 
 }
+
 // KNAPP FÖR ATT LÄGGA TILL TO-DO:S 
 #add-todo {
   background-color: $background-highlight-green;
-  padding: 10px; 
+  padding: 10px;
   font-family: "Amatic SC";
   font-size: $font-size-medium;
   font-weight: bolder;
-  width: 95%; 
-  border: none; 
+  width: 95%;
+  border: none;
   border-radius: 20px;
 }
 
@@ -317,18 +357,18 @@ select:focus input:focus select:active input:active {
 }
 
 #filter-todo-status {
-  width: 25%; 
-  padding: 5px; 
+  width: 25%;
+  padding: 5px;
 }
 
 #filter-todos {
   background-color: $background-highlight-green;
-  padding: 10px; 
+  padding: 10px;
   font-family: "Amatic SC";
   font-size: $font-size-medium;
   font-weight: bolder;
-  width: 95%; 
-  border: none; 
+  width: 95%;
+  border: none;
   border-radius: 20px;
 
 }
@@ -338,25 +378,6 @@ select:focus input:focus select:active input:active {
 }
 
 
-.logout {
- 
-  z-index: 1; /* Ensure the button appears above other elements */
-}
-
-#LogoutButton {
-  background-color: $background-highlight-peach;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-family: "Amatic SC", sans-serif;
-  font-size: $font-size-medium;
-}
-
-#LogoutButton:hover {
-  background-color: darken($background-highlight-peach, 10%);
-}
 
 .todo-remove {
   border-radius: 50%;
@@ -380,4 +401,4 @@ select:focus input:focus select:active input:active {
 
 .todo-remove:hover {
   color: #ff0000;
-} 
+}

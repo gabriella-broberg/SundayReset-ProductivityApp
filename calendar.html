@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
+    <script src="https://kit.fontawesome.com/28fc0eb946.js" crossorigin="anonymous"></script>
+
     <script src="weatherapp.js" defer></script>
     <script src="avatar.js" defer></script>
     <script src="calendar.js" defer></script>
@@ -61,43 +63,45 @@
             <a href="/calendar.html" class="calendar">Calendar</a>
             <a href="/habits.html" class="habits">Habits</a>
             <a href="/timer.html" class="timer">Timer</a>
+            <div class="logout">
+              <button type="button" id="LogoutButton"><i class="fas fa-door-open"></i></button>
         </nav>
     </div>
 
 
     <div class="main-weather-wrapper">
-        <div class="weather-div">
-          <h2>Weather 2day</h2>
-  
-          <div class="card">
-            <div class="search">
-              <input
-                type="text"
-                placeholder="enter city name"
-                spellcheck="false"
-              />
-              <button><img src="images/search.png" alt="search icon" /></button>
-            </div>
-            <div class="error">
-              <h2>Invalid city name</h2>
-              <img
-                src="images/error.png"
-                alt="invalid city name"
-                class="weather-icon"
-              />
-            </div>
-            <div class="weather">
-              <h1 class="temp">22°C</h1>
-              <h2 class="city">City</h2>
-              <img
-                src="images/rain.png"
-                alt="weather icon"
-                class="weather-icon"
-              />
-            </div>
+      <div class="weather-div">
+        <div class="weather2day">Weather 2day</div>
+
+        
+          <div class="search">
+            <input
+              type="text"
+              placeholder="enter city name"
+              spellcheck="false"
+            />
+            <button><img src="images/search.png" alt="search icon" /></button>
           </div>
-        </div>
+          <div class="error">
+            <h3>Invalid city name</h3>
+            <img
+              src="images/error.png"
+              alt="invalid city name"
+              class="weather-icon"
+            />
+          </div>
+          <div class="weather">
+            <div class="temp">22°C</div>
+            <div class="city">City</div>
+            <img
+              src="images/rain.png"
+              alt="weather icon"
+              class="weather-icon"
+            />
+          </div>
+        
       </div>
+    </div>
 
 
 </body>

@@ -326,6 +326,7 @@
   align-items: flex-end;
   margin-top: auto;
   margin-bottom: 50px;
+  color: white;
 }
 
 .weather-div {
@@ -339,13 +340,9 @@
   text-align: center;
   border-radius: 20px;
 }
-.weather-div h2 {
-  margin: 1em 0em 0.5em 0em;
-}
 
-.weather-info {
-  font-family: "Arial";
-  font-weight: 800;
+.weather2day {
+  font-size: 36px;
 }
 
 .search {
@@ -381,21 +378,22 @@
 
 .weather-icon {
   width: 80px;
-  margin-top: -10px;
 }
 
-.weather h1 {
+.temp {
   font-size: 40px;
   font-weight: 500;
   font-family: poppins;
-  margin-top: 3px;
+  color: white;
+  text-shadow: none;
+  margin-top: 15px;
 }
 
-.weather h2 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-top: -35px;
+.city {
+  font-size: 24px;
   font-family: poppins;
+  font-weight: 500;
+  color: white;
   text-transform: capitalize;
 }
 
@@ -408,6 +406,7 @@
   font-size: 18px;
   margin-top: 10px;
   display: none;
+  color: white;
 }
 
 .main-avatar-wrapper {
@@ -641,7 +640,7 @@ body {
 }
 
 .menu {
-  height: 832px;
+  height: 900px;
   box-sizing: border-box;
   color: #000000;
   display: flex;
@@ -649,7 +648,8 @@ body {
   margin-top: 100px;
 }
 
-.menu a {
+.menu a,
+.menu .logout button {
   text-decoration: none;
   font-size: 32px;
   color: #000000;
@@ -663,12 +663,13 @@ body {
   /* Add a smooth transition effect */
 }
 @media screen and (max-width: 500px) {
-  .menu a {
+  .menu a,
+  .menu .logout button {
     padding: 14px 0;
   }
 }
-.menu a:hover {
-  background-color: #fd83a3;
+.menu a:hover,
+.menu .logout button:hover {
   /* Darken the color on hover */
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   /* Add a subtle shadow on hover */
@@ -693,6 +694,42 @@ body {
 .menu a.timer {
   background-color: #feb5c8;
   border-radius: 0 5px 5px 0;
+}
+
+.menu .logout button {
+  background-color: #c2e7ef;
+  border-radius: 0 5px 5px 0;
+  padding: 50px 10px;
+  cursor: pointer;
+  font-family: "Amatic SC", sans-serif;
+  border: 0;
+  padding: 50px 10px;
+  color: #000000;
+}
+
+.menu .logout button i {
+  transition: opacity 0.3s ease;
+  /* Add a transition for opacity */
+}
+
+.menu .logout button:hover i {
+  opacity: 0;
+  display: none;
+  /* Hide the icon on hover */
+}
+
+.menu .logout button:hover::after {
+  content: "Logout";
+  /* Display the text "Logout" on hover */
+  font-family: "Amatic SC", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #000000;
+  align-items: center;
+}
+
+.menu .logout button:hover {
+  background-color: #aedfea;
 }
 
 .bulletjournal {
@@ -878,25 +915,6 @@ select:focus input:focus select:active input:active {
 
 #filter-todos:hover {
   background-color: #bcc97a;
-}
-
-.logout {
-  z-index: 1; /* Ensure the button appears above other elements */
-}
-
-#LogoutButton {
-  background-color: #eba08b;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-family: "Amatic SC", sans-serif;
-  font-size: 20px;
-}
-
-#LogoutButton:hover {
-  background-color: #e47c60;
 }
 
 .todo-remove {
