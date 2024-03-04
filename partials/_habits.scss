@@ -45,7 +45,7 @@
   border: none;
   border-radius: 20px;
   margin-top: 15px;
-  margin-bottom: 30px;
+  margin-bottom: 80px;
 
 }
 
@@ -81,12 +81,21 @@
 }
 
 
+.myhabitsheading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.list-heading {
+  margin: 0;
+}
+
+
 //sort-wrapper 
 .sort-wrapper {
   color: #8a8a8a;
   text-align: right;
-  margin-bottom: 10px;
-
 }
 
 //sortStreakButton
