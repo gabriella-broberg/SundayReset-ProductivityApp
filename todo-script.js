@@ -69,19 +69,63 @@ function addTodo(todoData) {
 
 }
 
-function updateTodo(indexToUpdate, todoData) {
+
+function updateTodo(id) {
     
-    // Hämta alla todos
-    // Hämta userdata, ersätter rad 78 med logiken för att uppdatera todos.push(todoData); 
-    // Använd ID
+    // Hämta alla todos med ID till den användaren
+
+    let todos = getUserTodos(id); 
+    
+    todos.forEach((todo, index) => {
+
+        const editTodoBtn = document.getElementById(`editTodo${index}`);
+
+        editTodoBtn.addEventListener("click", () => {
+        
+            fillInputFields(todo);
+            let addTodoBtn = document.getElementById("add-todo");
+            addTodoBtn.innerText = "Save to-do!" // Uppdaterar knappens text för att spara todo
+            
+        
+        });
+
+        
+    })
+
+    if (todos.length === 0) {
+
+        todoListUl.innerHTML = "";
+        todoListUl.style.overflowY = "hidden";
+
+    } else {
+
+        scrollBehaviour(); 
+
+    }
 
 }
 
-function removeTodo(indexToRemove) {
+function removeTodo(id) {
 
     // Ha ett index som matchar med det item som ska tas bort
     // Hämta userdata, ersätter rad 78 med logiken för att uppdatera todos.push(todoData); 
     // Använd ID
+
+    const todoToRemove = document.getElementById(`removeTodo${id}`).closest("li");
+    todoToRemove.remove();
+
+    let todos = getUserTodos(); 
+    todos.splice(id, 1); // Tar bort todo:s från arrayen så de inte upprepar sig när man lägger till nya todo:s 
+
+    // Tar bort scrollbaren när arrayen är tom
+    if (todos.length === 0) {
+
+        todoListUl.style.overflowY = "hidden";
+
+    } else {
+
+        scrollBehaviour(); 
+    }
 
 }
 
@@ -100,6 +144,16 @@ function saveCurrentUserData(data) {
     }
     
     localStorage.setItem("users", JSON.stringify(allUsers));
+}
+
+function scrollBehaviour() {
+
+    let todoListUl = document.getElementById("todo-list-ul");
+    todoListUl.style.overflowY = "scroll"; 
+    let maxListHeight = 200;
+    let listHeight = Math.min(todoListUl.scrollHeight, maxListHeight);
+    todoListUl.style.maxHeight = listHeight + "px"; 
+
 }
 
 // Funktion för att visa todos på sidan
@@ -134,27 +188,16 @@ function displayTodos() {
 
         removeTodoBtn.addEventListener("click", () => {
 
-            const todoToRemove = document.getElementById(`removeTodo${id}`).closest("li");
-            todoToRemove.remove();
-            todoArray.splice(id, 1); // Tar bort todo:s från arrayen så de inte upprepar sig när man lägger till nya todo:s 
-
-            // Tar bort scrollbaren när arrayen är tom
-            if (todoArray.length === 0) {
-
-                todoListUl.style.overflowY = "hidden";
-            }
+            removeTodo(id);
 
         });
     });
 
     // Redigeringsknapp
-    addEditButtonListeners();
+    updateTodo();
 
     // Scrollbeteende för div & ul
-    todoListUl.style.overflowY = "scroll"; 
-    let maxListHeight = 200;
-    let listHeight = Math.min(todoListUl.scrollHeight, maxListHeight);
-    todoListUl.style.maxHeight = listHeight + "px"; 
+    scrollBehaviour(); 
 
 };
 
@@ -200,28 +243,14 @@ document.getElementById("add-todo").addEventListener("click", () => {
 
 // Funktion för att fylla i inputfälten med information från en todo
 function fillInputFields(todo) {
+
     document.getElementById("todo-input-title").value = todo.title;
     document.getElementById("todo-input-description").value = todo.description;
     document.getElementById("todo-status").value = todo.status;
     document.getElementById("todo-time").value = todo.estimatedtime;
     document.getElementById("todo-category").value = todo.category;
     document.getElementById("todo-deadline").value = todo.deadline;
-}
 
-// Funktion för att lägga till todos i DOM:en 
-function addEditButtonListeners() {
-
-    let userTodos = getUserTodos(); 
-
-    userTodos.forEach((todo, id) => {
-
-        const editTodoBtn = document.getElementById(`editTodo${id}`);
-        editTodoBtn.addEventListener("click", () => {
-        
-            fillInputFields(todo);
-        
-        });
-    });
 }
 
 // Visa todos när sidan laddas
@@ -229,7 +258,7 @@ displayTodos();
 
 
 
-// *FILTRERINGSFUNKTION* // 
+// *FILTRERINGSFUNKTION* ----------------------------------------------------------------------------- // 
 
 let filterHome = document.getElementById("filter-home-checkbox"); 
 let filterStudy = document.getElementById("filter-study-checkbox"); 
@@ -318,7 +347,7 @@ filterTodosBtn.addEventListener("click", () => {
         }
     });
 
-    function updateTodoDiv() {
+    function updateTodoDiv(id) {
 
         let todoListUl = document.getElementById("todo-list-ul");
 
@@ -326,8 +355,6 @@ filterTodosBtn.addEventListener("click", () => {
         todoListUl.innerHTML = `<h2>Filtered to-do:s</h2>`;
 
         let todos = getLocalStorageTodos(); 
-
-        console.log(todos);
 
         // Loopa igenom filtrerade todos och lägg till dem i listan
         todos.forEach((todo, id) => {
@@ -353,42 +380,14 @@ filterTodosBtn.addEventListener("click", () => {
 
             removeTodoBtn.addEventListener("click", () => {
 
-                const todoToRemove = document.getElementById(`removeTodo${id}`).closest("li");
-                todoToRemove.remove();
-                tempTodoArray.splice(id, 1);
-
+                removeTodo(id); 
         
             });
-
-        let editTodoBtn = document.getElementById(`editTodo${id}`);
     
         // REDIGERAKNAPPEN FÖR VARJE TODO SOM FILTRERATS
-        editTodoBtn.addEventListener("click", () => {
-
-            fillInputFields(todos);
-
-        });
-
-            // Ser till att gömma scrollbaren när arrayen är tom samt rensa HTML för rubriken 
-            if (tempTodoArray.length === 0) {
-
-                todoListUl.innerHTML = "";
-                todoListUl.style.overflowY = "hidden";
-
-            } else {
-
-                todoListUl.style.overflowY = "scroll"; 
-                let maxListHeight = 200;
-                let listHeight = Math.min(todoListUl.scrollHeight, maxListHeight);
-                todoListUl.style.maxHeight = listHeight + "px";
+        updateTodo(id); 
         
-            }
-        }
-        updateTodoDiv();
+    }   // FUNKAR INTE MED ID
+        updateTodoDiv(id);
+
     }); 
-
-
-
-    // Skapa metod för att ta bort ett item 
-
-    // Skapa metod för att fixa scrollbeteendet
