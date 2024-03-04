@@ -1,7 +1,7 @@
 // habits.js
 import { logoutUser } from "./usersModule.js";
 
-const logoutButton = document.querySelector('#LogoutButton');
+const logoutButton = document.querySelector('.LogoutButton');
 logoutButton.addEventListener('click', logoutUser);
 
 document.addEventListener("DOMContentLoaded", function () {
