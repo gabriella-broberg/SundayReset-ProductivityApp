@@ -2,12 +2,22 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <title>Sunday Reset</title>
     <link rel="stylesheet" href="style.css" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
@@ -25,7 +35,10 @@
   <body>
     <div class="main-avatar-wrapper">
       <div class="avatar-div">
-        <img src="Images/main-avatar.jpg" alt="Cute avatar monster" />
+        <img
+          src="Images/main-avatar.jpg"
+          alt="Cute avatar monster"
+        />
       </div>
 
       <div class="avatar-greeting">
@@ -41,22 +54,42 @@
 
         <form id="addRoutineForm">
           <div class="habitInfo">
-            <input type="text" id="routineTitle" placeholder="Title" required />
+            <input
+              type="text"
+              id="routineTitle"
+              placeholder="Title"
+              required
+            />
 
             <select id="priority" required>
-              <option value="" disabled selected>PRIO</option>
+              <option value="" disabled selected>
+                PRIO
+              </option>
               <option value="3">Low</option>
               <option value="2">Medium</option>
               <option value="1">High</option>
             </select>
           </div>
-          <button type="button" id="addRoutineButton">Add new habit</button>
+          <button
+            type="button"
+            id="addRoutineButton"
+          >
+            Add new habit
+          </button>
         </form>
 
         <div class="myhabitsheading">
           <h2 class="list-heading">My Habits</h2>
 
           <div class="sort-wrapper">
+            <select id="filterPrioSelect">
+              <option value="" disabled selected>
+                Filter on PRIO
+              </option>
+              <option value="3">Low</option>
+              <option value="2">Medium</option>
+              <option value="1">High</option>
+            </select>
             <button id="sortStreakButton">
               <i class="fas fa-sort"></i> Streak
             </button>
@@ -75,10 +108,18 @@
 
       <nav class="menu">
         <!-- Add your menu items here with specific classes -->
-        <a href="/todo.html" class="todo">To-Do</a>
-        <a href="/calendar.html" class="calendar">Calendar</a>
-        <a href="/habits.html" class="habits">Habits</a>
-        <a href="/timer.html" class="timer">Timer</a>
+        <a href="/todo.html" class="todo"
+          >To-Do</a
+        >
+        <a href="/calendar.html" class="calendar"
+          >Calendar</a
+        >
+        <a href="/habits.html" class="habits"
+          >Habits</a
+        >
+        <a href="/timer.html" class="timer"
+          >Timer</a
+        >
         <div class="logout">
           <button type="button" id="LogoutButton">
             <i class="fas fa-door-open"></i>
@@ -89,35 +130,40 @@
 
     <div class="main-weather-wrapper">
       <div class="weather-div">
-        <div class="weather2day">Weather 2day</div>
+        <div class="weather2day">
+          Weather 2day
+        </div>
 
-        
-          <div class="search">
-            <input
-              type="text"
-              placeholder="enter city name"
-              spellcheck="false"
-            />
-            <button><img src="images/search.png" alt="search icon" /></button>
-          </div>
-          <div class="error">
-            <h3>Invalid city name</h3>
+        <div class="search">
+          <input
+            type="text"
+            placeholder="enter city name"
+            spellcheck="false"
+          />
+          <button>
             <img
-              src="images/error.png"
-              alt="invalid city name"
-              class="weather-icon"
+              src="images/search.png"
+              alt="search icon"
             />
-          </div>
-          <div class="weather">
-            <div class="temp">22°C</div>
-            <div class="city">City</div>
-            <img
-              src="images/rain.png"
-              alt="weather icon"
-              class="weather-icon"
-            />
-          </div>
-        
+          </button>
+        </div>
+        <div class="error">
+          <h3>Invalid city name</h3>
+          <img
+            src="images/error.png"
+            alt="invalid city name"
+            class="weather-icon"
+          />
+        </div>
+        <div class="weather">
+          <div class="temp">22°C</div>
+          <div class="city">City</div>
+          <img
+            src="images/rain.png"
+            alt="weather icon"
+            class="weather-icon"
+          />
+        </div>
       </div>
     </div>
   </body>
