@@ -6,15 +6,21 @@
     <title>Sunday Reset</title>
     <link rel="stylesheet" href="style.css" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
 
     <script src="habits.js" defer></script>
     <script src="weatherapp.js" defer></script>
     <script src="avatar.js" defer></script>
 
-    <script src="https://kit.fontawesome.com/28fc0eb946.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/28fc0eb946.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="main-avatar-wrapper">
@@ -29,38 +35,37 @@
     </div>
 
     <div class="wrapper">
-
       <div class="bulletjournal-habits">
         <!-- Your bullet journal content goes here -->
         <h1>Habit Tracker</h1>
-    
+
         <form id="addRoutineForm">
           <div class="habitInfo">
-          <input type="text" id="routineTitle" placeholder="Title" required />
+            <input type="text" id="routineTitle" placeholder="Title" required />
 
-          <select id="priority" required>
-            <option value="" disabled selected>PRIO</option>
-            <option value="3">Low</option>
-            <option value="2">Medium</option>
-            <option value="1">High</option>
-          </select>
-        </div>
+            <select id="priority" required>
+              <option value="" disabled selected>PRIO</option>
+              <option value="3">Low</option>
+              <option value="2">Medium</option>
+              <option value="1">High</option>
+            </select>
+          </div>
           <button type="button" id="addRoutineButton">Add new habit</button>
         </form>
-      
-<div class="myhabitsheading">
- <h2 class="list-heading">My Habits</h2>
 
-        <div class="sort-wrapper">
-          <button id="sortStreakButton">
-            <i class="fas fa-sort"></i>  Streak
-          </button>
-          <button id="sortPriorityButton">
-            <i class="fas fa-sort"></i>  Prio
-          </button>
+        <div class="myhabitsheading">
+          <h2 class="list-heading">My Habits</h2>
+
+          <div class="sort-wrapper">
+            <button id="sortStreakButton">
+              <i class="fas fa-sort"></i> Streak
+            </button>
+            <button id="sortPriorityButton">
+              <i class="fas fa-sort"></i> Prio
+            </button>
+          </div>
         </div>
-      </div>
-      
+
         <div class="habitContainer">
           <ul id="habitList">
             <!-- Rutinerna kommer att läggas till här dynamiskt -->
@@ -68,26 +73,25 @@
         </div>
       </div>
 
-      
-
       <nav class="menu">
         <!-- Add your menu items here with specific classes -->
         <a href="/todo.html" class="todo">To-Do</a>
         <a href="/calendar.html" class="calendar">Calendar</a>
         <a href="/habits.html" class="habits">Habits</a>
         <a href="/timer.html" class="timer">Timer</a>
+        <div class="logout">
+          <button type="button" id="LogoutButton">
+            <i class="fas fa-door-open"></i>
+          </button>
+        </div>
       </nav>
-      <div class="logout">
-        <button type="button" id="LogoutButton">Logout</button>
-      </div>
     </div>
-
 
     <div class="main-weather-wrapper">
       <div class="weather-div">
-        <h2>Weather 2day</h2>
+        <div class="weather2day">Weather 2day</div>
 
-        <div class="card">
+        
           <div class="search">
             <input
               type="text"
@@ -97,7 +101,7 @@
             <button><img src="images/search.png" alt="search icon" /></button>
           </div>
           <div class="error">
-            <h2>Invalid city name</h2>
+            <h3>Invalid city name</h3>
             <img
               src="images/error.png"
               alt="invalid city name"
@@ -105,15 +109,15 @@
             />
           </div>
           <div class="weather">
-            <h1 class="temp">22°C</h1>
-            <h2 class="city">City</h2>
+            <div class="temp">22°C</div>
+            <div class="city">City</div>
             <img
               src="images/rain.png"
               alt="weather icon"
               class="weather-icon"
             />
           </div>
-        </div>
+        
       </div>
     </div>
   </body>

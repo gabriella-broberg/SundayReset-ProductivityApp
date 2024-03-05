@@ -116,43 +116,46 @@
             <a href="/calendar.html" class="calendar">Calendar</a>
             <a href="/habits.html" class="habits">Habits</a>
             <a href="/timer.html" class="timer">Timer</a>
+            <div class="logout">
+              <button type="button" id="LogoutButton"><i class="fas fa-door-open"></i></button>
+            </div>
         </nav>
     </div>
 
 
     <div class="main-weather-wrapper">
-        <div class="weather-div">
-          <h2>Weather 2day</h2>
-  
-          <div class="card">
-            <div class="search">
-              <input
-                type="text"
-                placeholder="enter city name"
-                spellcheck="false"
-              />
-              <button><img src="images/search.png" alt="search icon" /></button>
-            </div>
-            <div class="error">
-              <h2>Invalid city name</h2>
-              <img
-                src="images/error.png"
-                alt="invalid city name"
-                class="weather-icon"
-              />
-            </div>
-            <div class="weather">
-              <h1 class="temp">22°C</h1>
-              <h2 class="city">City</h2>
-              <img
-                src="images/rain.png"
-                alt="weather icon"
-                class="weather-icon"
-              />
-            </div>
+      <div class="weather-div">
+        <div class="weather2day">Weather 2day</div>
+
+        
+          <div class="search">
+            <input
+              type="text"
+              placeholder="enter city name"
+              spellcheck="false"
+            />
+            <button><img src="images/search.png" alt="search icon" /></button>
           </div>
-        </div>
+          <div class="error">
+            <h3>Invalid city name</h3>
+            <img
+              src="images/error.png"
+              alt="invalid city name"
+              class="weather-icon"
+            />
+          </div>
+          <div class="weather">
+            <div class="temp">22°C</div>
+            <div class="city">City</div>
+            <img
+              src="images/rain.png"
+              alt="weather icon"
+              class="weather-icon"
+            />
+          </div>
+        
       </div>
+    </div>
 
     <script src="todo-script.js"></script>
 </body>
