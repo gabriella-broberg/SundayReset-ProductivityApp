@@ -83,9 +83,20 @@ function renderTodoList() {
         
                 console.log("Klickat på edit!");
 
-                fillInputFields(todo);
+                let newTodo = fillInputFields(todo);
+                let userData = getLocalStorageUserData(); // Återanvänt från remove-knappen
+                userData.todos = todos; 
+                // saveCurrentUserData(userData); 
+
+                todos.splice(index, 1, newTodo);
+
+                saveCurrentUserData({ todos });
+
+                // //Uppdaterar DOM:en
+                // renderTodoList(); 
         
             });
+        
         
         });
         
@@ -94,7 +105,7 @@ function renderTodoList() {
     } else {
 
         const todoListUl = document.getElementById("todo-list-ul");
-        todoListUl.innerHTML = ""; // Töm listan om det inte finns några todos
+        todoListUl.innerHTML = "";
         todoListUl.style.overflowY = "hidden";
 
     }
@@ -251,6 +262,7 @@ document.getElementById("add-todo").addEventListener("click", () => {
 
     // Uppdatera listan med todos
     displayTodos();
+    renderTodoList();  
 });
 
 // Funktion för att fylla i inputfälten med information från en todo
