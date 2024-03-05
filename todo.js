@@ -12,26 +12,15 @@ function getCurrentUserName() {
 function getLocalStorageUserData() {
 
     const username = getCurrentUserName(); 
-    let users = JSON.parse(localStorage.getItem("currentUser")); // Hämtar objektet från en nyckel
-    let result = undefined; 
+    let user = JSON.parse(localStorage.getItem("currentUser")); // Hämtar objektet från en nyckel
 
-    users.forEach(user => {
-
-        if (user.username === username) {
-
-            if (user.todos === undefined)  {
+        if (user.todos === undefined)  {
 
                 user["todos"] = []; 
             
-            } // Kan lägga till habits med en tom array och ny if-sats
+        }
 
-            result = user; 
-
-        } 
-
-    });
-
-    return result; 
+    return user; 
 }
 
 // Funktion för att hämta användarens todos från local storage
@@ -41,6 +30,7 @@ function getUserTodos() {
 
     if (userData.todos === undefined || userData.todos === null) {
 
+        userData["todos"] = []; 
         return []; 
 
     } else {
@@ -55,62 +45,74 @@ function addTodo(todoData) {
     let todos = getUserTodos(); 
     todos.push(todoData); 
 
-    let userData = getLocalStorageUserData();
-    userData.todos = todos; 
-    saveCurrentUserData(userData); 
+    // let userData = getLocalStorageUserData();
+    // userData.todos = todos; 
+    saveCurrentUserData(todos); 
 
 }
 
-function renderTodoList() {
+function renderInputFields(index) {
 
-    const todos = getUserTodos();
+    let todos = getUserTodos();
+    let todo = todos[index]; 
 
-    const addTodoBtn = document.getElementById("add-todo");
-    addTodoBtn.innerText = "Save to-do!";
+    fillInputFields(todo);
 
-    if (todos.length > 0) {
+    saveCurrentUserData(todo);
 
-        todos.forEach((todo, index) => {
+
+}
+
+// function renderTodoList() {
+
+//     const todos = getUserTodos();
+
+//     const addTodoBtn = document.getElementById("add-todo");
+//     addTodoBtn.innerText = "Save to-do!";
+
+//     if (todos.length > 0) {
+
+//         todos.forEach((todo, index) => {
         
-            const editTodoBtn = document.getElementById(`editTodo${index}`);
+//             const editTodoBtn = document.getElementById(`editTodo${index}`);
         
-            editTodoBtn.addEventListener("click", () => {
+//             editTodoBtn.addEventListener("click", () => {
     
-                //Måste hämta to-do:s värde från inputfälten
+//                 //Måste hämta to-do:s värde från inputfälten
 
-                fillInputFields(todo);
-                let todoValue = getTodoValues(); 
+//                 fillInputFields(todo);
+//                 let todoValue = getTodoValues(); 
                 
-                console.log("todovalue", todoValue);
-                // let userData = getLocalStorageUserData();
-                // userData.todos = todos; 
+//                 console.log("todovalue", todoValue);
+//                 // let userData = getLocalStorageUserData();
+//                 // userData.todos = todos; 
 
-                todos.splice(currentEditIndex, 1, todoValue);
-                saveCurrentUserData(todoValue);
+//                 todos.splice(currentEditIndex, 1, todoValue);
+//                 saveCurrentUserData(todoValue);
 
         
-            });
+//             });
         
-        });
+//         });
 
-        let addTodoBtn = document.getElementById("add-todo");
+//         let addTodoBtn = document.getElementById("add-todo");
             
-        addTodoBtn.addEventListener("click", () => {
+//         addTodoBtn.addEventListener("click", () => {
 
-            displayUserTodos(); 
+//             displayUserTodos(); 
 
-        });
+//         });
         
-        scrollBehaviour();
+//         scrollBehaviour();
     
-    } else {
+//     } else {
 
-        const todoListUl = document.getElementById("todo-list-ul");
-        todoListUl.innerHTML = "";
-        todoListUl.style.overflowY = "hidden";
+//         const todoListUl = document.getElementById("todo-list-ul");
+//         todoListUl.innerHTML = "";
+//         todoListUl.style.overflowY = "hidden";
 
-    }
-}
+//     }
+// }
 
 /**
  * 
@@ -143,21 +145,23 @@ function removeTodo(id) {
 // Används i ovanstående funktioner 
 function saveCurrentUserData(data) {
 
-    let currentUserName = getCurrentUserName();
-    let allUsers = JSON.parse(localStorage.getItem("users")); 
+    // let currentUserName = getCurrentUserName();
+    let user = JSON.parse(localStorage.getItem("currentUser")); 
 
-    for(let k=0; k < allUsers.length; k++) {
+    if (user.todos === undefined || user.todos === null ) {
 
-        if (allUsers[k].username === currentUserName) {
+        user["todos"] = data; 
+    
+    } else {
 
-            allUsers[k] = data; 
-        }
+        user.todos = data; 
     }
 
-    console.log(allUsers);
-    console.log(JSON.stringify(allUsers)); 
+    console.log(data);
+    console.log(JSON.stringify(user)); 
     
-    localStorage.setItem("users", JSON.stringify(allUsers));
+    localStorage.setItem("currentUser", JSON.stringify(user));
+
 }
 
 
@@ -219,9 +223,10 @@ function displayUserTodos() {
 
         editTodoBtn.addEventListener("click", () => {
 
-            renderTodoList(); 
+            renderInputFields(id);
+            editIndex = id; 
 
-        })
+        });
 
         
 
@@ -250,14 +255,15 @@ function getTodoValues() {
         deadline: todoInputDeadline,
     }
     
-    addTodo(todoObject);
+
+    // addTodo(todoObject);
 
     return todoObject; 
 
 }
 
 
-
+let editIndex = -1; 
 
 let addTodoBtn = document.getElementById("add-todo"); 
 
@@ -265,8 +271,29 @@ addTodoBtn.addEventListener("click", () => {
 
     addTodoBtn.innerText = "Add to-do!"; 
 
+    if (editIndex > -1) {
+
+        let todos = getUserTodos();
+        let editedTodo = getTodoValues();
+
+        todos[editIndex] = editedTodo; 
+
+        saveCurrentUserData(todos); 
+
+    } else {
+
+        let todos = getUserTodos();
+        let editedTodo = getTodoValues();
+
+        todos.push(editedTodo); 
+
+        saveCurrentUserData(todos); 
+    }
+
     // Hämta all todo-input och dess värden
-    getTodoValues();
+    // let todo = getTodoValues();
+    
+
 
     // Rensa inputfälten
     document.getElementById("todo-input-title").value = "";
