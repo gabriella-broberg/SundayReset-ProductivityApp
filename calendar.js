@@ -88,7 +88,8 @@ let displayEvents = () => {
   eventsDiv.innerHTML = "";
   pastEventsDiv.innerHTML = "";
 
-  events.sort((a, b) => a.startTime - b.startTime); // Sort events by start time
+  events.sort((a, b) => a.startTime - b.startTime); 
+  // Sort events by start time
 
   events.forEach((event, index) => {
     const eventDiv =
@@ -177,19 +178,18 @@ let getEventListFromCurrentUser = () => {
   }));
 };
 
-
 let removeEventFromCurrentUser = (eventIndex) => {
-  const currentUserString = localStorage.getItem('currentUser');
-  const currentUser = JSON.parse(currentUserString);
+  let currentUser = JSON.parse(getCurrentUser());
   
-  if (!currentUser.eventList || currentUser.eventList.length === 0) return;
+  if (!currentUser || !currentUser.eventList || currentUser.eventList.length === 0) return;
+
   currentUser.eventList.splice(eventIndex, 1);
-  localStorage.setItem('currentUser', JSON.stringify(currentUser));
-  window.location.reload()
+
+  localStorage.setItem('currentUser', JSON.stringify(currentUser)); 
+  
+  events = getEventListFromCurrentUser();
   displayEvents();
 }
-// const deleteBtn = document.querySelector(".delete");
-// deleteBtn.addEventListener("click", removeEventFromCurrentUser());
 
 document.addEventListener('click', function(e) {
   if (e.target.classList.contains('delete')) { 
