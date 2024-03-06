@@ -103,7 +103,7 @@ let displayEvents = () => {
        </ul>
        <div class="button-container2">
         <button class="delete fa-solid fa-trash" data-index="${index}"></button>
-        <button class="edit fa-solid fa-brush" data-index="${index}"></button>
+        <button class="edit fa-solid fa-pen" data-index="${index}"></button>
         </div>
         `;
     eventDiv.classList.add("event");
@@ -178,3 +178,22 @@ let getEventListFromCurrentUser = () => {
 };
 
 
+let removeEventFromCurrentUser = (eventIndex) => {
+  const currentUserString = localStorage.getItem('currentUser');
+  const currentUser = JSON.parse(currentUserString);
+  
+  if (!currentUser.eventList || currentUser.eventList.length === 0) return;
+  currentUser.eventList.splice(eventIndex, 1);
+  localStorage.setItem('currentUser', JSON.stringify(currentUser));
+  window.location.reload()
+  displayEvents();
+}
+// const deleteBtn = document.querySelector(".delete");
+// deleteBtn.addEventListener("click", removeEventFromCurrentUser());
+
+document.addEventListener('click', function(e) {
+  if (e.target.classList.contains('delete')) { 
+    const eventIndex = parseInt(e.target.getAttribute('data-index'), 10); 
+    removeEventFromCurrentUser(eventIndex);
+  }
+});
