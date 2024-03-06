@@ -192,6 +192,8 @@ function displayUserTodos() {
     "todo-list-ul"
   );
 
+  todoListUl.innerHTML = ""; 
+
   userTodos.forEach((todo, id) => {
     let li = document.createElement("li");
     li.innerHTML = `
@@ -233,7 +235,6 @@ function displayUserTodos() {
 
 
   scrollBehaviour();
-  // renderTodoList();
 }
 
 function getTodoValues() {
@@ -334,8 +335,12 @@ let filterTodoStatus = document.getElementById("filter-todo-status");
 
 let filterTodosBtn = document.getElementById("filter-todos"); 
 
+// Skapa en temparray??? 
+
 
 filterTodosBtn.addEventListener("click", () => {
+
+    console.log("klickat på knappen!"); 
     
     const userTodos = getUserTodos();
     let selectedCategories = [];
@@ -367,7 +372,6 @@ filterTodosBtn.addEventListener("click", () => {
     });
 
     // Sortera todo-uppgifterna efter deadline och sedan efter status
-
     filteredTodos.sort((a, b) => {
     
         // Först sortera efter deadline
@@ -397,55 +401,62 @@ filterTodosBtn.addEventListener("click", () => {
         }
     });
     
-    updateTodoDiv(filteredTodos);
+    displayUserTodos(filteredTodos); 
 
 }); 
 
+// displayUserTodos(); 
 
-function updateTodoDiv(id) {
 
-    let todoListUl = document.getElementById("todo-list-ul");
 
-    // Töm listan på todos
-    todoListUl.innerHTML = `<h2>Filtered to-do:s</h2>`;
 
-    let todos = getUserTodos(); 
 
-    // Loopa igenom filtrerade todos och lägg till dem i listan
-    todos.forEach((todo, id) => {
 
-        const li = document.createElement("li");
-        li.innerHTML = `
-            <h3>Title: ${todo.title}</h3>
-            <p>Description: ${todo.description}<br>
-            Status: ${todo.status}<br>
-            Estimated time: ${todo.estimatedtime}<br>
-            Category: ${todo.category}<br>
-            Deadline: ${todo.deadline}<br>
-            <button class="fa-solid fa-trash todo-remove" id="removeTodo${id}"></button>
-            <button class="fa-solid fa-pen todo-edit" id="editTodo${id}"></button>
-        `;
 
-        todoListUl.appendChild(li);
+// function updateTodoDiv(id) {
 
-    }); 
+//     let todoListUl = document.getElementById("todo-list-ul");
 
-    let removeTodoBtn = document.getElementById(`removeTodo${id}`);
+//     // Töm listan på todos
+//     todoListUl.innerHTML = `<h2>Filtered to-do:s</h2>`;
 
-    removeTodoBtn.addEventListener("click", () => {
+//     let todos = getUserTodos(); 
 
-        removeTodo(id);
-        editIndex = id; // La till detta men vet inte om det fungerar?  
+//     // Loopa igenom filtrerade todos och lägg till dem i listan
+//     todos.forEach((todo, id) => {
+
+//         const li = document.createElement("li");
+//         li.innerHTML = `
+//             <h3>Title: ${todo.title}</h3>
+//             <p>Description: ${todo.description}<br>
+//             Status: ${todo.status}<br>
+//             Estimated time: ${todo.estimatedtime}<br>
+//             Category: ${todo.category}<br>
+//             Deadline: ${todo.deadline}<br>
+//             <button class="fa-solid fa-trash todo-remove" id="removeTodo${id}"></button>
+//             <button class="fa-solid fa-pen todo-edit" id="editTodo${id}"></button>
+//         `;
+
+//         todoListUl.appendChild(li);
+
+//     }); 
+
+//     let removeTodoBtn = document.getElementById(`removeTodo${id}`);
+
+//     removeTodoBtn.addEventListener("click", () => {
+
+//         removeTodo(id);
+//         editIndex = id; // La till detta men vet inte om det fungerar?  
     
-    });
+//     });
 
-    let editTodoBtn = document.getElementById(`editTodo${id}`); 
+//     let editTodoBtn = document.getElementById(`editTodo${id}`); 
 
-    editTodoBtn.addEventListener("click", () => {
+//     editTodoBtn.addEventListener("click", () => {
 
-        renderInputFields(id);
-        editIndex = id;
+//         renderInputFields(id);
+//         editIndex = id;
 
-    });
+//     });
     
-}
+// }
