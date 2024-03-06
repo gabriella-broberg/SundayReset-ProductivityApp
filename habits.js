@@ -1,5 +1,5 @@
 // habits.js
-
+// * Logout method
 let logoutUser = () => {
   // Retrieve the current user from localStorage
   const currentUserString = localStorage.getItem(
@@ -42,7 +42,6 @@ let logoutUser = () => {
   }
 };
 
-// Assuming you have a logout button with the ID 'logoutButton'
 const logoutButton = document.querySelector(
   "#LogoutButton"
 );
@@ -50,7 +49,7 @@ logoutButton.addEventListener(
   "click",
   logoutUser
 );
-
+// * End logout method
 class DailyRoutine {
   constructor(title, streak, priority) {
     this.title = title;
@@ -65,7 +64,7 @@ let filterOption = 0;
 document.addEventListener(
   "DOMContentLoaded",
   function () {
-    // Skapa en array för att lagra dagliga rutiner
+    
     routines = getHabitListFromCurrentUser();
 
     if (routines.length > 0) {
@@ -198,7 +197,6 @@ function updateCurrentUser(currentUserString) {
   );
 }
 
-// Lägg till event listener på dokumentet och använd event delegation
 
 function displayRoutines() {
   const habitList =
