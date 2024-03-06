@@ -1,12 +1,18 @@
+let getCurrentUser = () => {
+  const userString = localStorage.getItem("currentUser");
+  return userString ? JSON.parse(userString) : null;
+};
+
 // * Logout method
 let logoutUser = () => {
-  // Retrieve the current user from localStorage
-  const currentUserString = localStorage.getItem(
-    "currentUser"
-  );
-  const currentUser = currentUserString
-    ? JSON.parse(currentUserString)
-    : null;
+  // // Retrieve the current user from localStorage
+  // const currentUserString = localStorage.getItem(
+  //   "currentUser"
+  // );
+  // const currentUser = currentUserString
+  //   ? JSON.parse(currentUserString)
+  //   : null;
+  let currentUser = getCurrentUser();
 
   if (currentUser) {
     // Retrieve the users array
@@ -70,16 +76,12 @@ document.addEventListener(
   }
 );
 
-let getCurrentUser = () => {
-  return localStorage.getItem("currentUser");
+
+
+let updateCurrentUser = (userObj) => {
+  localStorage.setItem("currentUser", JSON.stringify(userObj));
 };
 
-let updateCurrentUser = (currentUserString) => {
-  localStorage.setItem(
-    "currentUser",
-    currentUserString
-  );
-};
 
 let displayEvents = () => {
   const pastEventsDiv = document.getElementById("past-events");
@@ -152,25 +154,22 @@ form.addEventListener("submit", function (e) {
       );
     }
   
-  addOrUpdateEventToLocalStorage();
+  addOrUpdateEventToLocalStorage(events);
 });
 
-const addOrUpdateEventToLocalStorage = () => {
-  let currentUser = JSON.parse(getCurrentUser());
-  if (
-    currentUser.eventList === undefined ||
-    currentUser.eventList === null
-  ) {
-    currentUser["eventList"] = events;
-  } else {
-    currentUser.eventList = events;
-  }
-  updateCurrentUser(JSON.stringify(currentUser));
+const addOrUpdateEventToLocalStorage = (newEvents) => {
+  let currentUser = getCurrentUser();
+  if (!currentUser) return;
+
+  currentUser.eventList = newEvents; 
+  updateCurrentUser(currentUser); 
+
+  events = newEvents;
 };
 
-let getEventListFromCurrentUser = () => {
-  let currentUser = JSON.parse(getCurrentUser());
-  let events = currentUser && currentUser.eventList ? currentUser.eventList : [];
+
+// Transforms event date strings to Date objects when read
+let transformEventDates = (events) => {
   return events.map(event => ({
     ...event,
     startTime: new Date(event.startTime),
@@ -178,8 +177,16 @@ let getEventListFromCurrentUser = () => {
   }));
 };
 
+
+let getEventListFromCurrentUser = () => {
+  const currentUser = getCurrentUser();
+  if (!currentUser || !currentUser.eventList) return [];
+  return transformEventDates(currentUser.eventList);
+};
+
+
 let removeEventFromCurrentUser = (eventIndex) => {
-  let currentUser = JSON.parse(getCurrentUser());
+  let currentUser = getCurrentUser();
   
   if (!currentUser || !currentUser.eventList || currentUser.eventList.length === 0) return;
 
