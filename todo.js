@@ -186,15 +186,17 @@ function fillInputFields(todo) {
     todo.deadline;
 }
 
-function displayUserTodos() {
-  let userTodos = getUserTodos();
+let userTodos = getUserTodos();
+
+function displayUserTodos(list) {
+
   let todoListUl = document.getElementById(
     "todo-list-ul"
   );
 
   todoListUl.innerHTML = ""; 
 
-  userTodos.forEach((todo, id) => {
+  list.forEach((todo, id) => {
     let li = document.createElement("li");
     li.innerHTML = `
                 <h2>Title: ${todo.title}</h2>
@@ -318,10 +320,10 @@ addTodoBtn.addEventListener("click", () => {
   document.getElementById("todo-deadline").value =
     "";
 
-  displayUserTodos();
+  displayUserTodos(todos);
 });
 
-displayUserTodos();
+displayUserTodos(getUserTodos());
 
 
 // ----------------------------- FILTRERINGSFUNKTIONEN ---------------------------------------------- // 
@@ -335,8 +337,6 @@ let filterTodoStatus = document.getElementById("filter-todo-status");
 
 let filterTodosBtn = document.getElementById("filter-todos"); 
 
-// Skapa en temparray??? 
-
 
 filterTodosBtn.addEventListener("click", () => {
 
@@ -344,6 +344,8 @@ filterTodosBtn.addEventListener("click", () => {
     
     const userTodos = getUserTodos();
     let selectedCategories = [];
+    let filteredTodos = []; 
+
 
     if (filterHome.checked) selectedCategories.push("home");
     if (filterStudy.checked) selectedCategories.push("study");
@@ -351,10 +353,10 @@ filterTodosBtn.addEventListener("click", () => {
     if (filterHealth.checked) selectedCategories.push("health");
 
     // Filtrera todo-uppgifter baserat på statusen
-    let filteredTodos = userTodos.filter(todo => {
+    filteredTodos = userTodos.filter(todo => {
 
         if (filterTodoStatus.value === "all") {
-            
+
             return true; 
 
         } else {
@@ -364,6 +366,8 @@ filterTodosBtn.addEventListener("click", () => {
         }
 
     });
+
+    console.log(filteredTodos); 
 
     filteredTodos = filteredTodos.filter(todo => {
 
