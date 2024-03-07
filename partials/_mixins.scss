@@ -1,3 +1,5 @@
+@import "./variables";
+
 @mixin center($direction) {
   display: flex;
   justify-content: center;
@@ -6,7 +8,7 @@
 }
 
 @mixin heading1 ($color) {
-  font-weight: bolder;
+  font-weight: 700;
   font-size: 72px;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #000000;
@@ -22,6 +24,30 @@
   -webkit-text-stroke-color: #000000;
   text-shadow: 1px #000000;
   text-align: center;
-  font-weight: bolder;
+  font-weight: 700;
   color: $color;
+}
+@mixin addBtn ($color) {
+  background-color: $color;
+    padding: 0.6em;
+    font-family: "Amatic SC";
+    font-size: $font-size-medium;
+    font-weight: 700;
+    width: 95%;
+    border: none;
+    border-radius: 20px;
+    margin-top: 1em;
+}
+
+@mixin inputFields ($width) {
+  background-color: #e9e4fa;
+  font-family: "Amatic SC";
+  padding: 15px;
+  width: $width;
+  font-size: $font-size-medium;
+  font-weight: 700;
+  border: none;
+  outline: none;
+  outline: #e9e4fa;
+  border-radius: $radius-large;
 }

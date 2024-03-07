@@ -42,10 +42,12 @@
           
           <div id="calendar">             
             <form id="eventForm">
-                <input type="text" id="eventTitle" placeholder="Titel" required>
-                <input type="datetime-local" id="startTime" required>
-                <input type="datetime-local" id="endTime" required>
-                <button type="submit">Add event</button>
+              <div class="input-field">
+                <input type="text" class="input" id="eventTitle" placeholder="Titel" required>
+                <input type="datetime-local" class="input" id="startTime" required>
+                <input type="datetime-local" class="input" id="endTime" required>
+              </div>
+                <button type="submit" class="addBtn">Add event</button>
             </form>
 
             <h2 class="habit-heading">Upcomming activites</h2>

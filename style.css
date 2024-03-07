@@ -7,7 +7,7 @@
 }
 
 #index-h1 {
-  font-weight: bolder;
+  font-weight: 700;
   font-size: 72px;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #000000;
@@ -562,9 +562,38 @@
   justify-content: space-around;
   height: 89%;
 }
+#calendar .addBtn {
+  background-color: #cfdf83;
+  padding: 0.6em;
+  font-family: "Amatic SC";
+  font-size: 20px;
+  font-weight: 700;
+  width: 95%;
+  border: none;
+  border-radius: 20px;
+  margin-top: 1em;
+}
+#calendar .input-field {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+#calendar .input-field .input {
+  background-color: #e9e4fa;
+  font-family: "Amatic SC";
+  padding: 15px;
+  width: 27%;
+  font-size: 20px;
+  font-weight: 700;
+  border: none;
+  outline: none;
+  outline: #e9e4fa;
+  border-radius: 20px;
+}
 
 h1 {
-  font-weight: bolder;
+  font-weight: 700;
   font-size: 72px;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #000000;
@@ -580,7 +609,7 @@ h2 {
   -webkit-text-stroke-color: #000000;
   text-shadow: 1px #000000;
   text-align: center;
-  font-weight: bolder;
+  font-weight: 700;
   color: #cfdf83;
 }
 
@@ -612,6 +641,9 @@ h2 {
 }
 .event ul {
   margin: 0;
+}
+.event .delete {
+  margin-left: 1em;
 }
 
 body {
