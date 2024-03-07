@@ -607,7 +607,7 @@ h2 {
   font-size: 32px;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #000000;
-  text-shadow: 1px #000000;
+  text-shadow: 1px 1px 5px #000000;
   text-align: center;
   font-weight: 700;
   color: #cfdf83;
