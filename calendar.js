@@ -5,13 +5,6 @@ let getCurrentUser = () => {
 
 // * Logout method
 let logoutUser = () => {
-  // // Retrieve the current user from localStorage
-  // const currentUserString = localStorage.getItem(
-  //   "currentUser"
-  // );
-  // const currentUser = currentUserString
-  //   ? JSON.parse(currentUserString)
-  //   : null;
   let currentUser = getCurrentUser();
 
   if (currentUser) {
@@ -106,7 +99,6 @@ let displayEvents = () => {
        </ul>
        <div class="button-container2">
         <button class="delete fa-solid fa-trash" data-index="${index}"></button>
-        <button class="edit fa-solid fa-pen" data-index="${index}"></button>
         </div>
         `;
     eventDiv.classList.add("event");
@@ -130,31 +122,36 @@ form.addEventListener("submit", function (e) {
     document.getElementById("eventTitle").value;
 
   const startTime = new Date(
-    document.getElementById("startTime").value
-  );
+    document.getElementById("startTime").value );
 
   const endTime = new Date(
-    document.getElementById("endTime").value
-  );
+    document.getElementById("endTime").value );
+
+  if (endTime < startTime) {
+    alert("End date must be after the start date.");
+    return; // Cancel the function here if the end date is before the start date
+  };
 
   const overlaps = events.some(
     (event) => startTime < event.endTime && endTime > event.startTime
   );
-    if (!overlaps) {
-      const event = {
-        title,
-        startTime,
-        endTime,
-      };
-      events.push(event);
-      displayEvents();
-    } else {
-      alert(
-        "The event collides with an existing event."
-      );
-    }
+    
+  if (!overlaps) {
+    const event = {
+    title,
+    startTime,
+    endTime,
+  };
+    events.push(event);
+    displayEvents();
+    addOrUpdateEventToLocalStorage(events);
+  } else {
+    alert(
+     "The event collides with an existing event."
+    );
+  };
   
-  addOrUpdateEventToLocalStorage(events);
+  form.reset();  
 });
 
 const addOrUpdateEventToLocalStorage = (newEvents) => {
@@ -192,7 +189,7 @@ let removeEventFromCurrentUser = (eventIndex) => {
 
   currentUser.eventList.splice(eventIndex, 1);
 
-  localStorage.setItem('currentUser', JSON.stringify(currentUser)); 
+  updateCurrentUser(currentUser);
   
   events = getEventListFromCurrentUser();
   displayEvents();
@@ -202,5 +199,5 @@ document.addEventListener('click', function(e) {
   if (e.target.classList.contains('delete')) { 
     const eventIndex = parseInt(e.target.getAttribute('data-index'), 10); 
     removeEventFromCurrentUser(eventIndex);
-  }
+  } 
 });
