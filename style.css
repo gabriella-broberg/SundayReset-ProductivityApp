@@ -746,7 +746,7 @@ input[type=button].removeTodo .editTodo {
   text-align: left;
   max-width: 50%;
 }
-.todo-wrapper .todo-divider-one .input {
+.todo-wrapper .todo-divider-one input {
   background-color: #e9e4fa;
   color: #8a8a8a;
   font-family: "Amatic SC";
@@ -759,14 +759,10 @@ input[type=button].removeTodo .editTodo {
   border-radius: 20px;
   margin: 0 0 0.3em 0;
 }
-.todo-wrapper .todo-divider-one .input:hover {
+.todo-wrapper .todo-divider-one input:hover {
   background-color: #c6b9f2;
 }
-.todo-wrapper .todo-divider-two {
-  text-align: right;
-  max-width: 50%;
-}
-.todo-wrapper .todo-divider-two .input {
+.todo-wrapper .todo-divider-one select {
   background-color: #e9e4fa;
   color: #8a8a8a;
   font-family: "Amatic SC";
@@ -779,11 +775,47 @@ input[type=button].removeTodo .editTodo {
   border-radius: 20px;
   margin: 0 0 0.3em 0;
 }
-.todo-wrapper .todo-divider-two .input:hover {
+.todo-wrapper .todo-divider-one select:hover {
+  background-color: #c6b9f2;
+}
+.todo-wrapper .todo-divider-two {
+  text-align: right;
+  max-width: 50%;
+}
+.todo-wrapper .todo-divider-two input {
+  background-color: #e9e4fa;
+  color: #8a8a8a;
+  font-family: "Amatic SC";
+  padding: 15px;
+  min-width: 80%;
+  font-size: 20px;
+  font-weight: 700;
+  border: none;
+  outline-color: #d7cef6;
+  border-radius: 20px;
+  margin: 0 0 0.3em 0;
+}
+.todo-wrapper .todo-divider-two input:hover {
+  background-color: #c6b9f2;
+}
+.todo-wrapper .todo-divider-two select {
+  background-color: #e9e4fa;
+  color: #8a8a8a;
+  font-family: "Amatic SC";
+  padding: 15px;
+  min-width: 90%;
+  font-size: 20px;
+  font-weight: 700;
+  border: none;
+  outline-color: #d7cef6;
+  border-radius: 20px;
+  margin: 0 0 0.3em 0;
+}
+.todo-wrapper .todo-divider-two select:hover {
   background-color: #c6b9f2;
 }
 
-.filter-container .input {
+.filter-container select {
   background-color: #e9e4fa;
   color: #8a8a8a;
   font-family: "Amatic SC";
@@ -794,8 +826,9 @@ input[type=button].removeTodo .editTodo {
   border: none;
   outline-color: #d7cef6;
   border-radius: 20px;
+  padding: 10px;
 }
-.filter-container .input:hover {
+.filter-container select:hover {
   background-color: #c6b9f2;
 }
 

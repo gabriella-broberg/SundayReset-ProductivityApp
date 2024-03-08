@@ -35,15 +35,23 @@ input[type="button"].removeTodo .editTodo {
     .todo-divider-one {
         text-align: left;
         max-width: 50%;
-        .input {
+        input {
             @include inputFields (80%, $background-primary);
+            margin: 0 0 0.3em 0;
+        }
+        select {
+            @include inputFields (90%, $background-primary);
             margin: 0 0 0.3em 0;
         }
     }    
     .todo-divider-two {
         text-align: right;
         max-width: 50%;
-        .input {
+        input {
+            @include inputFields (80%, $background-primary);
+            margin: 0 0 0.3em 0;
+        }
+        select {
             @include inputFields (90%, $background-primary);
             margin: 0 0 0.3em 0;
         }
@@ -52,8 +60,9 @@ input[type="button"].removeTodo .editTodo {
 }
 
 .filter-container{
-    .input {
+    select {
         @include inputFields (25%, $background-primary);
+        padding: 10px;
     }
 }
 
