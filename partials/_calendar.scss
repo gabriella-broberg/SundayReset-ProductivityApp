@@ -18,7 +18,7 @@
     width: 100%;
 
     .input {
-        @include inputFields(27%);
+        @include inputFields(27%, $background-primary);
       }
   }
   

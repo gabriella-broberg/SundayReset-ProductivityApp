@@ -138,16 +138,6 @@
   margin: 0px;
 }
 
-.bulletjournal-habits h2 {
-  font-size: 32px;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #000000;
-  text-shadow: 1px #000000;
-  text-align: center;
-  font-weight: 700;
-  color: #eba08b;
-}
-
 .bulletjournal-habits p {
   font-size: 20px;
 }
@@ -157,6 +147,36 @@
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+}
+.habitInfo .input {
+  background-color: #e9e4fa;
+  color: #8a8a8a;
+  font-family: "Amatic SC";
+  padding: 15px;
+  min-width: 75%;
+  font-size: 20px;
+  font-weight: 700;
+  border: none;
+  outline-color: #d7cef6;
+  border-radius: 20px;
+}
+.habitInfo .input:hover {
+  background-color: #c6b9f2;
+}
+.habitInfo .inputPrio {
+  background-color: #e9e4fa;
+  color: #8a8a8a;
+  font-family: "Amatic SC";
+  padding: 15px;
+  min-width: 15%;
+  font-size: 20px;
+  font-weight: 700;
+  border: none;
+  outline-color: #d7cef6;
+  border-radius: 20px;
+}
+.habitInfo .inputPrio:hover {
+  background-color: #c6b9f2;
 }
 
 #addRoutineButton {
@@ -180,36 +200,36 @@
   background-color: #e29884;
 }
 
-#priority,
-#routineTitle {
-  background-color: #e9e4fa;
-  padding: 10px;
-  border-radius: 20px;
-  font-family: "Amatic SC";
-  font-size: 20px;
-  font-weight: bold;
-  color: #8a8a8a;
-  outline: none;
-  border: none;
-}
-
-#routineTitle {
-  width: 80%;
-}
-
-#priority:hover,
-#routineTitle:hover {
-  background-color: #c6b9f2;
-}
-
 .myhabitsheading {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
-.list-heading {
+.myhabitsheading h2 {
+  font-size: 32px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000000;
+  text-shadow: 1px #000000;
+  text-align: center;
+  font-weight: 700;
+  color: #eba08b;
   margin: 0;
+}
+.myhabitsheading .input {
+  background-color: #e9e4fa;
+  color: #8a8a8a;
+  font-family: "Amatic SC";
+  padding: 15px;
+  min-width: 3em;
+  font-size: 20px;
+  font-weight: 700;
+  border: none;
+  outline-color: #d7cef6;
+  border-radius: 20px;
+  padding: 0.2em 1em;
+}
+.myhabitsheading .input:hover {
+  background-color: #c6b9f2;
 }
 
 .sort-wrapper {
@@ -612,6 +632,9 @@
   outline-color: #d7cef6;
   border-radius: 20px;
 }
+#calendar .input-field .input:hover {
+  background-color: #c6b9f2;
+}
 
 h1 {
   font-weight: 700;
@@ -713,14 +736,17 @@ input[type=button].removeTodo .editTodo {
   text-align: center;
   font-weight: 700;
   color: #f5ff80;
+  margin-bottom: 0.5em;
 }
 
-.todo-divider-one,
-.todo-divider-two {
+.todo-wrapper {
+  display: flex;
+}
+.todo-wrapper .todo-divider-one {
+  text-align: left;
   max-width: 50%;
 }
-.todo-divider-one .input,
-.todo-divider-two .input {
+.todo-wrapper .todo-divider-one .input {
   background-color: #e9e4fa;
   color: #8a8a8a;
   font-family: "Amatic SC";
@@ -731,21 +757,30 @@ input[type=button].removeTodo .editTodo {
   border: none;
   outline-color: #d7cef6;
   border-radius: 20px;
-  margin: 0.1em;
+  margin: 0 0 0.3em 0;
 }
-
-.todo-divider-one {
-  text-align: left;
+.todo-wrapper .todo-divider-one .input:hover {
+  background-color: #c6b9f2;
 }
-
-.todo-divider-two {
+.todo-wrapper .todo-divider-two {
   text-align: right;
+  max-width: 50%;
 }
-
-.todo-wrapper {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
+.todo-wrapper .todo-divider-two .input {
+  background-color: #e9e4fa;
+  color: #8a8a8a;
+  font-family: "Amatic SC";
+  padding: 15px;
+  min-width: 90%;
+  font-size: 20px;
+  font-weight: 700;
+  border: none;
+  outline-color: #d7cef6;
+  border-radius: 20px;
+  margin: 0 0 0.3em 0;
+}
+.todo-wrapper .todo-divider-two .input:hover {
+  background-color: #c6b9f2;
 }
 
 .filter-container .input {
@@ -753,12 +788,15 @@ input[type=button].removeTodo .editTodo {
   color: #8a8a8a;
   font-family: "Amatic SC";
   padding: 15px;
-  min-width: 4em;
+  min-width: 25%;
   font-size: 20px;
   font-weight: 700;
   border: none;
   outline-color: #d7cef6;
   border-radius: 20px;
+}
+.filter-container .input:hover {
+  background-color: #c6b9f2;
 }
 
 select:focus input:focus select:active input:active {
@@ -779,11 +817,6 @@ select:focus input:focus select:active input:active {
 }
 #add-todo:hover {
   background-color: #e78e75;
-}
-
-#filter-todo-status {
-  width: 25%;
-  padding: 5px;
 }
 
 #filter-todos {

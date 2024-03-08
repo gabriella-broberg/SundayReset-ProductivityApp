@@ -9,20 +9,21 @@
   @include heading1 ($background-highlight-peach);
 }
 
-.bulletjournal-habits h2 {
-  @include heading2 ($background-highlight-peach);
-}
-
 .bulletjournal-habits p {
   font-size: $font-size-medium;
 }
-
 
 .habitInfo {
   width: 95%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  .input {
+    @include inputFields(75%, $background-primary)
+  }
+  .inputPrio {
+    @include inputFields(15%, $background-primary)
+  }
 }
 
 #addRoutineButton {
@@ -30,7 +31,6 @@
 
   margin-top: 15px;
   margin-bottom: 80px;
-
 }
 
 
@@ -38,43 +38,19 @@
   background-color: #e29884;
 }
 
-
-
-#priority,
-#routineTitle {
-  background-color: $background-primary;
-  padding: 10px;
-  border-radius: 20px;
-  font-family: "Amatic SC";
-  font-size: 20px;
-  font-weight: bold;
-  color: #8a8a8a;
-  outline: none;
-  border: none;
-
-}
-
-#routineTitle {
-  width: 80%;
-}
-
-
-#priority:hover,
-#routineTitle:hover {
-  background-color: darken($background-primary, 10%);
-}
-
-
 .myhabitsheading {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  h2 {
+    @include heading2 ($background-highlight-peach);
+    margin: 0;
+  }
+  .input{
+    @include inputFields(3em, $background-primary);
+    padding: 0.2em 1em
+  }
 }
-
-.list-heading {
-  margin: 0;
-}
-
 
 //sort-wrapper 
 .sort-wrapper {
@@ -83,7 +59,6 @@
 }
 
 //sortStreakButton
-
 #sortStreakButton {
   background-color: $background-primary;
   padding: 5px 20px 5px 20px;
@@ -123,7 +98,6 @@
   height: 400px;
   text-align: left;
   overflow-y: auto;
-
 }
 
 //habitList
@@ -131,7 +105,6 @@
 .title {
   color: $background-highlight-peach;
   text-decoration: underline;
-
 }
 
 
@@ -142,7 +115,6 @@
   height: 25px;
   width: 25px;
   display: inline-block;
-
 }
 
 .increase:hover {
@@ -182,16 +154,11 @@
   height: 25px;
   width: 25px;
   display: inline-block;
-
-
 }
 
 .delete:hover {
   color: #ff0000;
 }
-
-
-
 
 .habit-list-item {
   display: flex;

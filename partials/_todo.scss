@@ -26,97 +26,36 @@ input[type="button"].removeTodo .editTodo {
     background-color: $background-highlight-yellow;
 }
 
-
 .todo-h2 {
     @include heading2 ($background-highlight-yellow);
-
+    margin-bottom: 0.5em;
 }
-
-
-.todo-divider-one,
-.todo-divider-two {
-    max-width: 50%;
-
-    .input {
-        @include inputFields (80%);
-        margin: 0.1em;
-    }
-}
-
-.todo-divider-one {
-    text-align: left;
-}
-
-.todo-divider-two {
-    text-align: right;
-}
-
-
-
 .todo-wrapper {
     display: flex;
-    justify-content: space-between;
-    gap: 10px;
+    .todo-divider-one {
+        text-align: left;
+        max-width: 50%;
+        .input {
+            @include inputFields (80%, $background-primary);
+            margin: 0 0 0.3em 0;
+        }
+    }    
+    .todo-divider-two {
+        text-align: right;
+        max-width: 50%;
+        .input {
+            @include inputFields (90%, $background-primary);
+            margin: 0 0 0.3em 0;
+        }
+    }
 
 }
 
 .filter-container{
     .input {
-        @include inputFields (4em);
+        @include inputFields (25%, $background-primary);
     }
 }
-
-
-// Wrappers för inputfält ----------------
-// .todo-divider-one .todo-divider-two {
-//     display: flex;
-//     flex-direction: column;
-
-
-// }
-
-// .todo-wrapper {
-//     display: flex;
-//     justify-content: center;
-
-// }
-
-// ----------------------------------------
-
-// .todo-wrapper input {
-
-//     background-color: $background-primary;
-//     font-family: "Amatic SC";
-//     padding: 15px;
-//     width: 100%;
-//     font-size: $font-size-medium;
-//     font-weight: bold;
-//     border: none;
-//     outline: none;
-//     outline: $background-primary;
-//     border-radius: 20px;
-//     padding-left: 20px;
-
-
-// }
-
-// .todo-divider-one option {
-//     background-color: $background-primary;
-
-// }
-
-// .bulletjournal-todo select {
-//     background-color: $background-primary;
-//     padding: 15px;
-//     width: 120%;
-//     border-radius: 20px;
-//     font-family: "Amatic SC";
-//     font-size: $font-size-medium;
-//     font-weight: bold;
-//     color: $font-color-secondary;
-//     outline: none;
-//     border: none;
-// }
 
 select:focus input:focus select:active input:active {
     outline: none;
@@ -127,12 +66,6 @@ select:focus input:focus select:active input:active {
 // KNAPP FÖR ATT LÄGGA TILL TO-DO:S 
 #add-todo {
     @include addBtn($background-highlight-peach);
-}
-
-
-#filter-todo-status {
-    width: 25%;
-    padding: 5px;
 }
 
 #filter-todos {

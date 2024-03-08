@@ -58,7 +58,7 @@
     }
 }
 
-@mixin inputFields ($width) {
+@mixin inputFields ($width, $hover-color) {
   background-color: #e9e4fa;
   color: $font-color-secondary;
   font-family: "Amatic SC";
@@ -69,6 +69,8 @@
   border: none;
   outline-color: darken($background-primary, 5%);
   border-radius: $radius-large;
-  
+  &:hover {
+    background-color: darken($hover-color, 10%);
+  }
 }
 
