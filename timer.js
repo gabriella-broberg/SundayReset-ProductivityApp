@@ -12,6 +12,7 @@ let clockDisplay = document.getElementById("timer-clock-h2");
 let paused = false; 
 let activeClock = false; 
 let endTimer = false; 
+let pauseStart = false; 
 
 let pomodoroDeadline = 1; // Ska sättas till 20!
 let currentTime = Date.parse(new Date());
@@ -61,21 +62,6 @@ function displayTime(sec) {
 
 }
 
-// FUNKTION FÖR ATT STARTA TIMERN
-function startCountDown(seconds) {
-    let counter = seconds;
-      
-    const timeInterval = setInterval(() => {
-      console.log(counter);
-      counter--;
-        
-      if (counter === 0 ) {
-        clearInterval(timeInterval);
-        console.log('Ding!');
-      }
-    }, 1000);
-  }
-
 function pauseCountDown() {
 
     if (paused === true) {
@@ -92,6 +78,7 @@ function pauseCountDown() {
 
 function endCountDown() {
 
+    activeClock = false; 
     timeInterval = 0; 
     counter = 0;  
     pauseTime = 0; 
@@ -103,20 +90,52 @@ function endCountDown() {
 
 function resumeCountDown() {
 
-    if (paused) {
+    if (pauseStart === true) {
+
         startTime = new Date().getTime() - pauseTime;
-        startCountDown(Math.floor((20 * 60 * 1000 - pauseTime) / 1000)); // Starta om timern med kvarstående tid
-        paused = false; // Återställ pausflaggan
-        activeClock = true; // Aktivera timern
+        displayTime(Math.floor((20 * 60 * 1000 - pauseTime) / 1000)); // Starta om timern med kvarstående tid - 20 ska sättas till rätt värde
+        paused = false; 
         console.log("Timer resumed");
+        console.log(startTime); 
+    
     }
 }
+
+
+// KLICKHÄNDELSER -------------------------------------------------------// 
 
 startTimerBtn.addEventListener("click", () => {
 
     console.log("klickat på timer start!"); 
     activeClock = true; 
-    displayTime(20); // Ska sättas till ett nytt värde
+    
+    if (pauseStart === true && endTimer === false) {
+
+        endCountDown(); 
+
+        if (pauseStart === true) {
+            resumeCountDown(); 
+        }
+    } 
+
+    if (endTimer === true) {
+
+        endCountDown(); 
+        endTimer = false; 
+        activeClock = true; 
+        pauseStart = false; 
+
+        if (activeClock === true) {
+
+            displayTime(20);
+    
+        }
+    
+    } else if (pauseStart === false && endTimer === false && paused === false) {
+
+        displayTime(20); 
+
+    } 
     
 });
 
@@ -130,8 +149,19 @@ pauseTimerBtn.addEventListener("click", () => {
     pauseCountDown();  
     
     if (activeClock === true) {
-    
-        resumeCountDown(); 
+        
+        pauseStart = true; 
+        paused = false; 
+
+        if (activeClock === true && pauseStart === true) {
+
+            paused = false; 
+            pauseStart = false; 
+            activeClock = true; 
+            displayTime(20); // Ska sättas till ett nytt värde
+
+        }
+
     }
 
 });
@@ -141,15 +171,17 @@ endTimerBtn.addEventListener("click", () => {
 
     activeClock = false; 
     paused = true; 
-    endTimer = true; 
+    endTimer = true;
+    pauseStart = false;  
     endCountDown(); 
 
     console.log("klickat på end timer!");  
     
-    // SKA STÄLLAS OM TILL 20 MINUTER
+
     if (activeClock === true) {
         
-        displayTime(20); 
+        pauseStart = true; 
+        endTimer = false; 
     
     }
 
