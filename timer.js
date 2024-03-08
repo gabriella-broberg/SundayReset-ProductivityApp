@@ -14,7 +14,7 @@ let activeClock = false;
 let endTimer = false; 
 let pauseStart = false; 
 
-let pomodoroDeadline = 1; // Ska sättas till 20!
+let pomodoroDeadline = 20; // Ska sättas till 1200!
 let currentTime = Date.parse(new Date());
 let startTime = new Date().getTime() - pauseTime; 
 // let deadline = new Date(currentTime + pomodoroDeadline*60*1000); //*60*1000
@@ -43,16 +43,20 @@ function displayTime(sec) {
 
                 clearInterval(timeInterval);
                 console.log('Ding!');
+
+                startTimerBtn.disabled = false; 
             
             }
         }
 
         if (activeClock === false) {
+
             startTimerBtn.disabled = false;
             
             if (endTimer === true) {
+
                 endCountDown(); 
-                
+
             }
         }
 
@@ -78,13 +82,18 @@ function pauseCountDown() {
 
 function endCountDown() {
 
+    if (endTimer === true && activeClock === false) {
+
     activeClock = false; 
-    timeInterval = 0; 
     counter = 0;  
     pauseTime = 0; 
+    timeInterval = 0; 
     clockDisplay.innerHTML = "0.00"; 
-
     clearInterval(timeInterval);
+
+    console.log("INNE I ENDCOUNTDOWN"); 
+    
+    }
 
 }
 
@@ -95,8 +104,6 @@ function resumeCountDown() {
         startTime = new Date().getTime() - pauseTime;
         displayTime(Math.floor((20 * 60 * 1000 - pauseTime) / 1000)); // Starta om timern med kvarstående tid - 20 ska sättas till rätt värde
         paused = false; 
-        console.log("Timer resumed");
-        console.log(startTime); 
     
     }
 }
@@ -109,34 +116,33 @@ startTimerBtn.addEventListener("click", () => {
     console.log("klickat på timer start!"); 
     activeClock = true; 
     
+    // Om man klickat på paus och fortsätter timern 
     if (pauseStart === true && endTimer === false) {
 
-        endCountDown(); 
+        pauseCountDown(); 
 
         if (pauseStart === true) {
+
             resumeCountDown(); 
+        
         }
     } 
 
-    if (endTimer === true) {
+    // Om man klickat på endtimer och startar klockan igen
+    if (endTimer === true && paused === false) {
 
         endCountDown(); 
         endTimer = false; 
         activeClock = true; 
         pauseStart = false; 
-
-        if (activeClock === true) {
-
-            displayTime(20);
+        console.log("inne i villkoret endtimer!"); 
     
-        }
-    
+    // Kör klockan vanligt - vid nystart
     } else if (pauseStart === false && endTimer === false && paused === false) {
 
-        displayTime(20); 
-
+        displayTime(pomodoroDeadline); 
     } 
-    
+
 });
 
 
@@ -153,15 +159,6 @@ pauseTimerBtn.addEventListener("click", () => {
         pauseStart = true; 
         paused = false; 
 
-        if (activeClock === true && pauseStart === true) {
-
-            paused = false; 
-            pauseStart = false; 
-            activeClock = true; 
-            displayTime(20); // Ska sättas till ett nytt värde
-
-        }
-
     }
 
 });
@@ -170,21 +167,11 @@ pauseTimerBtn.addEventListener("click", () => {
 endTimerBtn.addEventListener("click", () => {
 
     activeClock = false; 
-    paused = true; 
     endTimer = true;
     pauseStart = false;  
-    endCountDown(); 
 
-    console.log("klickat på end timer!");  
+    console.log("klickat på end timer!");
     
-
-    if (activeClock === true) {
-        
-        pauseStart = true; 
-        endTimer = false; 
-    
-    }
-
 });
 
 
