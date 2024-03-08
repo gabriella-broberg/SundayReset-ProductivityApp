@@ -22,7 +22,7 @@
   font-size: $font-size-large;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #000000;
-  text-shadow: 1px 1px 5px #000000;
+  text-shadow: 1px  #000000;
   text-align: center;
   font-weight: 700;
   color: $color;
@@ -52,17 +52,23 @@
     border: none;
     border-radius: 20px;
     margin-top: 1em;
+
+    &:hover {
+      background-color: darken($color, 5%);
+    }
 }
 
 @mixin inputFields ($width) {
   background-color: #e9e4fa;
+  color: $font-color-secondary;
   font-family: "Amatic SC";
   padding: 15px;
-  width: $width;
+  min-width: $width;
   font-size: $font-size-medium;
   font-weight: 700;
   border: none;
-  outline: none;
-  outline: #e9e4fa;
+  outline-color: darken($background-primary, 5%);
   border-radius: $radius-large;
+  
 }
+

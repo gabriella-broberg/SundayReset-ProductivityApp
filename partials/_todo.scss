@@ -3,165 +3,167 @@
 
 .bulletjournal-todo {
     @include bulletjournal-div ($background-highlight-yellow);
-  
-  }
 
-  .todo-h1 {
-    @include heading1 ($background-highlight-green);
-    // font-weight: bolder;
-    // font-size: 72px;
-    // -webkit-text-stroke-width: 1px;
-    // -webkit-text-stroke-color: #000000;
-    // text-shadow: 1px 1px 5px #000000;
-    // text-align: center;
-    // color: $background-highlight-green;
-    // margin: 0px;
-  }
+}
 
-  .todo-list-div {
+.todo-h1 {
+    @include heading1 ($background-highlight-yellow);
+}
+
+.todo-list-div {
 
     background-color: $background-primary;
     border-radius: 20px;
     height: 200px;
     width: 100%;
     text-align: left;
-    // overflow-y: auto; /* FUNKAR EJ */ 
-  
-  }
 
-  // Försökte styla knapparna som kommer upp i DOM:en 
+
+}
+
+// Försökte styla knapparna som kommer upp i DOM:en 
 input[type="button"].removeTodo .editTodo {
-    background-color: $background-highlight-green;
-  }
-  
-  
-  .todo-h2 {
-    @include heading2 ($background-highlight-green);
-    // font-size: $font-size-large;
-    // -webkit-text-stroke-width: 1px;
-    // -webkit-text-stroke-color: #000000;
-    // text-shadow: 1px 1px 5px #000000;
-    // text-align: center;
-    // font-weight: bolder;
-    // color: $background-highlight-green;
-  
-  }
-  
-  // Wrappers för inputfält ----------------
-  .todo-divider-one .todo-divider-two {
+    background-color: $background-highlight-yellow;
+}
+
+
+.todo-h2 {
+    @include heading2 ($background-highlight-yellow);
+
+}
+
+
+.todo-divider-one,
+.todo-divider-two {
+    max-width: 50%;
+
+    .input {
+        @include inputFields (80%);
+        margin: 0.1em;
+    }
+}
+
+.todo-divider-one {
+    text-align: left;
+}
+
+.todo-divider-two {
+    text-align: right;
+}
+
+
+
+.todo-wrapper {
     display: flex;
-    flex-direction: column;
-  }
-  
-  .todo-wrapper {
-    display: flex;
-    justify-content: center;
-    gap: 35%;
-    margin-right: 30px;
-  }
-  
-  // ----------------------------------------
-  
-  .todo-wrapper input {
-  
-    background-color: $background-primary;
-    font-family: "Amatic SC";
-    padding: 15px;
-    width: 100%;
-    font-size: $font-size-medium;
-    font-weight: bold;
-    border: none;
+    justify-content: space-between;
+    gap: 10px;
+
+}
+
+.filter-container{
+    .input {
+        @include inputFields (4em);
+    }
+}
+
+
+// Wrappers för inputfält ----------------
+// .todo-divider-one .todo-divider-two {
+//     display: flex;
+//     flex-direction: column;
+
+
+// }
+
+// .todo-wrapper {
+//     display: flex;
+//     justify-content: center;
+
+// }
+
+// ----------------------------------------
+
+// .todo-wrapper input {
+
+//     background-color: $background-primary;
+//     font-family: "Amatic SC";
+//     padding: 15px;
+//     width: 100%;
+//     font-size: $font-size-medium;
+//     font-weight: bold;
+//     border: none;
+//     outline: none;
+//     outline: $background-primary;
+//     border-radius: 20px;
+//     padding-left: 20px;
+
+
+// }
+
+// .todo-divider-one option {
+//     background-color: $background-primary;
+
+// }
+
+// .bulletjournal-todo select {
+//     background-color: $background-primary;
+//     padding: 15px;
+//     width: 120%;
+//     border-radius: 20px;
+//     font-family: "Amatic SC";
+//     font-size: $font-size-medium;
+//     font-weight: bold;
+//     color: $font-color-secondary;
+//     outline: none;
+//     border: none;
+// }
+
+select:focus input:focus select:active input:active {
     outline: none;
-    outline: $background-primary;
-    border-radius: 20px;
-    padding-left: 20px;
-  
-  
-  }
-  
-  .todo-divider-one option {
-    background-color: $background-primary;
-  
-  }
-  
-  .bulletjournal-todo select {
-    background-color: $background-primary;
-    padding: 15px;
-    width: 120%;
-    border-radius: 20px;
-    font-family: "Amatic SC";
-    font-size: $font-size-medium;
-    font-weight: bold;
-    color: $font-color-secondary;
-    outline: none;
     border: none;
-  }
-  
-  select:focus input:focus select:active input:active {
-    outline: none;
-    border: none;
-  
-  }
-  
-  // KNAPP FÖR ATT LÄGGA TILL TO-DO:S 
-  #add-todo {
-    background-color: $background-highlight-green;
-    padding: 10px;
-    font-family: "Amatic SC";
-    font-size: $font-size-medium;
-    font-weight: bolder;
-    width: 95%;
-    border: none;
-    border-radius: 20px;
-  }
-  
-  #add-todo:hover {
-    background-color: #bcc97a;
-  }
-  
-  #filter-todo-status {
+
+}
+
+// KNAPP FÖR ATT LÄGGA TILL TO-DO:S 
+#add-todo {
+    @include addBtn($background-highlight-peach);
+}
+
+
+#filter-todo-status {
     width: 25%;
     padding: 5px;
-  }
-  
-  #filter-todos {
-    background-color: $background-highlight-green;
-    padding: 10px;
-    font-family: "Amatic SC";
-    font-size: $font-size-medium;
-    font-weight: bolder;
-    width: 95%;
-    border: none;
-    border-radius: 20px;
-  
-  }
-  
-  #filter-todos:hover {
-    background-color: #bcc97a;
-  }
-  
-  
-  
-  .todo-remove {
+}
+
+#filter-todos {
+    @include addBtn($background-highlight-peach);
+}
+
+
+
+
+
+
+.todo-remove {
     border-radius: 50%;
     background-color: lightgray;
     border: lightgray;
     height: 25px;
     width: 25px;
-  }
-  
-  .todo-edit {
+}
+
+.todo-edit {
     border-radius: 50%;
     background-color: #cfdf83;
     border: #cfdf83;
     height: 25px;
     width: 25px;
-  }
-  
-  .todo-edit:hover {
+}
+
+.todo-edit:hover {
     background-color: #c6d57c;
-  }
-  
-  .todo-remove:hover {
+}
+
+.todo-remove:hover {
     color: #ff0000;
-  }
+}

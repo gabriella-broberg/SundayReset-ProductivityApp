@@ -128,7 +128,7 @@
 }
 
 .bulletjournal-habits h1 {
-  font-weight: bolder;
+  font-weight: 700;
   font-size: 72px;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #000000;
@@ -144,7 +144,7 @@
   -webkit-text-stroke-color: #000000;
   text-shadow: 1px #000000;
   text-align: center;
-  font-weight: bolder;
+  font-weight: 700;
   color: #eba08b;
 }
 
@@ -161,15 +161,19 @@
 
 #addRoutineButton {
   background-color: #eba08b;
-  padding: 10px;
+  padding: 0.6em;
   font-family: "Amatic SC";
   font-size: 20px;
-  font-weight: bolder;
+  font-weight: 700;
   width: 95%;
   border: none;
   border-radius: 20px;
+  margin-top: 1em;
   margin-top: 15px;
   margin-bottom: 80px;
+}
+#addRoutineButton:hover {
+  background-color: #e78e75;
 }
 
 #addRoutineButton:hover {
@@ -587,6 +591,9 @@
   border-radius: 20px;
   margin-top: 1em;
 }
+#calendar .addBtn:hover {
+  background-color: #c7da6f;
+}
 #calendar .input-field {
   display: flex;
   flex-flow: row wrap;
@@ -595,14 +602,14 @@
 }
 #calendar .input-field .input {
   background-color: #e9e4fa;
+  color: #8a8a8a;
   font-family: "Amatic SC";
   padding: 15px;
-  width: 27%;
+  min-width: 27%;
   font-size: 20px;
   font-weight: 700;
   border: none;
-  outline: none;
-  outline: #e9e4fa;
+  outline-color: #d7cef6;
   border-radius: 20px;
 }
 
@@ -621,7 +628,7 @@ h2 {
   font-size: 32px;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #000000;
-  text-shadow: 1px 1px 5px #000000;
+  text-shadow: 1px #000000;
   text-align: center;
   font-weight: 700;
   color: #cfdf83;
@@ -676,13 +683,13 @@ h2 {
 }
 
 .todo-h1 {
-  font-weight: bolder;
+  font-weight: 700;
   font-size: 72px;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #000000;
   text-shadow: 1px 1px 5px #000000;
   text-align: center;
-  color: #cfdf83;
+  color: #f5ff80;
   margin: 0px;
 }
 
@@ -695,7 +702,7 @@ h2 {
 }
 
 input[type=button].removeTodo .editTodo {
-  background-color: #cfdf83;
+  background-color: #f5ff80;
 }
 
 .todo-h2 {
@@ -704,51 +711,54 @@ input[type=button].removeTodo .editTodo {
   -webkit-text-stroke-color: #000000;
   text-shadow: 1px #000000;
   text-align: center;
-  font-weight: bolder;
-  color: #cfdf83;
+  font-weight: 700;
+  color: #f5ff80;
 }
 
-.todo-divider-one .todo-divider-two {
-  display: flex;
-  flex-direction: column;
+.todo-divider-one,
+.todo-divider-two {
+  max-width: 50%;
+}
+.todo-divider-one .input,
+.todo-divider-two .input {
+  background-color: #e9e4fa;
+  color: #8a8a8a;
+  font-family: "Amatic SC";
+  padding: 15px;
+  min-width: 80%;
+  font-size: 20px;
+  font-weight: 700;
+  border: none;
+  outline-color: #d7cef6;
+  border-radius: 20px;
+  margin: 0.1em;
+}
+
+.todo-divider-one {
+  text-align: left;
+}
+
+.todo-divider-two {
+  text-align: right;
 }
 
 .todo-wrapper {
   display: flex;
-  justify-content: center;
-  gap: 35%;
-  margin-right: 30px;
+  justify-content: space-between;
+  gap: 10px;
 }
 
-.todo-wrapper input {
+.filter-container .input {
   background-color: #e9e4fa;
-  font-family: "Amatic SC";
-  padding: 15px;
-  width: 100%;
-  font-size: 20px;
-  font-weight: bold;
-  border: none;
-  outline: none;
-  outline: #e9e4fa;
-  border-radius: 20px;
-  padding-left: 20px;
-}
-
-.todo-divider-one option {
-  background-color: #e9e4fa;
-}
-
-.bulletjournal-todo select {
-  background-color: #e9e4fa;
-  padding: 15px;
-  width: 120%;
-  border-radius: 20px;
-  font-family: "Amatic SC";
-  font-size: 20px;
-  font-weight: bold;
   color: #8a8a8a;
-  outline: none;
+  font-family: "Amatic SC";
+  padding: 15px;
+  min-width: 4em;
+  font-size: 20px;
+  font-weight: 700;
   border: none;
+  outline-color: #d7cef6;
+  border-radius: 20px;
 }
 
 select:focus input:focus select:active input:active {
@@ -757,18 +767,18 @@ select:focus input:focus select:active input:active {
 }
 
 #add-todo {
-  background-color: #cfdf83;
-  padding: 10px;
+  background-color: #eba08b;
+  padding: 0.6em;
   font-family: "Amatic SC";
   font-size: 20px;
-  font-weight: bolder;
+  font-weight: 700;
   width: 95%;
   border: none;
   border-radius: 20px;
+  margin-top: 1em;
 }
-
 #add-todo:hover {
-  background-color: #bcc97a;
+  background-color: #e78e75;
 }
 
 #filter-todo-status {
@@ -777,18 +787,18 @@ select:focus input:focus select:active input:active {
 }
 
 #filter-todos {
-  background-color: #cfdf83;
-  padding: 10px;
+  background-color: #eba08b;
+  padding: 0.6em;
   font-family: "Amatic SC";
   font-size: 20px;
-  font-weight: bolder;
+  font-weight: 700;
   width: 95%;
   border: none;
   border-radius: 20px;
+  margin-top: 1em;
 }
-
 #filter-todos:hover {
-  background-color: #bcc97a;
+  background-color: #e78e75;
 }
 
 .todo-remove {

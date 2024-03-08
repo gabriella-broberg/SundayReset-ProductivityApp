@@ -48,21 +48,18 @@
             <div class="todo-wrapper">
             <div class="todo-divider-one">
 
-            <input type="text" placeholder="To-do title" id="todo-input-title"/>
-            <br>
-            <br>
-            <input type="text" placeholder="To-do description" id="todo-input-description"/>
-            <br>
-            <br>
-            <select name="status" id="todo-status">
-                <option value="">Select status</option>
-                <option value="done">Done</option>
-                <option value="not-done">Not done</option>
-            </select>
+            <input type="text" placeholder="To-do title" id="todo-input-title" class="input"/>
+       
+            <input type="text" placeholder="To-do description" id="todo-input-description" class="input"/>
+       
+    
+
+            <input type="datetime-local" placeholder="Deadline YYYY-MM-DD" id="todo-deadline" class="input" pattern="\d{4}-\d{2}-\d{2}" required title="Deadline in format YYYY-MM-DD" />
+
             </div>
             
             <div class="todo-divider-two">
-            <select name="time" id="todo-time">
+            <select name="time" id="todo-time" class="input">
                 <option value="">Select estimated time</option>
                 <option value="1h">1h</option>
                 <option value="2h">2h</option>
@@ -70,41 +67,47 @@
                 <option value="4h">4h</option>
                 <option value="6h">6h</option>
             </select>
-            <br>
-            <br>
-            <select name="category" id="todo-category">
+         
+            <select name="category" id="todo-category" class="input">
                 <option value="">Select todo category</option>
                 <option value="home">Home</option>
                 <option value="study">Study</option>
                 <option value="work">Work</option>
                 <option value="health">Health</option>
             </select>
-            <br>
-            <br>
+           
 
-            <input type="datetime-local" placeholder="Deadline YYYY-MM-DD" id="todo-deadline" pattern="\d{4}-\d{2}-\d{2}" required title="Deadline in format YYYY-MM-DD" />
+           
 
-            <br>
+            <select name="status" id="todo-status" class="input">
+              <option value="">Select status</option>
+              <option value="done">Done</option>
+              <option value="not-done">Not done</option>
+          </select>
+
+          
             </div>
         </div>
-            <br>
+      
             <button id="add-todo">Add to-do!</button>
 
 
             <h2 class="todo-h2">Filter to-do:s</h2>
 
-            <select name="filter-todo-status" id="filter-todo-status">
+            <div class="filter-container">
+            <select name="filter-todo-status" id="filter-todo-status" class="input">
                 <option value="all">Select a status</option>
                 <option value="done" id="filter-done">Done</option>
                 <option value="not-done" id="filter-not-done">Not done</option>
+              
             </select>
 
             <input type="checkbox" name="home" id="filter-home-checkbox"/>Home
             <input type="checkbox" name="study" id="filter-study-checkbox" />Study
             <input type="checkbox" name="work" id="filter-work-checkbox"/>Work
             <input type="checkbox" name="health" id="filter-health-checkbox"/>Health
-            <br>
-            <br> 
+          </div>
+          
             <button id="filter-todos">Filter to-do:s</button>
 
         </div>

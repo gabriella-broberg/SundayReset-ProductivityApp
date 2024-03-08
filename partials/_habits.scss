@@ -26,14 +26,8 @@
 }
 
 #addRoutineButton {
-  background-color: $background-highlight-peach;
-  padding: 10px;
-  font-family: "Amatic SC";
-  font-size: $font-size-medium;
-  font-weight: bolder;
-  width: 95%;
-  border: none;
-  border-radius: 20px;
+  @include addBtn($background-highlight-peach);
+
   margin-top: 15px;
   margin-bottom: 80px;
 
@@ -72,9 +66,9 @@
 
 
 .myhabitsheading {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .list-heading {
@@ -137,7 +131,7 @@
 .title {
   color: $background-highlight-peach;
   text-decoration: underline;
- 
+
 }
 
 
