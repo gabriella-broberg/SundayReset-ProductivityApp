@@ -8,6 +8,20 @@
   flex-direction: column;
   justify-content: space-around;
   height: 89%;
+  .addBtn {
+    @include addBtn($background-highlight-green);
+  }
+  .input-field {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 100%;
+
+    .input {
+        @include inputFields(27%);
+      }
+  }
+  
 }
 h1 {
   @include heading1($background-highlight-green);
@@ -18,7 +32,7 @@ h2 {
 }
 .event-container {
   border: 5px solid #e9e4fa;
-  border-radius: 20px;
+  border-radius: $radius-large;
   height: 16em;
   text-align: left;
   overflow-y: auto;
@@ -42,7 +56,9 @@ h2 {
     margin: 0 0.5em;
   }
   ul {
-    margin: 0;
+    margin: 0;    
   }
-  
+  .delete {
+      margin-left: 1em;
+    }
 }
