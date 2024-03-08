@@ -112,16 +112,30 @@
   outline: none;
 }
 
+.bulletjournal-habits {
+  font-family: "Amatic SC", sans-serif;
+  text-align: center;
+  width: 687px;
+  height: 932px;
+  background-color: white;
+  border-radius: 20px;
+  border: 15px solid #eba08b;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 50px 0 50px 50px;
+  padding: 20px;
+  box-sizing: border-box;
+  color: #000000;
+}
+
 .bulletjournal-habits h1 {
   font-weight: bolder;
   font-size: 72px;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #000000;
-  text-shadow: 2px 4px 10px #000000;
+  text-shadow: 1px 1px 5px #000000;
   text-align: center;
   color: #eba08b;
   margin: 0px;
-  margin-bottom: 30px;
 }
 
 .bulletjournal-habits h2 {
@@ -550,7 +564,7 @@
   border-radius: 20px;
   border: 15px solid #cfdf83;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 3em 0;
+  margin: 50px 0 50px 50px;
   padding: 20px;
   box-sizing: border-box;
   color: #000000;
@@ -612,6 +626,161 @@ h2 {
 }
 .event ul {
   margin: 0;
+}
+
+.bulletjournal-todo {
+  font-family: "Amatic SC", sans-serif;
+  text-align: center;
+  width: 687px;
+  height: 932px;
+  background-color: white;
+  border-radius: 20px;
+  border: 15px solid #f5ff80;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 50px 0 50px 50px;
+  padding: 20px;
+  box-sizing: border-box;
+  color: #000000;
+}
+
+.todo-h1 {
+  font-weight: bolder;
+  font-size: 72px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000000;
+  text-shadow: 1px 1px 5px #000000;
+  text-align: center;
+  color: #cfdf83;
+  margin: 0px;
+}
+
+.todo-list-div {
+  background-color: #e9e4fa;
+  border-radius: 20px;
+  height: 200px;
+  width: 100%;
+  text-align: left;
+}
+
+input[type=button].removeTodo .editTodo {
+  background-color: #cfdf83;
+}
+
+.todo-h2 {
+  font-size: 32px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000000;
+  text-shadow: 1px #000000;
+  text-align: center;
+  font-weight: bolder;
+  color: #cfdf83;
+}
+
+.todo-divider-one .todo-divider-two {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 35%;
+  margin-right: 30px;
+}
+
+.todo-wrapper input {
+  background-color: #e9e4fa;
+  font-family: "Amatic SC";
+  padding: 15px;
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  outline: #e9e4fa;
+  border-radius: 20px;
+  padding-left: 20px;
+}
+
+.todo-divider-one option {
+  background-color: #e9e4fa;
+}
+
+.bulletjournal-todo select {
+  background-color: #e9e4fa;
+  padding: 15px;
+  width: 120%;
+  border-radius: 20px;
+  font-family: "Amatic SC";
+  font-size: 20px;
+  font-weight: bold;
+  color: #8a8a8a;
+  outline: none;
+  border: none;
+}
+
+select:focus input:focus select:active input:active {
+  outline: none;
+  border: none;
+}
+
+#add-todo {
+  background-color: #cfdf83;
+  padding: 10px;
+  font-family: "Amatic SC";
+  font-size: 20px;
+  font-weight: bolder;
+  width: 95%;
+  border: none;
+  border-radius: 20px;
+}
+
+#add-todo:hover {
+  background-color: #bcc97a;
+}
+
+#filter-todo-status {
+  width: 25%;
+  padding: 5px;
+}
+
+#filter-todos {
+  background-color: #cfdf83;
+  padding: 10px;
+  font-family: "Amatic SC";
+  font-size: 20px;
+  font-weight: bolder;
+  width: 95%;
+  border: none;
+  border-radius: 20px;
+}
+
+#filter-todos:hover {
+  background-color: #bcc97a;
+}
+
+.todo-remove {
+  border-radius: 50%;
+  background-color: lightgray;
+  border: lightgray;
+  height: 25px;
+  width: 25px;
+}
+
+.todo-edit {
+  border-radius: 50%;
+  background-color: #cfdf83;
+  border: #cfdf83;
+  height: 25px;
+  width: 25px;
+}
+
+.todo-edit:hover {
+  background-color: #c6d57c;
+}
+
+.todo-remove:hover {
+  color: #ff0000;
 }
 
 body {
@@ -732,50 +901,6 @@ body {
   background-color: #aedfea;
 }
 
-.bulletjournal {
-  font-family: "Amatic SC", sans-serif;
-  text-align: center;
-  width: 100%;
-  min-height: -moz-fit-content;
-  min-height: fit-content;
-  background-color: white;
-  border-radius: 20px;
-  border: 15px solid #000000;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 50px 0 50px 50px;
-  padding: 20px;
-  box-sizing: border-box;
-  color: #000000;
-}
-
-.bulletjournal-todo {
-  font-family: "Amatic SC", sans-serif;
-  text-align: center;
-  width: 100%;
-  background-color: white;
-  border-radius: 20px;
-  border: 15px solid #f5ff80;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  box-sizing: border-box;
-  color: #000000;
-}
-
-.bulletjournal-habits {
-  font-family: "Amatic SC", sans-serif;
-  text-align: center;
-  width: 687px;
-  height: 932px;
-  background-color: white;
-  border-radius: 20px;
-  border: 15px solid #eba08b;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 50px 0 50px 50px;
-  padding: 20px;
-  box-sizing: border-box;
-  color: #000000;
-}
-
 .bulletjournal-timer {
   font-family: "Amatic SC", sans-serif;
   text-align: center;
@@ -798,145 +923,4 @@ body {
 .wrapper p {
   line-height: 1.5;
   font-size: 20px;
-}
-
-/* TO DO - SIDAN */
-.todo-h1 {
-  font-weight: bolder;
-  font-size: 72px;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #000000;
-  text-shadow: 1px 1px 5px #000000;
-  text-align: center;
-  color: #cfdf83;
-  margin: 0px;
-}
-
-.todo-list-div {
-  background-color: #e9e4fa;
-  border-radius: 20px;
-  height: 200px;
-  width: 100%;
-  text-align: left;
-}
-
-input[type=button].removeTodo .editTodo {
-  background-color: #cfdf83;
-}
-
-.todo-h2 {
-  font-size: 32px;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #000000;
-  text-shadow: 1px 1px 5px #000000;
-  text-align: center;
-  font-weight: bolder;
-  color: #cfdf83;
-}
-
-.todo-divider-one .todo-divider-two {
-  display: flex;
-  flex-direction: column;
-}
-
-.todo-wrapper {
-  display: flex;
-  justify-content: center;
-  gap: 35%;
-  margin-right: 30px;
-}
-
-.todo-wrapper input {
-  background-color: #e9e4fa;
-  font-family: "Amatic SC";
-  padding: 15px;
-  width: 100%;
-  font-size: 20px;
-  font-weight: bold;
-  border: none;
-  outline: none;
-  outline: #e9e4fa;
-  border-radius: 20px;
-  padding-left: 20px;
-}
-
-.todo-divider-one option {
-  background-color: #e9e4fa;
-}
-
-.bulletjournal-todo select {
-  background-color: #e9e4fa;
-  padding: 15px;
-  width: 120%;
-  border-radius: 20px;
-  font-family: "Amatic SC";
-  font-size: 20px;
-  font-weight: bold;
-  color: #8a8a8a;
-  outline: none;
-  border: none;
-}
-
-select:focus input:focus select:active input:active {
-  outline: none;
-  border: none;
-}
-
-#add-todo {
-  background-color: #cfdf83;
-  padding: 10px;
-  font-family: "Amatic SC";
-  font-size: 20px;
-  font-weight: bolder;
-  width: 95%;
-  border: none;
-  border-radius: 20px;
-}
-
-#add-todo:hover {
-  background-color: #bcc97a;
-}
-
-#filter-todo-status {
-  width: 25%;
-  padding: 5px;
-}
-
-#filter-todos {
-  background-color: #cfdf83;
-  padding: 10px;
-  font-family: "Amatic SC";
-  font-size: 20px;
-  font-weight: bolder;
-  width: 95%;
-  border: none;
-  border-radius: 20px;
-}
-
-#filter-todos:hover {
-  background-color: #bcc97a;
-}
-
-.todo-remove {
-  border-radius: 50%;
-  background-color: lightgray;
-  border: lightgray;
-  height: 25px;
-  width: 25px;
-}
-
-.todo-edit {
-  border-radius: 50%;
-  background-color: #cfdf83;
-  border: #cfdf83;
-  height: 25px;
-  width: 25px;
-}
-
-.todo-edit:hover {
-  background-color: #c6d57c;
-}
-
-.todo-remove:hover {
-  color: #ff0000;
 }/*# sourceMappingURL=style.css.map */

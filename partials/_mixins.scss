@@ -1,3 +1,5 @@
+@import "./variables";
+
 @mixin center($direction) {
   display: flex;
   justify-content: center;
@@ -24,4 +26,19 @@
   text-align: center;
   font-weight: bolder;
   color: $color;
+}
+
+@mixin bulletjournal-div ($border-color) {
+  font-family: $font-family-main;
+  text-align: center;
+  width: 687px;
+  height: 932px;
+  background-color: white;
+  border-radius: 20px;
+  border: 15px solid $border-color;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 50px 0 50px 50px;
+  padding: 20px;
+  box-sizing: border-box;
+  color: $font-color-primary;
 }
