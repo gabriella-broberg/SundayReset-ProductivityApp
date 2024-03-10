@@ -17,7 +17,6 @@ let pauseStart = false;
 let pomodoroDeadline = 1200; // 20 minuter
 let currentTime = Date.parse(new Date());
 let startTime = new Date().getTime() - pauseTime; 
-// let deadline = new Date(currentTime + pomodoroDeadline*60*1000); //*60*1000
 
 //-----------------------------------------------------------------------------------------------//
 
@@ -39,39 +38,6 @@ function displayTime(sec) {
 
             console.log(counter); 
 
-            if (counter < 0) {
-
-                clearInterval(timeInterval);
-                console.log('Ding!');
-
-                startTimerBtn.disabled = false; 
-            
-            }
-        }
-
-        if (activeClock === false) {
-
-            startTimerBtn.disabled = false;
-            
-            if (endTimer === true) {
-
-                endCountDown(); 
-
-            }
-        }
-
-        // Pausknappen går inte att klicka på när man avslutat timern
-        if (endTimer === true) {
-
-            pauseTimerBtn.disabled = true;
-
-        }
-
-        // Pausknappen går att klicka på igen om man startat timern
-        if (endTimer === false && activeClock === true) {
-
-            pauseTimerBtn.disabled = false; 
-            
         }
 
     }
@@ -85,7 +51,6 @@ function pauseCountDown() {
     if (paused === true) {
 
     pauseTime = new Date().getTime() - startTime; // calculate elapsed paused time
-    timeInterval = null; // reset the interval variable
     activeClock = false; 
 
     clearInterval(pauseTime); // stop the interval
@@ -96,7 +61,7 @@ function pauseCountDown() {
 
 function endCountDown() {
 
-    if (endTimer === true && activeClock === false) {
+    if (endTimer) {
     
     clearInterval(timeInterval); 
     counter = 0;  
@@ -104,102 +69,183 @@ function endCountDown() {
     clockDisplay.innerHTML = "0.00"; 
 
     console.log("INNE I ENDCOUNTDOWN"); 
-    
+
+    startTimerBtn.disabled = false;
+
     }
 
 }
 
-// function resetClock() {
-
-//     clearInterval(timeInterval, 1000);
-//     console.log("clock is reset"); 
-// }
 
 function resumeCountDown() {
 
-    if (pauseStart === true) {
+    if (paused && pauseStart) {
 
         startTime = new Date().getTime() - pauseTime;
         displayTime(Math.floor((20 * 60 * 1000 - pauseTime) / 1000)); // Starta om timern med kvarstående tid - 20 ska sättas till rätt värde
-        paused = false; 
+        pauseStart = true; 
     
     }
 }
 
+// ----------- FUNKTIONER FÖR STATES ------------ // 
 
-// KLICKHÄNDELSER -------------------------------------------------------// 
+function pausedClock() {
+
+    if (paused) {
+
+        pauseCountDown(); 
+    } 
+
+}
+
+function resumedClock() {
+
+    if (paused && activeClock) {
+ 
+        resumeCountDown(); 
+        console.log("INNE I RESUME COUNTDOWN!!!!!"); 
+
+    } 
+
+}
+
+function stoppedClock() {
+    
+    if (endTimer) {
+
+        endCountDown();
+        
+        if (activeClock) {
+
+            displayTime(pomodoroDeadline);
+        }
+    }
+
+}
+
+function endedClock() {
+
+    activeClock = false; 
+
+    if (counter < 0) {
+
+    clearInterval(timeInterval);
+    console.log('Ding!!!');
+
+    startTimerBtn.disabled = false; 
+    
+    } 
+
+}
+
+function startClock() {
+
+    if (paused === false && endTimer === false && pauseStart === false) {
+
+        displayTime(pomodoroDeadline);
+        console.log("Inne i startedClock!");  
+
+    } 
+    
+    if (pauseStart) {
+        
+        resumeCountDown(); 
+
+
+    }
+
+
+}
+
+function btnStates() {
+
+    // Pausknappen går inte att klicka på när man avslutat timern
+    if (endTimer) {
+
+        pauseTimerBtn.disabled = true;
+        
+        if (activeClock) {
+
+            pauseTimerBtn.disabled = false;
+        }
+    }
+    
+    // Pausknappen går att klicka på igen om man startat timern
+    if (endTimer === false && activeClock) {
+    
+        pauseTimerBtn.disabled = false; 
+                
+    }
+
+    // Startknappen går att klicka på när timern gått till noll
+    if (counter < 0) {
+
+        startTimerBtn.disabled = false; 
+
+    }
+
+    if (activeClock === false) {
+
+        startTimerBtn.disabled = false;
+         
+     }
+
+}
+
+// --------------------------------------------- KLICKHÄNDELSER ------------------------------------------------------- // 
 
 startTimerBtn.addEventListener("click", () => {
-
-    // VILKET LÄGE ÄR KLOCKAN I - EJ STARTAT, STARTAT, PAUSAT, GÅTT TILL SLUTET ... tips: logga ifsatserna + states när man klickar på knappen 
 
     console.log("klickat på timer start!"); 
     activeClock = true; 
 
-    // Om man klickat på paus och fortsätter timern 
-    if (pauseStart === true && endTimer === false) {
+    resumedClock(); 
+    stoppedClock(); 
+    startClock(); 
 
-        pauseCountDown(); 
+    if (counter < 0) {
 
-        if (activeClock === true) {
-
-            resumeCountDown(); 
-        
-        }
-    } 
-
-    // Om man klickat på endtimer och startar klockan igen
-    if (endTimer === true && paused === false) {
-
-        // resetClock(); 
-        endCountDown(); 
-        endTimer = false; 
-        pauseStart = true; 
-        console.log("inne i villkoret endtimer!"); 
-
-
-        if (activeClock === true) {
-
-            console.log("INNE I POMODORODEADLINE"); 
-            displayTime(pomodoroDeadline); 
-
-        }
-    
-    // Kör klockan vanligt - vid nystart
-    } else if (pauseStart === false && endTimer === false && paused === false) {
-
-        displayTime(pomodoroDeadline); 
+        endedClock(); 
 
     }
+
+    btnStates(); 
 
 });
 
 
 pauseTimerBtn.addEventListener("click", () => {
 
-    activeClock = false; 
     paused = true; 
+    activeClock = false; 
+    endTimer = false; 
 
-    console.log("Klickat på pause timer!"); 
-    // pauseCountDown();  
-    
-    if (activeClock === true) {
-        
-        pauseStart = true; 
-        paused = false; 
+    pausedClock(); 
+    stoppedClock(); 
 
-    }
+    console.log("klickat på pause timer!"); 
+
+
+    btnStates(); 
 
 });
 
 
 endTimerBtn.addEventListener("click", () => {
 
+    endTimer = true; 
     activeClock = false; 
-    endTimer = true;
-    pauseStart = false;  
 
-    console.log("klickat på end timer!");
+    stoppedClock(); 
+
+    if (counter < 0) {
+
+        endedClock(); 
+
+    }
+
+    btnStates(); 
     
 });
 
