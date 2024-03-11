@@ -248,11 +248,14 @@ endTimerBtn.addEventListener("click", () => {
     
 });
 
+// --------------- FUNKTION FÖR ATT SHOW/HIDE NOTEPAD --------------- // 
+
 let toggleState = false; 
 
 let menu = document.querySelector('.menu');
 let weatherDiv = document.querySelector(".main-weather-wrapper"); 
 let avatarDiv = document.querySelector(".main-avatar-wrapper");
+let timerImg = document.querySelector(".timer-img-div"); 
 
 let hideNotePadBtn = document.getElementById("hide-notepad"); 
 
@@ -261,19 +264,24 @@ hideNotePadBtn.addEventListener("click", function() {
     toggleState = !toggleState;
 
     if (toggleState) {
-
+        
+        timerImg.style.display = "none"; 
         menu.style.display = "none";
         weatherDiv.style.display = "none"; 
         avatarDiv.style.display = "none"; 
         hideNotePadBtn.innerText = "Show notepad"; 
+        document.body.style.backgroundImage = "url('Images/cloud-bg.jpg')";
+        
 
 
     } else {
 
+            timerImg.style.display = "flex"; 
             menu.style.display = "flex";
             weatherDiv.style.display = "block"; 
             avatarDiv.style.display = "block"; 
             hideNotePadBtn.innerText = "Hide notepad";
+            document.body.style.backgroundImage = "url('Images/polkadots-bg.jpg')";
         } 
 
 }); 
