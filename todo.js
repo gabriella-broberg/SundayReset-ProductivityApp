@@ -381,89 +381,141 @@ addTodoBtn.addEventListener("click", () => {
 
 displayUserTodos(getUserTodos());
 
-
 // ----------------------------- FILTRERINGSFUNKTIONEN ---------------------------------------------- // 
 
+// Elementreferenser för kategorifiltrering
 let filterHome = document.getElementById("filter-home-checkbox"); 
 let filterStudy = document.getElementById("filter-study-checkbox"); 
 let filterWork = document.getElementById("filter-work-checkbox"); 
 let filterHealth = document.getElementById("filter-health-checkbox"); 
 
+// Elementreferens för statusfiltrering
 let filterTodoStatus = document.getElementById("filter-todo-status"); 
 
+// Knapp för att initiera filtrering och sortering
 let filterTodosBtn = document.getElementById("filter-todos"); 
 
-
+// Lägg till händelselyssnare för filtreringsknappen
 filterTodosBtn.addEventListener("click", () => {
-
-    console.log("klickat på knappen!"); 
+    console.log("Klickat på filtreringsknappen!"); 
     
-    const userTodos = getUserTodos();
+    const userTodos = getUserTodos(); // Hämta användarens todos, antar att detta är en funktion som returnerar en lista med todos
     let selectedCategories = [];
     let filteredTodos = []; 
 
-
+    // Lägg till valda kategorier till en lista baserat på användarens val
     if (filterHome.checked) selectedCategories.push("home");
     if (filterStudy.checked) selectedCategories.push("study");
     if (filterWork.checked) selectedCategories.push("work");
     if (filterHealth.checked) selectedCategories.push("health");
 
-    // Filtrera todo-uppgifter baserat på statusen
+    // Steg 1: Filtrera todos baserat på vald status
     filteredTodos = userTodos.filter(todo => {
-
-        if (filterTodoStatus.value === "all") {
-
-            return true; 
-
-        } else {
-        
-            return todo.status === filterTodoStatus.value;
-        
-        }
-
+        return filterTodoStatus.value === "all" || todo.status === filterTodoStatus.value;
     });
 
-    console.log(filteredTodos); 
+    // Steg 2: Ytterligare filtrering baserat på valda kategorier
+    if (selectedCategories.length > 0) {
+        filteredTodos = filteredTodos.filter(todo => {
+            return selectedCategories.includes(todo.category);
+        });
+    }
 
-    filteredTodos = filteredTodos.filter(todo => {
-
-        return selectedCategories.includes(todo.category);
-    
-    });
-
-    // Sortera todo-uppgifterna efter deadline och sedan efter status
+    // Steg 3: Sortera todos efter deadline och status
     filteredTodos.sort((a, b) => {
-    
-        // Först sortera efter deadline
-        const deadlineA = new Date(a.deadline);
-        const deadlineB = new Date(b.deadline);
-    
-        if (deadlineA.getTime() !== deadlineB.getTime()) {
-    
-            return deadlineA - deadlineB; // Sortera efter deadline
-    
-        } else {
-    
-            // Om deadline är densamma, sortera efter status (done före not-done)
-            if (a.status === "done" && b.status === "not-done") {
-    
-                return 1;
-    
-            } else if (a.status === "not-done" && b.status === "done") {
-    
-                return -1;
-    
-            } else {
-    
-                return 0; // Behåll befintlig ordning för objekt med samma deadline och status
-    
-            }
-        }
+        const deadlineA = new Date(a.deadline), deadlineB = new Date(b.deadline);
+        if (deadlineA - deadlineB !== 0) return deadlineA - deadlineB; // Sortera först efter deadline
+        // Sedan efter status (done före not-done)
+        return a.status === "done" && b.status === "not-done" ? 1 : a.status === "not-done" && b.status === "done" ? -1 : 0;
     });
     
+    // Visa de filtrerade och sorterade todos för användaren
     displayUserTodos(filteredTodos); 
+});
 
-}); 
+
+
+
+// let filterHome = document.getElementById("filter-home-checkbox"); 
+// let filterStudy = document.getElementById("filter-study-checkbox"); 
+// let filterWork = document.getElementById("filter-work-checkbox"); 
+// let filterHealth = document.getElementById("filter-health-checkbox"); 
+
+// let filterTodoStatus = document.getElementById("filter-todo-status"); 
+
+// let filterTodosBtn = document.getElementById("filter-todos"); 
+
+
+// filterTodosBtn.addEventListener("click", () => {
+
+//     console.log("klickat på knappen!"); 
+    
+//     const userTodos = getUserTodos();
+//     let selectedCategories = [];
+//     let filteredTodos = []; 
+
+
+//     if (filterHome.checked) selectedCategories.push("home");
+//     if (filterStudy.checked) selectedCategories.push("study");
+//     if (filterWork.checked) selectedCategories.push("work");
+//     if (filterHealth.checked) selectedCategories.push("health");
+
+//     // Filtrera todo-uppgifter baserat på statusen
+//     filteredTodos = userTodos.filter(todo => {
+
+//         if (filterTodoStatus.value === "all") {
+
+//             return true; 
+
+//         } else {
+        
+//             return todo.status === filterTodoStatus.value;
+          
+//         }
+
+//     });
+
+//     console.log(filteredTodos); 
+
+//     filteredTodos = filteredTodos.filter(todo => {
+
+//         return selectedCategories.includes(todo.category);
+    
+//     });
+
+//     // Sortera todo-uppgifterna efter deadline och sedan efter status
+//     filteredTodos.sort((a, b) => {
+    
+//         // Först sortera efter deadline
+//         const deadlineA = new Date(a.deadline);
+//         const deadlineB = new Date(b.deadline);
+    
+//         if (deadlineA.getTime() !== deadlineB.getTime()) {
+    
+//             return deadlineA - deadlineB; // Sortera efter deadline
+    
+//         } else {
+    
+//             // Om deadline är densamma, sortera efter status (done före not-done)
+//             if (a.status === "done" && b.status === "not-done") {
+    
+//                 return 1;
+    
+//             } else if (a.status === "not-done" && b.status === "done") {
+    
+//                 return -1;
+    
+//             } else {
+    
+//                 return 0; // Behåll befintlig ordning för objekt med samma deadline och status
+    
+//             }
+//         }
+//     });
+    
+//     displayUserTodos(filteredTodos); 
+
+// }); 
 
 // displayUserTodos(); 
 
