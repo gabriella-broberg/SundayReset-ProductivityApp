@@ -6,7 +6,6 @@ let counter = 0;
 let startTimerBtn = document.getElementById("start-timer");
 let pauseTimerBtn = document.getElementById("pause-timer"); 
 let endTimerBtn = document.getElementById("end-timer"); 
-let hideNotePad = document.getElementById("hide-notepad"); 
 let clockDisplay = document.getElementById("timer-clock-h2"); 
 
 let paused = false; 
@@ -249,7 +248,35 @@ endTimerBtn.addEventListener("click", () => {
     
 });
 
+let toggleState = false; 
 
+let menu = document.querySelector('.menu');
+let weatherDiv = document.querySelector(".main-weather-wrapper"); 
+let avatarDiv = document.querySelector(".main-avatar-wrapper");
+
+let hideNotePadBtn = document.getElementById("hide-notepad"); 
+
+hideNotePadBtn.addEventListener("click", function() {
+
+    toggleState = !toggleState;
+
+    if (toggleState) {
+
+        menu.style.display = "none";
+        weatherDiv.style.display = "none"; 
+        avatarDiv.style.display = "none"; 
+        hideNotePadBtn.innerText = "Show notepad"; 
+
+
+    } else {
+
+            menu.style.display = "flex";
+            weatherDiv.style.display = "block"; 
+            avatarDiv.style.display = "block"; 
+            hideNotePadBtn.innerText = "Hide notepad";
+        } 
+
+}); 
 
 
 
