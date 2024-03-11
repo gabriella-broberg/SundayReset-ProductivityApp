@@ -1,3 +1,60 @@
+// LOG OUT FUNCTION
+
+let logoutUser = () => {
+    // Retrieve the current user from localStorage
+    const currentUserString = localStorage.getItem(
+      "currentUser"
+    );
+    const currentUser = currentUserString
+      ? JSON.parse(currentUserString)
+      : null;
+  
+    if (currentUser) {
+      // Retrieve the users array
+      const usersString =
+        localStorage.getItem("users");
+      let users = usersString
+        ? JSON.parse(usersString)
+        : [];
+  
+      // Find the current user in the users array and update their loggedIn state
+      const userIndex = users.findIndex(
+        (user) =>
+          user.username === currentUser.username
+      );
+      users[userIndex] = currentUser;
+      if (userIndex !== -1) {
+        users[userIndex].loggedIn = false;
+        localStorage.setItem(
+          "users",
+          JSON.stringify(users)
+        ); // Update the users array in localStorage
+      }
+  
+      // Clear the currentUser in localStorage
+      localStorage.removeItem("currentUser");
+  
+      alert("You have been logged out.");
+      // Redirect to the login page or home page as required
+      window.location.href = "index.html";
+    } else {
+      alert("No user is currently logged in.");
+    }
+  };
+  
+  // Assuming you have a logout button with the ID 'logoutButton'
+  const logoutButton = document.querySelector(
+    "#LogoutButton"
+  );
+  logoutButton.addEventListener(
+    "click",
+    logoutUser
+  );
+
+
+// TIMER 
+
+
 let timeLeft; 
 let timeInterval; 
 let pauseTime = 0; 
