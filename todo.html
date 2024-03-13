@@ -56,12 +56,8 @@
               <option value="">Select status</option>
               <option value="done">Done</option>
               <option value="not-done">Not done</option>
-            </select>
-       
+            </select>  
     
-
-            
-
             </div>
             
             <div class="todo-divider-two">
@@ -82,21 +78,12 @@
                 <option value="health">Health</option>
             </select>
            
-            <input type="datetime-local" id="todo-deadline" pattern="\d{4}-\d{2}-\d{2}" required title="Deadline in format YYYY-MM-DD" />
-
-           
-
-            
-
-          
+            <input type="date" id="todo-deadline" />
             </div>
         </div>
       
             <button id="add-todo">Add to-do!</button>
-
-
             <h2 class="todo-h2">Filter to-do:s</h2>
-
             <div class="filter-container">
             <select name="filter-todo-status" id="filter-todo-status">
                 <option value="all">Select a status</option>
@@ -161,7 +148,6 @@
         
       </div>
     </div>
-
     <script src="todo.js"></script>
 </body>
 </html>
