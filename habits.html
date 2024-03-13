@@ -2,22 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sunday Reset</title>
     <link rel="stylesheet" href="style.css" />
 
-    <link
-      rel="preconnect"
-      href="https://fonts.googleapis.com"
-    />
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
@@ -26,6 +16,7 @@
     <script src="habits.js" defer></script>
     <script src="weatherapp.js" defer></script>
     <script src="avatar.js" defer></script>
+    <script src="menu.js" defer></script>
 
     <script
       src="https://kit.fontawesome.com/28fc0eb946.js"
@@ -35,10 +26,7 @@
   <body>
     <div class="main-avatar-wrapper">
       <div class="avatar-div">
-        <img
-          src="Images/main-avatar.jpg"
-          alt="Cute avatar monster"
-        />
+        <img src="Images/main-avatar.jpg" alt="Cute avatar monster" />
       </div>
 
       <div class="avatar-greeting">
@@ -63,20 +51,13 @@
             />
 
             <select id="priority" class="inputPrio" required>
-              <option value="" disabled selected>
-                PRIO
-              </option>
+              <option value="" disabled selected>PRIO</option>
               <option value="3">Low</option>
               <option value="2">Medium</option>
               <option value="1">High</option>
             </select>
           </div>
-          <button
-            type="button"
-            id="addRoutineButton"
-          >
-            Add new habit
-          </button>
+          <button type="button" id="addRoutineButton">Add new habit</button>
         </form>
 
         <div class="myhabitsheading">
@@ -84,9 +65,7 @@
 
           <div class="sort-wrapper">
             <select id="filterPrioSelect" class="input">
-              <option value="" disabled selected>
-                Filter on PRIO
-              </option>
+              <option value="" disabled selected>Filter on PRIO</option>
               <option value="0">All</option>
               <option value="3">Low</option>
               <option value="2">Medium</option>
@@ -108,20 +87,18 @@
         </div>
       </div>
 
+      <!---Menu  slide button-->
+ 
+
       <nav class="menu">
+        <button class="menu-button">
+          <i class="fas fa-arrow-circle-left"></i>
+        </button>
         <!-- Add your menu items here with specific classes -->
-        <a href="/todo.html" class="todo"
-          >To-Do</a
-        >
-        <a href="/calendar.html" class="calendar"
-          >Calendar</a
-        >
-        <a href="/habits.html" class="habits"
-          >Habits</a
-        >
-        <a href="/timer.html" class="timer"
-          >Timer</a
-        >
+        <a href="/todo.html" class="todo">To-Do</a>
+        <a href="/calendar.html" class="calendar">Calendar</a>
+        <a href="/habits.html" class="habits">Habits</a>
+        <a href="/timer.html" class="timer">Timer</a>
         <div class="logout">
           <button type="button" id="LogoutButton">
             <i class="fas fa-door-open"></i>
@@ -132,21 +109,12 @@
 
     <div class="main-weather-wrapper">
       <div class="weather-div">
-        <div class="weather2day">
-          Weather 2day
-        </div>
+        <div class="weather2day">Weather 2day</div>
 
         <div class="search">
-          <input
-            type="text"
-            placeholder="enter city name"
-            spellcheck="false"
-          />
+          <input type="text" placeholder="enter city name" spellcheck="false" />
           <button>
-            <img
-              src="images/search.png"
-              alt="search icon"
-            />
+            <img src="images/search.png" alt="search icon" />
           </button>
         </div>
         <div class="error">
@@ -160,11 +128,7 @@
         <div class="weather">
           <div class="temp">22°C</div>
           <div class="city">City</div>
-          <img
-            src="images/rain.png"
-            alt="weather icon"
-            class="weather-icon"
-          />
+          <img src="images/rain.png" alt="weather icon" class="weather-icon" />
         </div>
       </div>
     </div>

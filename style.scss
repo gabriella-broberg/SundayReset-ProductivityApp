@@ -38,6 +38,8 @@ body {
   min-width: 50%;
 }
 
+
+
 .menu {
   height: 900px;
   box-sizing: border-box;
@@ -45,6 +47,19 @@ body {
   display: flex;
   flex-direction: column;
   margin-top: 100px;
+
+
+  @media screen and (max-width: 600px) {
+    right: -100%;
+
+    &.show {
+      right: 0;
+
+      /* Set a high z-index for the menu on mobile */
+    }
+  }
+
+
 
 }
 
@@ -160,3 +175,106 @@ body {
   font-size: $font-size-medium;
 }
 
+/* style.css */
+
+/* ... Your existing styles ... */
+
+/* Media query for small screens */
+@media only screen and (max-width: 600px) {
+  .main-avatar-wrapper {
+    display: none;
+    /* Hide avatar on small screens */
+  }
+
+  .main-weather-wrapper {
+    display: none;
+    /* Hide weather app on small screens */
+  }
+
+  .wrapper {
+    width: 100%;
+    align-items: center;
+    /* Center items vertically */
+    justify-content: center;
+    /* Center items horizontally */
+  }
+
+  .menu-button-wrapper {
+    display: block;
+    /* Show the menu button wrapper on small screens */
+  }
+
+  .menu {
+    /* Hide the menu by default */
+    width: 55px;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    margin-top: 0px;
+    background-color: $background-highlight-blue;
+    /* Make sure $background-highlight-blue is defined */
+    // overflow-x: hidden;
+    transition: width 0.5s ease;
+    /* Transition the width property */
+    padding-top: 50%;
+    z-index: 2;
+    /* Set a high z-index for the menu on mobile */
+
+  }
+
+  .menu.show {
+    width: 72px;
+    /* Set the width of the menu when it's shown */
+  }
+
+  .menu a,
+  .menu .logout button {
+    text-align: center;
+    padding: 15px;
+    display: block;
+    text-decoration: none;
+    color: $font-color-primary;
+    /* Make sure $font-color-primary is defined */
+    transition: background-color 0.3s;
+  }
+
+  .menu .logout button i {
+    transition: opacity 0.3s;
+    /* Add a transition for opacity */
+  }
+
+  .menu a:hover,
+  .menu .logout button:hover {
+    background-color: darken($background-highlight-blue, 5%);
+    /* Darken the color on hover */
+  }
+
+  .menu-button {
+    position: fixed;
+    height: 100%;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: 0;
+    padding: 10px;
+    border-radius: 20px 0px 0 20px;
+    cursor: pointer;
+    z-index: 3;
+    /* Set a higher z-index for the menu button */
+  }
+
+  .menu-button i {
+    color: transparent;
+  }
+
+}
+
+
+/* Media query for larger screens */
+@media only screen and (min-width: 601px) {
+  .menu-button {
+    display: none; /* Hide the menu button wrapper on larger screens */
+  }
+
+}

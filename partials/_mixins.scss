@@ -41,7 +41,15 @@
   padding: 20px;
   box-sizing: border-box;
   color: $font-color-primary;
+
+  @media screen and (max-width: 600px) {
+    width: 100%; /* Set full width on mobile */
+    margin: 0; /* Remove margins on mobile */
+    border: 2px solid $border-color;
+  }
 }
+
+
 @mixin addBtn ($color) {
   background-color: $color;
   padding: 0.6em;
