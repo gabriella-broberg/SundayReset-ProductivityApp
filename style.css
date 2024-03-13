@@ -917,6 +917,10 @@ select:focus input:focus select:active input:active {
   color: #ff0000;
 }
 
+#todo-list-ul li {
+  list-style-type: none;
+}
+
 body {
   font-family: "Amatic SC", sans-serif;
   background-image: url("images/polkadots-bg.jpg");

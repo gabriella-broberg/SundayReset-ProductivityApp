@@ -201,11 +201,11 @@ function displayUserTodos(list) {
     let li = document.createElement("li");
     li.innerHTML = `
                 <h2>Title: ${todo.title}</h2>
-                <p>Description: ${todo.description}<br>
-                Status: ${todo.status}<br>
-                Estimated time: ${todo.estimatedtime}<br>
-                Category: ${todo.category}<br>
-                Deadline: ${todo.deadline}<br>
+                <h3><b>Description:</b> ${todo.description}<br>
+                <b>Status:</b> ${todo.status}<br>
+                <b>Estimated time:</b> ${todo.estimatedtime}<br>
+                <b>Category:</b> ${todo.category}<br>
+                <b>Deadline:</b> ${todo.deadline}<br></h3>
                 <button class="fa-solid fa-trash todo-remove" id="removeTodo${id}"></button>
                 <button class="fa-solid fa-pen todo-edit" id="editTodo${id}"></button>
             `;
@@ -281,6 +281,8 @@ let addTodoBtn =
 addTodoBtn.addEventListener("click", () => {
   addTodoBtn.innerText = "Add to-do!";
 
+  console.log("klickat på todo!");  
+
   if (editIndex > -1) {
     let todos = getUserTodos();
     let editedTodo = getTodoValues();
@@ -321,25 +323,25 @@ addTodoBtn.addEventListener("click", () => {
     "";
 
   displayUserTodos(todos);
+  
 });
 
 displayUserTodos(getUserTodos());
 
 // ----------------------------- FILTRERINGSFUNKTIONEN ---------------------------------------------- // 
 
-// Elementreferenser för kategorifiltrering
+// Referenser för kategorifiltrering
 let filterHome = document.getElementById("filter-home-checkbox"); 
 let filterStudy = document.getElementById("filter-study-checkbox"); 
 let filterWork = document.getElementById("filter-work-checkbox"); 
 let filterHealth = document.getElementById("filter-health-checkbox"); 
 
-// Elementreferens för statusfiltrering
+// Referens för statusfiltrering
 let filterTodoStatus = document.getElementById("filter-todo-status"); 
 
-// Knapp för att initiera filtrering och sortering
 let filterTodosBtn = document.getElementById("filter-todos"); 
 
-// Lägg till händelselyssnare för filtreringsknappen
+
 filterTodosBtn.addEventListener("click", () => {
     console.log("Klickat på filtreringsknappen!"); 
     
@@ -369,96 +371,10 @@ filterTodosBtn.addEventListener("click", () => {
     filteredTodos.sort((a, b) => {
         const deadlineA = new Date(a.deadline), deadlineB = new Date(b.deadline);
         if (deadlineA - deadlineB !== 0) return deadlineA - deadlineB; // Sortera först efter deadline
+        
         // Sedan efter status (done före not-done)
         return a.status === "done" && b.status === "not-done" ? 1 : a.status === "not-done" && b.status === "done" ? -1 : 0;
     });
     
-    // Visa de filtrerade och sorterade todos för användaren
     displayUserTodos(filteredTodos); 
 });
-
-
-
-
-// let filterHome = document.getElementById("filter-home-checkbox"); 
-// let filterStudy = document.getElementById("filter-study-checkbox"); 
-// let filterWork = document.getElementById("filter-work-checkbox"); 
-// let filterHealth = document.getElementById("filter-health-checkbox"); 
-
-// let filterTodoStatus = document.getElementById("filter-todo-status"); 
-
-// let filterTodosBtn = document.getElementById("filter-todos"); 
-
-
-// filterTodosBtn.addEventListener("click", () => {
-
-//     console.log("klickat på knappen!"); 
-    
-//     const userTodos = getUserTodos();
-//     let selectedCategories = [];
-//     let filteredTodos = []; 
-
-
-//     if (filterHome.checked) selectedCategories.push("home");
-//     if (filterStudy.checked) selectedCategories.push("study");
-//     if (filterWork.checked) selectedCategories.push("work");
-//     if (filterHealth.checked) selectedCategories.push("health");
-
-//     // Filtrera todo-uppgifter baserat på statusen
-//     filteredTodos = userTodos.filter(todo => {
-
-//         if (filterTodoStatus.value === "all") {
-
-//             return true; 
-
-//         } else {
-        
-//             return todo.status === filterTodoStatus.value;
-          
-//         }
-
-//     });
-
-//     console.log(filteredTodos); 
-
-//     filteredTodos = filteredTodos.filter(todo => {
-
-//         return selectedCategories.includes(todo.category);
-    
-//     });
-
-//     // Sortera todo-uppgifterna efter deadline och sedan efter status
-//     filteredTodos.sort((a, b) => {
-    
-//         // Först sortera efter deadline
-//         const deadlineA = new Date(a.deadline);
-//         const deadlineB = new Date(b.deadline);
-    
-//         if (deadlineA.getTime() !== deadlineB.getTime()) {
-    
-//             return deadlineA - deadlineB; // Sortera efter deadline
-    
-//         } else {
-    
-//             // Om deadline är densamma, sortera efter status (done före not-done)
-//             if (a.status === "done" && b.status === "not-done") {
-    
-//                 return 1;
-    
-//             } else if (a.status === "not-done" && b.status === "done") {
-    
-//                 return -1;
-    
-//             } else {
-    
-//                 return 0; // Behåll befintlig ordning för objekt med samma deadline och status
-    
-//             }
-//         }
-//     });
-    
-//     displayUserTodos(filteredTodos); 
-
-// }); 
-
-// displayUserTodos(); 
