@@ -101,12 +101,19 @@ document.addEventListener(
           handleButtonClick(event);
         }
       }
+      
     );
   }
 );
 
 function filterOnPriority(event) {
   filterOption = event.target.value;
+
+  // Check if the selected option is "All" (assuming the value for "All" is 0)
+  if (filterOption === "0") {
+    filterOption = 0; // Reset filterOption to show all routines
+  }
+
   displayRoutines();
 }
 
@@ -159,7 +166,7 @@ function getHabitListFromCurrentUser() {
 
 // If habitList is missing we create it and add current routines to currentUser
 // Else we add current routine to currentUser
-// Then we update currentUser in loaclStorage
+// Then we update currentUser in loacalStorage
 function addOrUpdateHabitToLocalStoarge() {
   let currentUser = JSON.parse(getCurrentUser());
   if (
@@ -234,14 +241,21 @@ function displayRoutines() {
   });
 }
 
+let isStreakAscending = true;
+let isPriorityAscending = true;
+
 function sortFilter(attribute) {
   if (attribute === "streak") {
-    routines.sort((a, b) => b.streak - a.streak);
+    isStreakAscending = !isStreakAscending;
+    routines.sort((a, b) =>
+      isStreakAscending ? a.streak - b.streak : b.streak - a.streak
+    );
   } else if (attribute === "priority") {
-    routines.sort(
-      (a, b) =>
-        parseInt(a.priority) -
-        parseInt(b.priority)
+    isPriorityAscending = !isPriorityAscending;
+    routines.sort((a, b) =>
+      isPriorityAscending
+        ? parseInt(a.priority) - parseInt(b.priority)
+        : parseInt(b.priority) - parseInt(a.priority)
     );
   }
 

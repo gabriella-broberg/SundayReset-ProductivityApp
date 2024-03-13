@@ -89,7 +89,7 @@
   letter-spacing: 0.1em;
 }
 .index-login-container .register-button:hover {
-  background-color: #fd83a3;
+  background-color: #fe9cb5;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 .index-login-container .login-button {
@@ -104,7 +104,7 @@
   letter-spacing: 0.1em;
 }
 .index-login-container .login-button:hover {
-  background-color: #fd83a3;
+  background-color: #fe9cb5;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 .index-login-container input:focus {
@@ -161,7 +161,7 @@
   border-radius: 20px;
 }
 .habitInfo .input:hover {
-  background-color: #c6b9f2;
+  background-color: #d7cef6;
 }
 .habitInfo .inputPrio {
   background-color: #e9e4fa;
@@ -176,7 +176,7 @@
   border-radius: 20px;
 }
 .habitInfo .inputPrio:hover {
-  background-color: #c6b9f2;
+  background-color: #d7cef6;
 }
 
 #addRoutineButton {
@@ -229,7 +229,22 @@
   padding: 0.2em 1em;
 }
 .myhabitsheading .input:hover {
-  background-color: #c6b9f2;
+  background-color: #d7cef6;
+}
+
+.filterPrioSelect {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #e9e4fa;
+  padding: 5px 20px 5px 20px;
+  font-family: "Amatic SC";
+  font-size: 20px;
+  font-weight: bolder;
+  border: none;
+  border-radius: 20px;
+  color: #8a8a8a;
+  display: inline-block;
 }
 
 .sort-wrapper {
@@ -250,7 +265,7 @@
 }
 
 #sortStreakButton:hover {
-  background-color: #c6b9f2;
+  background-color: #d7cef6;
 }
 
 #sortPriorityButton {
@@ -266,7 +281,7 @@
 }
 
 #sortPriorityButton:hover {
-  background-color: #c6b9f2;
+  background-color: #d7cef6;
 }
 
 .habitContainer {
@@ -292,7 +307,7 @@
 }
 
 .increase:hover {
-  background-color: #bfd55a;
+  background-color: #c7da6f;
 }
 
 .decrease {
@@ -305,7 +320,7 @@
 }
 
 .decrease:hover {
-  background-color: #e47c60;
+  background-color: #e78e75;
 }
 
 .reset {
@@ -318,7 +333,7 @@
 }
 
 .reset:hover {
-  background-color: #9ad7e4;
+  background-color: #aedfea;
 }
 
 .delete {
@@ -640,7 +655,7 @@
   border-radius: 20px;
 }
 #calendar .input-field .input:hover {
-  background-color: #c6b9f2;
+  background-color: #d7cef6;
 }
 
 h1 {
@@ -767,23 +782,7 @@ input[type=button].removeTodo .editTodo {
   margin: 0 0 0.3em 0;
 }
 .todo-wrapper .todo-divider-one input:hover {
-  background-color: #c6b9f2;
-}
-.todo-wrapper .todo-divider-one select {
-  background-color: #e9e4fa;
-  color: #8a8a8a;
-  font-family: "Amatic SC";
-  padding: 15px;
-  min-width: 90%;
-  font-size: 20px;
-  font-weight: 700;
-  border: none;
-  outline-color: #d7cef6;
-  border-radius: 20px;
-  margin: 0 0 0.3em 0;
-}
-.todo-wrapper .todo-divider-one select:hover {
-  background-color: #c6b9f2;
+  background-color: #d7cef6;
 }
 .todo-wrapper .todo-divider-two {
   text-align: right;
@@ -803,7 +802,7 @@ input[type=button].removeTodo .editTodo {
   margin: 0 0 0.3em 0;
 }
 .todo-wrapper .todo-divider-two input:hover {
-  background-color: #c6b9f2;
+  background-color: #d7cef6;
 }
 .todo-wrapper .todo-divider-two select {
   background-color: #e9e4fa;
@@ -819,7 +818,27 @@ input[type=button].removeTodo .editTodo {
   margin: 0 0 0.3em 0;
 }
 .todo-wrapper .todo-divider-two select:hover {
-  background-color: #c6b9f2;
+  background-color: #d7cef6;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #e9e4fa;
+  color: #8a8a8a;
+  font-family: "Amatic SC";
+  padding: 15px;
+  min-width: 90%;
+  font-size: 20px;
+  font-weight: 700;
+  border: none;
+  outline-color: #d7cef6;
+  border-radius: 20px;
+  margin: 0 0 0.3em 0;
+}
+select:hover {
+  background-color: #d7cef6;
 }
 
 .filter-container select {
@@ -836,7 +855,7 @@ input[type=button].removeTodo .editTodo {
   padding: 10px;
 }
 .filter-container select:hover {
-  background-color: #c6b9f2;
+  background-color: #d7cef6;
 }
 
 select:focus input:focus select:active input:active {
