@@ -34,7 +34,7 @@ let logoutUser = () => {
     // Clear the currentUser in localStorage
     localStorage.removeItem("currentUser");
 
-    alert("You have been logged out.");
+    // alert("You have been logged out.");
     // Redirect to the login page or home page as required
     window.location.href = "index.html";
   } else {
