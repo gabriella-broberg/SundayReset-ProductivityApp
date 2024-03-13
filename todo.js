@@ -111,32 +111,43 @@ function renderInputFields(index) {
   //saveCurrentUserData(todos);
 }
 
-function removeTodo(id) {
-  const todoToRemove = document
-    .getElementById(`removeTodo${id}`)
-    .closest("li");
-  todoToRemove.remove();
+// function removeTodo(id) {
+//   const todoToRemove = document
+//     .getElementById(`removeTodo${id}`)
+//     .closest("li");
+//   todoToRemove.remove();
 
-  let todos = getUserTodos();
-  todos.splice(id, 1);
+//   let todos = getUserTodos();
+//   todos.splice(id, 1);
 
-  let userData = getLocalStorageUserData(); // Återanvänd till redigeraknappen
-  userData.todos = todos;
-  saveCurrentUserData(userData);
+//   let userData = getLocalStorageUserData(); // Återanvänd till redigeraknappen
+//   userData.todos = todos;
+//   saveCurrentUserData(userData);
 
-  // Tar bort scrollbaren när arrayen är tom
-  if (todos.length === 0) {
-    todoListUl.style.overflowY = "hidden";
-  } else {
-    scrollBehaviour();
-  }
+//   // Tar bort scrollbaren när arrayen är tom
+//   if (todos.length === 0) {
+//     todoListUl.style.overflowY = "hidden";
+//   } else {
+//     scrollBehaviour();
+//   }
+// }
+let removeToDoFromCurrentUser = (todoIndex) => {
+  let userString = localStorage.getItem("currentUser");
+  let currentUser = JSON.parse(userString);
+  
+  if (!currentUser || !currentUser.todos || currentUser.todos.length === 0) return;
+
+  currentUser.todos.splice(todoIndex, 1);
+
+  localStorage.setItem("currentUser", JSON.stringify(currentUser));
+ 
+  if (!currentUser || !currentUser.todos) return [];
+  displayUserTodos(currentUser.todos);
 }
 
 // Används i ovanstående funktioner
 function saveCurrentUserData(data) {
-  let user = JSON.parse(
-    localStorage.getItem("currentUser")
-  );
+  let user = JSON.parse(localStorage.getItem("currentUser"));
 
   if (
     user.todos === undefined ||
@@ -219,7 +230,7 @@ function displayUserTodos(list) {
     removeTodoBtn.addEventListener(
       "click",
       () => {
-        removeTodo(id);
+        removeToDoFromCurrentUser(id);
       }
     );
 
