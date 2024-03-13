@@ -16,6 +16,7 @@ let loginUser = () => {
     localStorage.setItem('users', JSON.stringify(users));
     // Save the logged-in user's username as 'currentUser'
     localStorage.setItem('currentUser', JSON.stringify(user)); // Store the whole user object if needed elsewhere
+    alert("Welcome to your Sunday Reset!")
     window.location.href = 'todo.html'; // Redirect to the todo page
   } else {
     alert("Wrong username or password.");

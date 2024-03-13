@@ -13,29 +13,15 @@ document.getElementById('registrationForm').addEventListener('submit', function(
   let users = JSON.parse(localStorage.getItem('users')) || [];
 
   if (users.some(user => user.username === username)) {
-    alert('Användarnamnet är redan taget. Välj ett annat.');
+    alert('The username is already taken. Choose another.');
     return; // Stop execution if username exists
   }
-  // // Store the user object in localStorage  
-  // localStorage.setItem(username, JSON.stringify(user));
-
-  // // Close the modal
-  // const registrationModal = bootstrap.Modal.getInstance(document.getElementById('registrationModal'));
-  // registrationModal.hide();
-
-  // // Clear the form
-  // document.getElementById('registrationForm').reset();
-  
-  // alert('Användare registrerad!');
-
+ 
   // Add the new user to the users array
   users.push(newUser);
 
   // Store the updated users array in localStorage
   localStorage.setItem('users', JSON.stringify(users));
-
-  // Optionally, set the current user (if automatic login is desired after registration)
-  // localStorage.setItem('currentUser', JSON.stringify(newUser));
 
   // Close the modal
   const registrationModal = bootstrap.Modal.getInstance(document.getElementById('registrationModal'));
@@ -44,5 +30,5 @@ document.getElementById('registrationForm').addEventListener('submit', function(
   // Clear the form
   document.getElementById('registrationForm').reset();
   
-  alert('Användare registrerad!');
+  alert('User registered!');
 });

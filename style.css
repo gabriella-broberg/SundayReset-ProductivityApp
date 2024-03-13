@@ -347,6 +347,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 50%;
   /* Adjust the gap as needed */
 }
 
