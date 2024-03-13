@@ -56,63 +56,22 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-color: $background-primary;
-  padding: 5px 20px 5px 20px;
-  font-family: "Amatic SC";
-  font-size: $font-size-medium;
-  font-weight: bolder;
-  border: none;
-  border-radius: 20px;
-  color: #8a8a8a;
-  display: inline-block;
+  @include sortFilterBtn();
 }
 
 //sort-wrapper 
 .sort-wrapper {
   color: #8a8a8a;
   text-align: right;
-}
-
-//sortStreakButton
-#sortStreakButton {
-  background-color: $background-primary;
-  padding: 5px 20px 5px 20px;
-  font-family: "Amatic SC";
-  font-size: $font-size-medium;
-  font-weight: bolder;
-  border: none;
-  border-radius: 20px;
-  color: #8a8a8a;
-  display: inline-block;
-}
-
-#sortStreakButton:hover {
-  background-color: darken($background-primary, 5%);
-}
-
-#sortPriorityButton {
-  background-color: $background-primary;
-  padding: 5px 25px 5px 25px;
-  font-family: "Amatic SC";
-  font-size: $font-size-medium;
-  font-weight: bolder;
-  border: none;
-  border-radius: 20px;
-  color: #8a8a8a;
-  display: inline-block;
-}
-
-#sortPriorityButton:hover {
-  background-color: darken($background-primary, 5%);
+  #sortStreakButton, #sortPriorityButton {
+    @include sortFilterBtn();
+  } 
 }
 
 //habitcontainer
 .habitContainer {
-  border: 5px solid $background-primary;
-  border-radius: 20px;
-  height: 400px;
-  text-align: left;
-  overflow-y: auto;
+  @include viewContainer(30em);
+  background-color: transparent ;
 }
 
 //habitList

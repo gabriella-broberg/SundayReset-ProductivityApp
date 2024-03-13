@@ -1,28 +1,27 @@
+@import "./variables";
+@import "./mixins";
+
 .main-avatar-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include center(column);
   margin-bottom: auto;
   margin-top: 50px;
-  @media #{$mobile} {
-    margin-top: 0;
-  }
+  
   img {
     border-radius: 100%;
     width: 15em;
     height: 15em;
   }
   .avatar-greeting {
+    @include viewContainer(auto);
     background-color: $background-highlight-peach;
-    border-radius: $radius-large;
+    border: none;
     font-size: $font-size-large;
     padding: 0 0.5em;
-    text-align: center;
     font-weight: 700;
     color: white;
+    max-width: 9em;
     z-index: 0;
     margin-top: -20px;
-    max-width: 9em;
     #author {
       text-align: right;
     }

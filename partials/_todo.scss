@@ -12,17 +12,18 @@
 .sort-wrapper {
     #sortDeadlineButton, #sortTimeButton{
         @include sortFilterBtn();
+        margin: 0.2em 0;
     }
 }
 .todo-list-div {
-
-    background-color: $background-primary;
-    border-radius: 20px;
-    height: 200px;
-    width: 100%;
-    text-align: left;
+    @include viewContainer(13em);
     #todo-list-ul{
-        margin-top: 0.2em;
+        h2 {
+            margin: 0;
+        }
+        h3 {
+            margin: 0.5em;
+        }
     }
 
 }
@@ -34,7 +35,7 @@ input[type="button"].removeTodo .editTodo {
 
 .todo-h2 {
     @include heading2 ($background-highlight-yellow);
-    margin-bottom: 0.5em;
+    margin: 0.5em 0;
 }
 .todo-wrapper {
     display: flex;

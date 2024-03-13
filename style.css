@@ -22,9 +22,8 @@
   border-radius: 1000px;
 }
 .index-avatar-wrapper .index-avatar-greeting {
-  position: relative;
-  left: -3em;
-  top: 1em;
+  position: sticky;
+  top: 4em;
   padding: 0.5em;
   background-color: #e9e4fa;
   color: #8a8a8a;
@@ -67,44 +66,57 @@
   }
 }
 .index-login-container input {
-  width: 88%;
+  background-color: #e9e4fa;
+  color: #8a8a8a;
+  font-family: "Amatic SC";
+  padding: 15px;
+  min-width: 88%;
+  font-size: 20px;
+  font-weight: 700;
+  border: none;
+  outline-color: #d7cef6;
   border-radius: 20px;
-  padding: 1em 2em;
+  background-color: rgb(252, 252, 251);
+}
+.index-login-container input:hover {
+  background-color: #d7cef6;
+}
+.index-login-container .register-button {
+  background-color: #cfdf83;
+  padding: 0.6em;
   font-family: "Amatic SC";
   font-size: 20px;
   font-weight: 700;
-  color: #8a8a8a;
-  outline: none;
-  border: white;
-}
-.index-login-container .register-button {
-  width: 88%;
-  padding: 1em;
-  border-radius: 20px;
-  background-color: #cfdf83;
+  width: 95%;
   border: none;
-  color: #000000;
-  font-weight: 700;
-  font-size: 20px;
-  letter-spacing: 0.1em;
+  border-radius: 20px;
+  margin-top: 1em;
+  padding: 1em;
+  width: 88%;
 }
 .index-login-container .register-button:hover {
-  background-color: #fe9cb5;
+  background-color: #c7da6f;
+}
+.index-login-container .register-button:hover {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 .index-login-container .login-button {
-  width: 88%;
-  padding: 1em;
-  border-radius: 20px;
   background-color: #eba08b;
-  border: none;
-  color: #000000;
-  font-weight: 700;
+  padding: 0.6em;
+  font-family: "Amatic SC";
   font-size: 20px;
-  letter-spacing: 0.1em;
+  font-weight: 700;
+  width: 95%;
+  border: none;
+  border-radius: 20px;
+  margin-top: 1em;
+  padding: 1em;
+  width: 88%;
 }
 .index-login-container .login-button:hover {
-  background-color: #fe9cb5;
+  background-color: #e78e75;
+}
+.index-login-container .login-button:hover {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 .index-login-container input:focus {
@@ -246,13 +258,15 @@
   color: #8a8a8a;
   display: inline-block;
 }
+.filterPrioSelect:hover {
+  background-color: #d7cef6;
+}
 
 .sort-wrapper {
   color: #8a8a8a;
   text-align: right;
 }
-
-#sortStreakButton {
+.sort-wrapper #sortStreakButton, .sort-wrapper #sortPriorityButton {
   background-color: #e9e4fa;
   padding: 5px 20px 5px 20px;
   font-family: "Amatic SC";
@@ -263,33 +277,18 @@
   color: #8a8a8a;
   display: inline-block;
 }
-
-#sortStreakButton:hover {
-  background-color: #d7cef6;
-}
-
-#sortPriorityButton {
-  background-color: #e9e4fa;
-  padding: 5px 25px 5px 25px;
-  font-family: "Amatic SC";
-  font-size: 20px;
-  font-weight: bolder;
-  border: none;
-  border-radius: 20px;
-  color: #8a8a8a;
-  display: inline-block;
-}
-
-#sortPriorityButton:hover {
+.sort-wrapper #sortStreakButton:hover, .sort-wrapper #sortPriorityButton:hover {
   background-color: #d7cef6;
 }
 
 .habitContainer {
   border: 5px solid #e9e4fa;
   border-radius: 20px;
-  height: 400px;
+  height: 30em;
   text-align: left;
   overflow-y: auto;
+  background-color: #e9e4fa;
+  background-color: transparent;
 }
 
 .title {
@@ -465,15 +464,11 @@
 
 .main-avatar-wrapper {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  flex-direction: column;
   margin-bottom: auto;
   margin-top: 50px;
-}
-@media screen and (max-width: 500px) {
-  .main-avatar-wrapper {
-    margin-top: 0;
-  }
 }
 .main-avatar-wrapper img {
   border-radius: 100%;
@@ -481,16 +476,21 @@
   height: 15em;
 }
 .main-avatar-wrapper .avatar-greeting {
-  background-color: #eba08b;
+  border: 5px solid #e9e4fa;
   border-radius: 20px;
+  height: auto;
+  text-align: left;
+  overflow-y: auto;
+  background-color: #e9e4fa;
+  background-color: #eba08b;
+  border: none;
   font-size: 32px;
   padding: 0 0.5em;
-  text-align: center;
   font-weight: 700;
   color: white;
+  max-width: 9em;
   z-index: 0;
   margin-top: -20px;
-  max-width: 9em;
 }
 .main-avatar-wrapper .avatar-greeting #author {
   text-align: right;
@@ -688,11 +688,7 @@ h2 {
   background-color: #e9e4fa;
 }
 
-.past .event-title {
-  text-decoration: line-through;
-  color: gray;
-}
-.past li {
+.past .event-title, .past li {
   text-decoration: line-through;
   color: gray;
 }
@@ -748,20 +744,25 @@ h2 {
   border-radius: 20px;
   color: #8a8a8a;
   display: inline-block;
+  margin: 0.2em 0;
 }
 .sort-wrapper #sortDeadlineButton:hover, .sort-wrapper #sortTimeButton:hover {
   background-color: #d7cef6;
 }
 
 .todo-list-div {
-  background-color: #e9e4fa;
+  border: 5px solid #e9e4fa;
   border-radius: 20px;
-  height: 200px;
-  width: 100%;
+  height: 13em;
   text-align: left;
+  overflow-y: auto;
+  background-color: #e9e4fa;
 }
-.todo-list-div #todo-list-ul {
-  margin-top: 0.2em;
+.todo-list-div #todo-list-ul h2 {
+  margin: 0;
+}
+.todo-list-div #todo-list-ul h3 {
+  margin: 0.5em;
 }
 
 input[type=button].removeTodo .editTodo {
@@ -776,7 +777,7 @@ input[type=button].removeTodo .editTodo {
   text-align: center;
   font-weight: 700;
   color: #f5ff80;
-  margin-bottom: 0.5em;
+  margin: 0.5em 0;
 }
 
 .todo-wrapper {

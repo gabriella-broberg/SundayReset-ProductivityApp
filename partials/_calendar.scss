@@ -18,8 +18,8 @@
     width: 100%;
 
     .input {
-        @include inputFields(27%, $background-primary);
-      }
+      @include inputFields(27%, $background-primary);
+    }
   }
   
 }
@@ -31,19 +31,10 @@ h2 {
   @include heading2($background-highlight-green);
 }
 .event-container {
-  border: 5px solid #e9e4fa;
-  border-radius: $radius-large;
-  height: 16em;
-  text-align: left;
-  overflow-y: auto;
-  background-color: $background-primary;
+  @include viewContainer(16em);
 }
 .past {
-  .event-title {
-    text-decoration: line-through;
-    color: gray;
-  }
-  li {
+  .event-title, li {
     text-decoration: line-through;
     color: gray;
   }
@@ -59,6 +50,6 @@ h2 {
     margin: 0;    
   }
   .delete {
-      margin-left: 1em;
-    }
+    margin-left: 1em;
+  }
 }

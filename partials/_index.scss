@@ -17,11 +17,12 @@
   img {
     max-width: 18em;
     border-radius: 1000px;
+    
   }
   .index-avatar-greeting {
-    position: relative;
-    left: -3em;
-    top: 1em;
+    position: sticky;
+    // left: -3em;
+    top: 4em;
     padding: 0.5em;
     background-color: $background-primary;
     color: $font-color-secondary;
@@ -58,50 +59,24 @@
     min-width: 95%;
   }
   input {
-    width: 88%;
-    border-radius: 20px;
-    padding: 1em 2em;
-    font-family: "Amatic SC";
-    font-size: $font-size-medium;
-    font-weight: 700;
-    color: $font-color-secondary;
-    outline: none;
-    border: white;
+    @include inputFields(88%, $background-primary);
+    background-color: rgb(252, 252, 251);
+    
   }
   .register-button {
-    width: 88%;
+    @include addBtn($background-highlight-green);
     padding: 1em;
-    border-radius: 20px;
-    background-color: $background-highlight-green;
-    border: none;
-    color: $font-color-primary;
-    font-weight: 700;
-    font-size: $font-size-medium;
-    letter-spacing: 0.1em;
+    width: 88%;
     &:hover {
-      background-color: darken(
-        $background-highlight-pink,
-        5%
-      );
       box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     }
   }
   .login-button {
-    width: 88%;
+    @include addBtn($background-highlight-peach);
     padding: 1em;
-    border-radius: 20px;
-    background-color: $background-highlight-peach;
-    border: none;
-    color: $font-color-primary;
-    font-weight: 700;
-    font-size: $font-size-medium;
-    letter-spacing: 0.1em;
+    width: 88%;
     &:hover {
-      background-color: darken(
-        $background-highlight-pink,
-        5%
-      );      
-      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);      
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     }
   }
   input:focus {

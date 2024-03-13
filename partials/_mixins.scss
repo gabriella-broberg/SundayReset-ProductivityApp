@@ -44,22 +44,21 @@
 }
 @mixin addBtn ($color) {
   background-color: $color;
-    padding: 0.6em;
-    font-family: "Amatic SC";
-    font-size: $font-size-medium;
-    font-weight: 700;
-    width: 95%;
-    border: none;
-    border-radius: 20px;
-    margin-top: 1em;
-
+  padding: 0.6em;
+  font-family: "Amatic SC";
+  font-size: $font-size-medium;
+  font-weight: 700;
+  width: 95%;
+  border: none;
+  border-radius: 20px;
+  margin-top: 1em;
     &:hover {
       background-color: darken($color, 5%);
     }
 }
 
 @mixin inputFields ($width, $hover-color) {
-  background-color: #e9e4fa;
+  background-color: $background-primary;
   color: $font-color-secondary;
   font-family: "Amatic SC";
   padding: 15px;
@@ -89,3 +88,11 @@
   }
 }
 
+@mixin viewContainer ($height) {
+  border: 5px solid $background-primary;
+  border-radius: $radius-large;
+  height: $height;
+  text-align: left;
+  overflow-y: auto;
+  background-color: $background-primary;
+}

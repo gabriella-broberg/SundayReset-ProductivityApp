@@ -171,13 +171,13 @@ function scrollBehaviour() {
   let todoListUl = document.getElementById(
     "todo-list-ul"
   );
-  todoListUl.style.overflowY = "scroll";
-  let maxListHeight = 200;
-  let listHeight = Math.min(
-    todoListUl.scrollHeight,
-    maxListHeight
-  );
-  todoListUl.style.maxHeight = listHeight + "px";
+  // todoListUl.style.overflowY = "scroll";
+  // let maxListHeight = 200;
+  // let listHeight = Math.min(
+  //   todoListUl.scrollHeight,
+  //   maxListHeight
+  // );
+  // todoListUl.style.maxHeight = listHeight + "px";
 }
 
 // Funktion för att fylla i inputfälten med information från en todo
@@ -211,7 +211,7 @@ function displayUserTodos(list) {
   list.forEach((todo, id) => {
     let li = document.createElement("li");
     li.innerHTML = `
-                <h2>Title: ${todo.title}</h2>
+                <h2 class="listTitle">Title: ${todo.title}</h2>
                 <h3><b>Description:</b> ${todo.description}<br>
                 <b>Status:</b> ${todo.status}<br>
                 <b>Estimated time:</b> ${todo.estimatedtime}<br>
