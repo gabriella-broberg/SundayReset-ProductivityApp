@@ -1,7 +1,7 @@
-# Sunday reset - Productivity assistant application
+# Sunday Reset - Productivity Assistant Application
 
 Detta projekt, skapat av Gabriella Broberg, Charlotta Lindberg och Hanna Rubensson, är resultatet av vårt arbete inom kursen "Frontend-projekt och Agila metoder", 
-en del av programmets Frontendutveckling på Nackademins Yrkeshögskola. Projekttiden sträckte sig över knappt tre veckor, 
+en del av programmet Frontendutveckling på Nackademins Yrkeshögskola. Projekttiden sträckte sig över knappt tre veckor, 
 och vi använde oss av en kombination av HTML, CSS, SASS och JavaScript för att bygga applikationen.
 
 ## Funktionaliteter
