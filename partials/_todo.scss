@@ -117,3 +117,9 @@ select:focus input:focus select:active input:active {
 .todo-remove:hover {
     color: #ff0000;
 }
+
+#todo-list-ul li {
+
+    list-style-type: none;
+
+}
