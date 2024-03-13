@@ -70,7 +70,7 @@
   outline-color: darken($background-primary, 5%);
   border-radius: $radius-large;
   &:hover {
-    background-color: darken($hover-color, 10%);
+    background-color: darken($hover-color, 5%);
   }
 }
 
