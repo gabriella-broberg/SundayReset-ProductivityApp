@@ -9,7 +9,11 @@
 .todo-h1 {
     @include heading1 ($background-highlight-yellow);
 }
-
+.sort-wrapper {
+    #sortDeadlineButton, #sortTimeButton{
+        @include sortFilterBtn();
+    }
+}
 .todo-list-div {
 
     background-color: $background-primary;
@@ -17,7 +21,9 @@
     height: 200px;
     width: 100%;
     text-align: left;
-
+    #todo-list-ul{
+        margin-top: 0.2em;
+    }
 
 }
 
@@ -78,6 +84,7 @@ select:focus input:focus select:active input:active {
 
 }
 
+
 // KNAPP FÖR ATT LÄGGA TILL TO-DO:S 
 #add-todo {
     @include addBtn($background-highlight-peach);
@@ -86,11 +93,6 @@ select:focus input:focus select:active input:active {
 #filter-todos {
     @include addBtn($background-highlight-peach);
 }
-
-
-
-
-
 
 .todo-remove {
     border-radius: 50%;

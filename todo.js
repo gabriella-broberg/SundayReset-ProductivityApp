@@ -335,6 +335,41 @@ addTodoBtn.addEventListener("click", () => {
 });
 
 displayUserTodos(getUserTodos());
+// ----------------------------- SORTERINGSFUNKTIONEN ---------------------------------------------- //
+document
+  .getElementById("sortDeadlineButton")
+  .addEventListener("click", function () {
+    sortFilter("deadline");
+});
+document
+  .getElementById("sortTimeButton")
+  .addEventListener("click", function () {
+    sortFilter("time");
+});
+
+let isDeadlineAscending = true;
+let isTimeAscending = true;
+
+function sortFilter(attribute) {
+  if (attribute === "deadline") {
+    isDeadlineAscending = !isDeadlineAscending;
+    userTodos.sort((a, b) => {
+      let dateA = new Date(a.deadline);
+      let dateB = new Date(b.deadline);
+      
+      return isDeadlineAscending ? dateA - dateB : dateB - dateA;
+  });
+  } else if (attribute === "time") {
+    isTimeAscending = !isTimeAscending;
+    userTodos.sort((a, b) =>
+      isTimeAscending
+        ? parseInt(a.estimatedtime) - parseInt(b.estimatedtime)
+        : parseInt(b.estimatedtime) - parseInt(a.estimatedtime)
+    );
+  }
+
+  displayUserTodos(userTodos);
+}
 
 // ----------------------------- FILTRERINGSFUNKTIONEN ---------------------------------------------- // 
 

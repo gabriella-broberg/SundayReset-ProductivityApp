@@ -738,12 +738,30 @@ h2 {
   margin: 0px;
 }
 
+.sort-wrapper #sortDeadlineButton, .sort-wrapper #sortTimeButton {
+  background-color: #e9e4fa;
+  padding: 5px 20px 5px 20px;
+  font-family: "Amatic SC";
+  font-size: 20px;
+  font-weight: bolder;
+  border: none;
+  border-radius: 20px;
+  color: #8a8a8a;
+  display: inline-block;
+}
+.sort-wrapper #sortDeadlineButton:hover, .sort-wrapper #sortTimeButton:hover {
+  background-color: #d7cef6;
+}
+
 .todo-list-div {
   background-color: #e9e4fa;
   border-radius: 20px;
   height: 200px;
   width: 100%;
   text-align: left;
+}
+.todo-list-div #todo-list-ul {
+  margin-top: 0.2em;
 }
 
 input[type=button].removeTodo .editTodo {

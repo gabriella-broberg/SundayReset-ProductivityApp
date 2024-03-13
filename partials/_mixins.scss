@@ -74,3 +74,18 @@
   }
 }
 
+@mixin sortFilterBtn (){
+  background-color: $background-primary;
+  padding: 5px 20px 5px 20px;
+  font-family: "Amatic SC";
+  font-size: $font-size-medium;
+  font-weight: bolder;
+  border: none;
+  border-radius: 20px;
+  color: #8a8a8a;
+  display: inline-block;
+  &:hover {
+    background-color: darken($background-primary, 5%);
+  }
+}
+
