@@ -632,6 +632,9 @@
   justify-content: center;
   align-items: flex-end;
 }
+.timer-img-div img {
+  max-width: 17em;
+}
 
 .bulletjournal-calendar {
   font-family: "Amatic SC", sans-serif;
